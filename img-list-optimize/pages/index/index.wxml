@@ -1,13 +1,13 @@
-<!--index.wxml-->
 <view class="container">
   <view wx:for="{{itemList}}"
         class="list-item">
-    <swiper style="height: 320px;">
+    <swiper style="height: 320px;"
+            indicator-dots="{{true}}">
       <swiper-item wx:for="{{imgList}}"
                    class="swiper-item">
-        <image src="{{item.url}}" class="swiper-item" mode="widthFix"/>
+        <image src="/imgs/octocat.png" class="swiper-item" mode="widthFix"/>
       </swiper-item>
     </swiper>
-    <text>{{'第 ' + (index + 1) + ' 个列表元素'}}</text>
+    <text>{{item.content}}</text>
   </view>
 </view>
