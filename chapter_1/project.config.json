@@ -1,5 +1,5 @@
 {
-	"description": "Project configuration file",
+	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
 	},
@@ -9,12 +9,13 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.3",
+	"libVersion": "2.7.2",
 	"appid": "wxaced3d26422230d9",
-	"projectname": "chapter_1",
+	"projectname": "chapter_one",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
