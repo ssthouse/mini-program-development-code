@@ -1,0 +1,3 @@
+<view hidden="{{showUsername ? false : false}}">
+  用户名
+</view>
