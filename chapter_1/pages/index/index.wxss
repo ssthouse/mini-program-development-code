@@ -19,3 +19,7 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.money-num{
+  font-size: 60rpx;
+}
