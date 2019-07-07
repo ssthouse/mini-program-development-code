@@ -5,7 +5,7 @@
 - 第二章目标为搭建为类似pitu-mini-program的template
   - 需要增加一些webpack的介绍
   - 增加scss，less的介绍
-- 第三章的代码可以开始弄起来了，一步步的完成，注意写好commit message
+- 第三章的代码可以开始弄起来了（先要完成第二章的template，否则后面会有代码不一致的问题），一步步的完成，注意写好commit message
 
 
 
