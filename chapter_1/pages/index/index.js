@@ -1,11 +1,14 @@
 Page({
   data: {
-    motto: 'Hello World',
+    moneyNum: 0,
+    suffixStr: '块钱',
+    message: ''
   },
   onLoad: function () {
     setInterval(() => {
+      this.data.moneyNum ++
       this.setData({
-        motto: 'Hello World ' + Math.floor(Math.random() * 10)
+        message: `${this.data.moneyNum} ` + this.data.suffixStr
       })
     }, 1000)
   },
