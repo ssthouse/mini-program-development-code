@@ -1,8 +1,6 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanObsoleteChunks = require('webpack-clean-obsolete-chunks')
 const babel = require('@babel/core')
-const less = require('less')
 
 module.exports = {
   mode: 'development',
@@ -11,41 +9,7 @@ module.exports = {
     path: path.join(__dirname, 'dist')
   },
   plugins: [
-    new CleanObsoleteChunks(),
     new CopyWebpackPlugin([
-      {
-        from: '**/*.wxml',
-        to: './'
-      },
-      {
-        from: '**/*.json',
-        to: './'
-      },
-      {
-        from: '**/*.jpg',
-        to: './'
-      },
-      {
-        from: '**/*.png',
-        to: './'
-      },
-      {
-        from: '**/*.css',
-        to: './'
-      },
-      {
-        from: '**/*.less',
-        to: './',
-        transform(content, path) {
-          return less.render(content.toString())
-            .then(function (output) {
-              return output.css;
-            });
-        },
-        transformPath(targetPath) {
-          return targetPath.replace('.less', '.wxss')
-        }
-      },
       {
         from: '**/*.js',
         ignore: ['*.test.js', '*.spec.js'],
@@ -56,9 +20,10 @@ module.exports = {
             "presets": ["@babel/env"]
           }).code;
           return Promise.resolve(newCode.toString());
-        }
-      }], {
-      context: 'src/'
+        },
+      },
+    ],{
+      context: './src'
     })
   ]
 }
