@@ -1,6 +1,7 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const babel = require('@babel/core')
+const less = require('less')
 
 module.exports = {
   mode: 'development',
@@ -29,6 +30,16 @@ module.exports = {
       {
         from: '**/*.css',
         to: './'
+      },
+      {
+        from: '**/*.less',
+        to: './',
+        transform(content, path) {
+          return less.render(content.toString())
+            .then(function (output) {
+              return output.css;
+            });
+        }
       },
       {
         from: '**/*.js',
