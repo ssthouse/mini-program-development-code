@@ -11,6 +11,26 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
+        from: '**/*.wxml',
+        to: './'
+      },
+      {
+        from: '**/*.json',
+        to: './'
+      },
+      {
+        from: '**/*.jpg',
+        to: './'
+      },
+      {
+        from: '**/*.png',
+        to: './'
+      },
+      {
+        from: '**/*.css',
+        to: './'
+      },
+      {
         from: '**/*.js',
         ignore: ['*.test.js', '*.spec.js'],
         to: './',
