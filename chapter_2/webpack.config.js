@@ -5,6 +5,7 @@ const less = require('less')
 
 module.exports = {
   mode: 'development',
+  watch: true,
   entry: './src/app.js',
   output: {
     path: path.join(__dirname, 'dist')
