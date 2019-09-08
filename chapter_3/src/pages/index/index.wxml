@@ -1,6 +1,15 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <text class="user-motto">{{motto}}</text>
+  <view class="base-panel">
+    <image src="../../imgs/CNY.png"></image>
+    <text>基础货币</text>
+    <input bindinput="onBaseNumChange"></input>
+  </view>
+
+  <view class="exchange-list">
+    <view wx:for="{{exchangeList}}">
+      <image src="{{'../../imgs/' + item.key + '.png'}}"></image>
+      <text>{{item.key}}</text>
+    </view>
   </view>
 </view>
