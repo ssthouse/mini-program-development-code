@@ -7,9 +7,14 @@
   </view>
 
   <view class="exchange-list">
-    <view wx:for="{{exchangeList}}">
-      <image src="{{'../../imgs/' + item.key + '.png'}}"></image>
-      <text>{{item.key}}</text>
+    <view wx:for="{{exchangeList}}" class="money-panel">
+      <image class="img" mode="aspectFit" src="{{'../../imgs/' + item.key + '.png'}}"></image>
+      <text class="unit-label">{{item.key}}</text>
+
+     <view class="right-panel">
+       <text class="money-num">100</text>
+       <text class="description-label">{{item.name}}</text>
+     </view>
     </view>
   </view>
 </view>

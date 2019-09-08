@@ -40,6 +40,9 @@ module.exports = {
             .then(function (output) {
               return output.css;
             });
+        },
+        transformPath(targetPath) {
+          return targetPath.replace('.less', '.wxss')
         }
       },
       {
