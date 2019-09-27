@@ -7,7 +7,12 @@ Page({
   data: {
     motto: 'Hello World',
     exchangeList: [],
-    baseMoneyKey: "CNY"
+    baseMoneyKey: "CNY",
+    baseExchangeItem:{
+      key: 'CNY',
+      baseNum: 100,
+      name: '人民币 ¥'
+    }
   },
   onLoad () {
     // 初始化列表数据

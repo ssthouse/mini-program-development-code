@@ -1,13 +1,21 @@
 <!--index.wxml-->
 <view class="container">
   <view class="base-panel">
-    <image src="../../imgs/CNY.png"></image>
-    <text>基础货币</text>
-    <input bindinput="onBaseNumChange"></input>
+    <text class="base-label">基础货币</text>
+
+    <view class="money-panel">
+      <image class="img" src="../../imgs/CNY.png"></image>
+      <text class="unit-label">{{item.key}}</text>
+
+      <view class="right-panel">
+        <input class="money-num base-num-input" bindinput="onBaseNumChange" value="{{baseExchangeItem.baseNum}}"></input>
+        <text class="description-label">{{baseExchangeItem.name}}</text>
+      </view>
+    </view>
   </view>
 
   <view class="exchange-list">
-    <view wx:for="{{exchangeList}}" class="money-panel">
+    <view wx:for="{{exchangeList}}" class="money-panel top-divider">
       <image class="img" mode="aspectFit" src="{{'../../imgs/' + item.key + '.png'}}"></image>
       <text class="unit-label">{{item.key}}</text>
 
