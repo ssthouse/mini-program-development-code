@@ -30,10 +30,9 @@ Page({
     })
   },
   onBaseNumChange (event) {
-    // console.log(event.detail.value)
-    // this.setData({
-    //   moneyNum: event.detail.value
-    // })
+    this.setData({
+      moneyNum: event.detail.value
+    })
   },
   formatNum (num) {
     console.log(num)
