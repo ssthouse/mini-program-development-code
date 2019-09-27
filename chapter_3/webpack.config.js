@@ -17,6 +17,10 @@ module.exports = {
         to: './'
       },
       {
+        from: '**/*.wxs',
+        to: './'
+      },
+      {
         from: '**/*.json',
         to: './'
       },

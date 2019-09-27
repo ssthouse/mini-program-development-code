@@ -7,7 +7,7 @@ Page({
   data: {
     motto: 'Hello World',
     exchangeList: [],
-    baseMoneyKey: "CNY",
+    moneyNum: 100,
     baseExchangeItem:{
       key: 'CNY',
       baseNum: 100,
@@ -16,10 +16,9 @@ Page({
   },
   onLoad () {
     // 初始化列表数据
-    delete exchangeRateMap.CNY
+    // delete exchangeRateMap.CNY
     const exchangeRateList = []
     for (let moneyKey of Object.keys(exchangeRateMap)) {
-      console.log(moneyKey)
       exchangeRateList.push({
         key: moneyKey,
         ...exchangeRateMap[moneyKey]
@@ -31,6 +30,13 @@ Page({
     })
   },
   onBaseNumChange (event) {
-    console.log(event.detail.value)
+    // console.log(event.detail.value)
+    // this.setData({
+    //   moneyNum: event.detail.value
+    // })
+  },
+  formatNum (num) {
+    console.log(num)
+    return num.toPrecision(2)
   }
 })
