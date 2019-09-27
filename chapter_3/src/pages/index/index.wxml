@@ -3,7 +3,12 @@
 <!--index.wxml-->
 <view class="container">
   <view class="base-panel">
-    <text class="base-label">基础货币</text>
+
+    <view class="base-money-row">
+      <text class="base-label">基础货币</text>
+      <button size="mini" style="padding: 0 16px;"
+        bindtap="onClickSwitchBaseMoney">切换</button>
+    </view>
 
     <view class="money-panel">
       <image class="img" src="{{'../../imgs/'+ baseExchangeItem.key +'.png'}}"></image>
