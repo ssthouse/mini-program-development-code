@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const exchangeRateMap = require('../../utils/exchange-rate')
+const settingUtil = require('../../utils/setting-util')
 
 Page({
   data: {
@@ -23,7 +24,10 @@ Page({
     })
   },
   onChooseBaseMoney (event) {
-    app.baseMoneyKey = event.currentTarget.dataset['moneyKey']
+    const baseMoneyKey = event.currentTarget.dataset['moneyKey']
+    app.baseMoneyKey = baseMoneyKey
+    // 保存setting
+    settingUtil.saveBaseMoneyKey(baseMoneyKey)
     wx.navigateBack()
   }
 })

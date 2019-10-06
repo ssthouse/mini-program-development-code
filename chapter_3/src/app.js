@@ -1,7 +1,11 @@
+const settingUtil = require('./utils/setting-util')
+
 //app.js
 App({
   baseMoneyKey: 'CNY',
   onLaunch: function () {
+    // 初始化基础货币设置
+    this.baseMoneyKey = settingUtil.getBaseMoneyKey()
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
