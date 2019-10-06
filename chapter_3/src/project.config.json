@@ -36,7 +36,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+            "list": [
+              {
+                "id": -1,
+                "name": "列表渲染demo",
+                "pathName": "pages/list-render/index",
+                "scene": null
+              }
+            ]
 		}
 	}
 }

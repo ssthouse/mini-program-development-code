@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/choose-base-money/index"
+    "pages/choose-base-money/index",
+    "pages/list-render/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

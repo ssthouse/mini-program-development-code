@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="list-item" wx:for="{{bookList}}">
+    <text>书名: {{item.name}}</text>
+  </view>
+</view>
