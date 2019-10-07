@@ -3,5 +3,10 @@
 
   <view class="list-item" wx:for="{{bookList}}">
     <text>书名: {{item.name}}</text>
+    <view class="price-row">
+      <text class="price-item" wx:for="{{item.priceList}}" wx:for-item="priceItem">
+        {{priceItem.name}} : {{priceItem.price}}
+      </text>
+    </view>
   </view>
 </view>
