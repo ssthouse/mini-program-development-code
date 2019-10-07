@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/note-list/index",
+    "pages/note/index",
     "pages/logs/logs"
   ],
   "window": {

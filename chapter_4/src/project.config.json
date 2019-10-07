@@ -34,9 +34,16 @@
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
-			"current": -1,
-			"list": []
-		}
+        "miniprogram": {
+            "current": -1,
+            "list": [
+              {
+                "id": -1,
+                "name": "便签列表页",
+                "pathName": "pages/note-list/index",
+                "scene": null
+              }
+            ]
+        }
 	}
 }

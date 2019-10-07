@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container ">
+  <view class="note-list">
+    <view wx:for="{{noteList}}" class="note-preview-item">
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+</view>
+

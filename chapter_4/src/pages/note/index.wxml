@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="container">
-  <editor></editor>
+  <editor class="editor"></editor>
 </view>
