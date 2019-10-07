@@ -1,9 +1,12 @@
 <!--index.wxml-->
 <view class="container ">
   <view class="note-list">
-    <view wx:for="{{noteList}}" class="note-preview-item">
+    <view wx:for="{{noteList}}" class="note-preview-item"
+          bindtap="onClickNote" data-note-id="{{item.id}}">
       <text>{{item.content}}</text>
     </view>
   </view>
+
+  <view class="add-note-btn" bindtap="onCreateNote">+</view>
 </view>
 
