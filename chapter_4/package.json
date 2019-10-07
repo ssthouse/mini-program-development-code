@@ -1,0 +1,20 @@
+{
+  "name": "chapter_2",
+  "version": "1.0.0",
+  "description": "便签应用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rm -rf ./dist/* && webpack --config webpack.config.js"
+  },
+  "author": "ssthouse",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "copy-webpack-plugin": "^5.0.3",
+    "less": "^3.9.0",
+    "webpack": "^4.35.2",
+    "webpack-clean-obsolete-chunks": "^0.4.0"
+  }
+}
