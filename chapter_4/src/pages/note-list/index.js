@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const noteStorage = require('../../utils/storage')
 
 Page({
   data: {
@@ -19,9 +20,19 @@ Page({
       }
     ]
   },
+  onShow () {
+    this.loadNoteList()
+  },
+  loadNoteList () {
+    const noteList = noteStorage.getNoteList()
+    this.setData({
+      noteList
+    })
+  },
   onCreateNote () {
+    const newNoteId = noteStorage.createNote()
     wx.navigateTo({
-      url: `/pages/note/index?create=true`
+      url: `/pages/note/index?noteId=${newNoteId}`
     })
   },
   onClickNote (event) {
