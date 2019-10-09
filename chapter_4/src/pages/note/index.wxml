@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="container">
-  <editor class="editor"></editor>
+  <editor id="note-editor" class="editor" bindinput="onInput"></editor>
 </view>

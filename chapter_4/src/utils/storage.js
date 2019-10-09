@@ -25,7 +25,7 @@ function setNoteIdList (noteIdList) {
 }
 
 function getNoteContent (noteId) {
-  wx.getStorageSync(NOTE_CONTENT_PREFIX + noteId)
+  return wx.getStorageSync(NOTE_CONTENT_PREFIX + noteId)
 }
 
 function setNoteContent (noteId, content) {
@@ -45,5 +45,6 @@ module.exports = {
   getNoteIdList,
   getNoteList,
   getNoteContent,
+  setNoteContent,
   createNote
 }
