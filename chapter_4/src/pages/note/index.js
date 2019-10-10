@@ -56,22 +56,23 @@ Page({
     noteStorage.setNoteContent(this.data.noteId, event.detail)
   },
   // toolbar部分回调函数
-  onClickBold () {
+  async onClickBold () {
+    const editor = await this.getNoteEditor()
+    editor.format('bold')
+  },
+  async onClickItalic () {
 
   },
-  onClickItalic () {
+  async onClickUnderline () {
 
   },
-  onClickUnderline () {
+  async onClickHeading1 () {
 
   },
-  onClickHeading1 () {
+  async onClickHeading2 () {
 
   },
-  onClickHeading2 () {
-
-  },
-  onClickHeading3 () {
+  async onClickHeading3 () {
 
   }
 })
