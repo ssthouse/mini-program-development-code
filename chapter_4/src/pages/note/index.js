@@ -54,5 +54,24 @@ Page({
     console.log(event.detail)
     // TODO 保存contents
     noteStorage.setNoteContent(this.data.noteId, event.detail)
+  },
+  // toolbar部分回调函数
+  onClickBold () {
+
+  },
+  onClickItalic () {
+
+  },
+  onClickUnderline () {
+
+  },
+  onClickHeading1 () {
+
+  },
+  onClickHeading2 () {
+
+  },
+  onClickHeading3 () {
+
   }
 })

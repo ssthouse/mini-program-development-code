@@ -1,4 +1,12 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="toolbar">
+    <view bindtap="onClickBold">B</view>
+    <view bindtap="onClickItalic">I</view>
+    <view bindtap="onClickUnderline">U</view>
+    <view bindtap="onClickHeading1">h1</view>
+    <view bindtap="onClickHeading2">h2</view>
+    <view bindtap="onClickHeading3">h3</view>
+  </view>
   <editor id="note-editor" class="editor" bindinput="onInput"></editor>
 </view>
