@@ -61,18 +61,31 @@ Page({
     editor.format('bold')
   },
   async onClickItalic () {
-
+    const editor = await this.getNoteEditor()
+    editor.format('italic')
   },
   async onClickUnderline () {
-
+    const editor = await this.getNoteEditor()
+    editor.format('underline')
+  },
+  async onClickStrike () {
+    const editor = await this.getNoteEditor()
+    editor.format('strike')
   },
   async onClickHeading1 () {
-
+    const editor = await this.getNoteEditor()
+    editor.format('header', 'H1')
   },
   async onClickHeading2 () {
-
+    const editor = await this.getNoteEditor()
+    editor.format('header', 'H2')
   },
   async onClickHeading3 () {
-
+    const editor = await this.getNoteEditor()
+    editor.format('header', 'H3')
+  },
+  async onClickClear () {
+    const editor = await this.getNoteEditor()
+    editor.removeFormat()
   }
 })
