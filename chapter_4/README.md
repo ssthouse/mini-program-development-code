@@ -9,3 +9,8 @@
 ### 完成基本文件复制，webpack-dev-server
 
 https://github.com/webpack-contrib/copy-webpack-plugin#context
+
+## TODO
+- [ ] 右上角给一个删除按钮
+- [ ] 列表页面长按给一个删除按钮
+- [ ] 编辑页面,长按给个class样式
