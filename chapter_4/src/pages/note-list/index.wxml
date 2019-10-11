@@ -3,7 +3,7 @@
   <view class="note-list">
     <view wx:for="{{noteList}}" class="note-preview-item"
           bindtap="onClickNote" data-note-id="{{item.id}}">
-      <text>{{item.content.text}}</text>
+      <text class="text-preview">{{item.content.text}}</text>
     </view>
   </view>
 
