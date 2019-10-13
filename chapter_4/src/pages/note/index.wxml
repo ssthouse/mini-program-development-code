@@ -1,13 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="toolbar">
-    <view bindtap="onClickBold" style="font-weight: bold;">B</view>
-    <view bindtap="onClickItalic" style="font-style: italic;">I</view>
-    <view bindtap="onClickUnderline" style="text-decoration: underline;">U</view>
-    <view bindtap="onClickHeading1" style="font-weight: bold">h1</view>
-    <view bindtap="onClickHeading2" style="font-weight: bold">h2</view>
-    <view bindtap="onClickHeading3" style="font-weight: bold">h3</view>
-    <view bindtap="onClickClear">C</view>
+  <view class="action-bar">
+    <view class="toolbar">
+      <view bindtap="onClickBold" style="font-weight: bold;">B</view>
+      <view bindtap="onClickItalic" style="font-style: italic;">I</view>
+      <view bindtap="onClickUnderline" style="text-decoration: underline;">U</view>
+      <view bindtap="onClickHeading1" style="font-weight: bold">h1</view>
+      <view bindtap="onClickHeading2" style="font-weight: bold">h2</view>
+      <view bindtap="onClickHeading3" style="font-weight: bold">h3</view>
+      <view bindtap="onClickClear">C</view>
+    </view>
+
+    <button size="mini" bindtap="onClickDelete" class="delete-note-btn">删除</button>
   </view>
   <editor id="note-editor" class="editor" bindinput="onInput"></editor>
 </view>

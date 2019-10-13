@@ -18,10 +18,7 @@ function getNoteList(){
 }
 
 function setNoteIdList (noteIdList) {
-  wx.setStorage({
-    key: NOTE_ID_LIST,
-    data: noteIdList || []
-  })
+  wx.setStorageSync(NOTE_ID_LIST, noteIdList || [])
 }
 
 function getNoteContent (noteId) {
@@ -41,10 +38,20 @@ function createNote () {
   return newNoteId
 }
 
+function deleteNote (noteId) {
+  // 删除note内容
+  wx.removeStorageSync(NOTE_CONTENT_PREFIX + noteId)
+  // 移除noteId
+  const noteIdList = getNoteIdList()
+  noteIdList.splice(noteIdList.indexOf(noteId), 1)
+  setNoteIdList(noteIdList)
+}
+
 module.exports = {
   getNoteIdList,
   getNoteList,
   getNoteContent,
   setNoteContent,
-  createNote
+  createNote,
+  deleteNote
 }

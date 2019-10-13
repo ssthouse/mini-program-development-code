@@ -87,5 +87,9 @@ Page({
   async onClickClear () {
     const editor = await this.getNoteEditor()
     editor.removeFormat()
+  },
+  onClickDelete(){
+    noteStorage.deleteNote(this.data.noteId)
+    wx.navigateBack()
   }
 })

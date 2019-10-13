@@ -10,22 +10,33 @@ page {
   margin: 0;
 }
 
-.toolbar {
+.action-bar{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 12px;
   border-bottom: 1px solid lightgray;
 
-  view {
-    width: 24px;
-    text-align: center;
-    font-size: 16px;
-    border: 1px solid lightgray;
-    border-radius: 4px;
-    margin: 0 4px;
-    background-color: lightgray;
-    color: black;
+  .toolbar {
+    display: flex;
+
+    view {
+      width: 24px;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid lightgray;
+      border-radius: 4px;
+      margin: 0 4px;
+      background-color: lightgray;
+      color: black;
+    }
+  }
+
+  .delete-note-btn{
+    margin-right: 8px;
   }
 }
+
 
 .editor {
   width: 100%;
