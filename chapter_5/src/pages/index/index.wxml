@@ -1,7 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<scroll-view scroll-x="true">
+
+
+</scroll-view>
   <button bindtap="callNewsApi">获取新闻数据</button>
 </view>
