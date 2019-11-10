@@ -3,4 +3,5 @@
   <view class="userinfo">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <button bindtap="callNewsApi">获取新闻数据</button>
 </view>

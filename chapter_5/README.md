@@ -1,11 +1,8 @@
-### 安装webpack依赖
+### 参考小程序
 
->     "clean-webpack-plugin": "^3.0.0",
-      "html-webpack-plugin": "^3.2.0",
-      "webpack": "^4.35.2",
-      "webpack-cli": "^3.3.5",
-      "webpack-dev-server": "^3.7.2"
-      
-### 完成基本文件复制，webpack-dev-server
+东方头条
 
-https://github.com/webpack-contrib/copy-webpack-plugin#context
+### 后端接口来源
+
+每天100次免费
+https://www.juhe.cn/docs/api/id/2a35
