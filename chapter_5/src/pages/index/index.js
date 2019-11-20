@@ -2,6 +2,8 @@ const regeneratorRuntime = require('../../lib/runtime') // eslint-disable-line
 
 const app = getApp()
 
+const mockNewsList = require('./newsList').newsList
+
 // author_name: "投资者网"
 // category: "头条"
 // date: "2019-11-12 00:36"
@@ -66,24 +68,6 @@ Page({
       newsList
     })
   },
-  callNewsApi () {
-    wx.request({
-      url: 'http://v.juhe.cn/toutiao/index',
-      method: 'GET',
-      data: {
-        type: 'top',
-        key: '07a9ba0abccf6344cbf78cb72ff4121b'
-      },
-      success (res) {
-        console.log(res.data)
-        const rspBody = res.data
-        const newsList = rspBody.result.data
-        this.setData({
-          newsList
-        })
-      }
-    })
-  },
   async onClickNewsTag (event) {
     const newsTag = event.currentTarget.dataset['tagId']
     this.setData({
@@ -102,20 +86,22 @@ Page({
     }
   },
   async fetchNews (newsTag) {
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: 'http://v.juhe.cn/toutiao/index',
-        method: 'GET',
-        data: {
-          type: newsTag,
-          key: '07a9ba0abccf6344cbf78cb72ff4121b'
-        },
-        success (res) {
-          const rspBody = res.data
-          const news = rspBody.result.data
-          resolve(news)
-        }
-      })
-    })
+    return mockNewsList
+    // return new Promise((resolve, reject) => {
+    //   wx.request({
+    //     url: 'http://v.juhe.cn/toutiao/index',
+    //     method: 'GET',
+    //     data: {
+    //       type: newsTag,
+    //       key: '07a9ba0abccf6344cbf78cb72ff4121b'
+    //     },
+    //     success (res) {
+    //       const rspBody = res.data
+    //       const news = rspBody.result.data
+    //       console.log(news)
+    //       resolve(news)
+    //     }
+    //   })
+    // })
   }
 })

@@ -20,3 +20,4 @@ https://www.juhe.cn/docs/api/id/2a35
 
 - wxml中动态加载class
 - 再做一个, swiper, 左右切换更新tag选中标签的功能
+- 假数据保存为json文件
