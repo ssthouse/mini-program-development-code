@@ -57,6 +57,15 @@ Page({
     ],
     newsList: []
   },
+  onLoad () {
+    this.initNewsList()
+  },
+  async initNewsList () {
+    const newsList = await this.fetchNews(this.data.currentTag)
+    this.setData({
+      newsList
+    })
+  },
   callNewsApi () {
     wx.request({
       url: 'http://v.juhe.cn/toutiao/index',
