@@ -12,3 +12,10 @@ https://www.juhe.cn/docs/api/id/2a35
 - [ ] 首页
     - [ ] 顶部选择主题
     - [ ] 下面新闻列表
+    
+    
+    
+    
+### 零碎知识点
+
+- wxml中动态加载class

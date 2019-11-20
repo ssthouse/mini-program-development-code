@@ -1,8 +1,20 @@
 <!--index.wxml-->
 <view class="container">
-<scroll-view scroll-x="true">
 
+  <view class="news-tag-container">
+    <view wx:for="{{newsTag}}"
+          data-tag-id="{{item.key}}"
+          wx:key="item.key"
+          bindtap="onClickNewsTag"
+          class="news-tag {{item.key === currentTag ? 'active-tag' : ''}}">
+      {{item.title}}
+    </view>
+  </view>
 
-</scroll-view>
-  <button bindtap="callNewsApi">获取新闻数据</button>
+  <view wx:for="{{newsList}}"
+        wx:key="item.uniquekey">
+    <view>
+      {{item.title}}
+    </view>
+  </view>
 </view>
