@@ -13,8 +13,9 @@
 
   <view wx:for="{{newsList}}"
         wx:key="item.uniquekey">
-    <view>
-      {{item.title}}
+    <view class="news-item">
+      <image class="preview-img" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
+      <text class="title">{{item.title}}</text>
     </view>
   </view>
 </view>

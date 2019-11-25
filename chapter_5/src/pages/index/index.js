@@ -16,7 +16,6 @@ const mockNewsList = require('./newsList').newsList
 
 Page({
   data: {
-    motto: 'Hello World',
     currentTag: 'top',
     newsTag: [
       {
