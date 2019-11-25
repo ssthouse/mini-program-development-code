@@ -13,7 +13,7 @@
 
   <view wx:for="{{newsList}}"
         wx:key="item.uniquekey">
-    <view class="news-item">
+    <view class="news-item" data-news="{{item}}" bindtap="onClickNewsItem">
       <image class="preview-img" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
       <text class="title">{{item.title}}</text>
     </view>

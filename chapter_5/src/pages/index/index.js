@@ -84,6 +84,13 @@ Page({
       })
     }
   },
+  onClickNewsItem (event) {
+    const newsItem = event.currentTarget.dataset.news
+    console.log(newsItem)
+    wx.navigateTo({
+      url: `/pages/news-detail/index?newsUrl=${newsItem.url}`
+    })
+  },
   async fetchNews (newsTag) {
     return mockNewsList
     // return new Promise((resolve, reject) => {
