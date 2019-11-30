@@ -62,10 +62,18 @@ Page({
     this.initNewsList()
   },
   async initNewsList () {
-    const newsList = await this.fetchNews(this.data.currentTag)
-    this.setData({
-      newsList
-    })
+    try {
+      const newsList = await this.fetchNews(this.data.currentTag)
+      this.setData({
+        newsList
+      })
+    } catch (e) {
+      wx.showToast({
+        icon: 'none',
+        duration: 2000,
+        title: `获取新闻列表失败: ${e.message}`
+      });
+    }
   },
   async onClickNewsTag (event) {
     const newsTag = event.currentTarget.dataset['tagId']
@@ -79,6 +87,7 @@ Page({
       })
     } catch (e) {
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: e.message
       })
@@ -92,22 +101,27 @@ Page({
     })
   },
   async fetchNews (newsTag) {
-    return mockNewsList
-    // return new Promise((resolve, reject) => {
-    //   wx.request({
-    //     url: 'http://v.juhe.cn/toutiao/index',
-    //     method: 'GET',
-    //     data: {
-    //       type: newsTag,
-    //       key: '07a9ba0abccf6344cbf78cb72ff4121b'
-    //     },
-    //     success (res) {
-    //       const rspBody = res.data
-    //       const news = rspBody.result.data
-    //       console.log(news)
-    //       resolve(news)
-    //     }
-    //   })
-    // })
+    // return mockNewsList
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: 'http://v.juhe.cn/toutiao/inde2x',
+        method: 'GET',
+        data: {
+          type: newsTag,
+          key: '07a9ba0abccf6344cbf78cb72ff4121b'
+        },
+        success (res) {
+          if (res.statusCode !== 200) {
+            reject(new Error('网络请求错误,请稍后再试'))
+          }
+          const rspBody = res.data
+          const news = rspBody.result.data
+          resolve(news)
+        },
+        fail () {
+          reject(new Error('网络请求错误,请稍后再试'))
+        }
+      })
+    })
   }
 })
