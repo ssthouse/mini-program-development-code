@@ -104,7 +104,7 @@ Page({
     // return mockNewsList
     return new Promise((resolve, reject) => {
       wx.request({
-        url: 'http://v.juhe.cn/toutiao/inde2x',
+        url: 'http://v.juhe.cn/toutiao/index',
         method: 'GET',
         data: {
           type: newsTag,
