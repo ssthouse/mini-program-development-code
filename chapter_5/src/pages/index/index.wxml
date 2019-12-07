@@ -15,7 +15,8 @@
     <swiper-item
             class="news-list"
             wx:for="{{newsTag}}"
-            wx:for-item="tagItem">
+            wx:for-item="tagItem"
+            wx:key="tagItem.key">
 
       <view wx:for="{{newsCategoryMap[tagItem.key]}}"
             wx:key="item.uniquekey">

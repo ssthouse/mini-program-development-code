@@ -66,7 +66,6 @@ Page({
     try {
       const newsList = await this.fetchNews(this.data.currentTag)
       const newsCategoryMap = this.data.newsCategoryMap
-      console.log('newsCategoryMap', newsCategoryMap)
       newsCategoryMap[this.data.currentTag] =  newsList
       this.setData({
         newsCategoryMap
