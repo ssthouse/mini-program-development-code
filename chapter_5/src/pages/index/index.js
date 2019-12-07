@@ -69,23 +69,9 @@ Page({
     const newsTag = event.currentTarget.dataset['tagId']
     const tagIndex = event.currentTarget.dataset['tagIndex']
     this.setData({
+      currentIndex: tagIndex,
       currentTag: newsTag
     })
-    try {
-      const newsList = await this.fetchNews(newsTag)
-      const newsCategoryMap = this.data.newsCategoryMap
-      newsCategoryMap[newsTag] = newsList
-      this.setData({
-        newsCategoryMap,
-        currentIndex: tagIndex
-      })
-    } catch (e) {
-      wx.showToast({
-        icon: 'none',
-        duration: 2000,
-        title: e.message
-      })
-    }
   },
   onClickNewsItem(event) {
     const newsItem = event.currentTarget.dataset.news
@@ -107,6 +93,9 @@ Page({
         success(res) {
           if (res.statusCode !== 200) {
             reject(new Error('网络请求错误,请稍后再试'))
+          }
+          if (!res.data.result) {
+            reject(new Error('服务器错误,请稍后再试'))
           }
           const rspBody = res.data
           const news = rspBody.result.data
