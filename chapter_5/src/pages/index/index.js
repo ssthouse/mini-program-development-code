@@ -59,27 +59,13 @@ Page({
     newsCategoryMap: {},
     currentIndex: 0,
   },
-  onLoad () {
+  onLoad() {
     this.initNewsList()
   },
-  async initNewsList () {
-    try {
-      const newsList = await this.fetchNews(this.data.currentTag)
-      const newsCategoryMap = this.data.newsCategoryMap
-      newsCategoryMap[this.data.currentTag] =  newsList
-      this.setData({
-        newsCategoryMap
-      })
-    } catch (e) {
-      console.error(e)
-      wx.showToast({
-        icon: 'none',
-        duration: 2000,
-        title: `获取新闻列表失败: ${e.message}`
-      });
-    }
+  async initNewsList() {
+    this.selectNewsCategory(this.data.currentTag)
   },
-  async onClickNewsTag (event) {
+  async onClickNewsTag(event) {
     const newsTag = event.currentTarget.dataset['tagId']
     const tagIndex = event.currentTarget.dataset['tagIndex']
     this.setData({
@@ -88,7 +74,7 @@ Page({
     try {
       const newsList = await this.fetchNews(newsTag)
       const newsCategoryMap = this.data.newsCategoryMap
-      newsCategoryMap[newsTag] =  newsList
+      newsCategoryMap[newsTag] = newsList
       this.setData({
         newsCategoryMap,
         currentIndex: tagIndex
@@ -101,14 +87,14 @@ Page({
       })
     }
   },
-  onClickNewsItem (event) {
+  onClickNewsItem(event) {
     const newsItem = event.currentTarget.dataset.news
     console.log(newsItem)
     wx.navigateTo({
       url: `/pages/news-detail/index?newsUrl=${newsItem.url}`
     })
   },
-  async fetchNews (newsTag) {
+  async fetchNews(newsTag) {
     // return mockNewsList
     return new Promise((resolve, reject) => {
       wx.request({
@@ -118,7 +104,7 @@ Page({
           type: newsTag,
           key: '07a9ba0abccf6344cbf78cb72ff4121b'
         },
-        success (res) {
+        success(res) {
           if (res.statusCode !== 200) {
             reject(new Error('网络请求错误,请稍后再试'))
           }
@@ -126,21 +112,33 @@ Page({
           const news = rspBody.result.data
           resolve(news)
         },
-        fail () {
+        fail() {
           reject(new Error('网络请求错误,请稍后再试'))
         }
       })
     })
   },
-  async onSwiperChange(event){
+  async selectNewsCategory(newsCategoryKey) {
+    try {
+      const newsList = await this.fetchNews(newsCategoryKey)
+      const newsCategoryMap = this.data.newsCategoryMap
+      newsCategoryMap[newsCategoryKey] = newsList
+      this.setData({
+        newsCategoryMap,
+        currentTag: newsCategoryKey
+      })
+    } catch (e) {
+      console.error(e)
+      wx.showToast({
+        icon: 'none',
+        duration: 2000,
+        title: '获取新闻列表失败, 请稍后重试'
+      });
+    }
+  },
+  async onSwiperChange(event) {
     const currentIndex = event.detail.current
     const currentNewsKey = this.data.newsTag[currentIndex].key
-    const newsList = await this.fetchNews(currentNewsKey)
-    const newsCategoryMap = this.data.newsCategoryMap
-    newsCategoryMap[this.data.newsTag[currentIndex].key] =  newsList
-    this.setData({
-      newsCategoryMap,
-      currentTag: currentNewsKey
-    })
+    this.selectNewsCategory(currentNewsKey)
   }
 })
