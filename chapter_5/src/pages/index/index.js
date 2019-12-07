@@ -56,7 +56,8 @@ Page({
         title: '时尚'
       }
     ],
-    newsList: []
+    newsList: [],
+    newsCategoryMap: {}
   },
   onLoad () {
     this.initNewsList()
@@ -64,10 +65,14 @@ Page({
   async initNewsList () {
     try {
       const newsList = await this.fetchNews(this.data.currentTag)
+      const newsCategoryMap = this.data.newsCategoryMap
+      console.log('newsCategoryMap', newsCategoryMap)
+      newsCategoryMap[this.data.currentTag] =  newsList
       this.setData({
-        newsList
+        newsCategoryMap
       })
     } catch (e) {
+      console.error(e)
       wx.showToast({
         icon: 'none',
         duration: 2000,
@@ -122,6 +127,17 @@ Page({
           reject(new Error('网络请求错误,请稍后再试'))
         }
       })
+    })
+  },
+  async onSwiperChange(event){
+    const currentIndex = event.detail.current
+    const currentNewsKey = this.data.newsTag[currentIndex].key
+    const newsList = await this.fetchNews(currentNewsKey)
+    const newsCategoryMap = this.data.newsCategoryMap
+    newsCategoryMap[this.data.newsTag[currentIndex].key] =  newsList
+    this.setData({
+      newsCategoryMap,
+      currentTag: currentNewsKey
     })
   }
 })

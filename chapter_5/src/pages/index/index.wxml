@@ -11,11 +11,21 @@
     </view>
   </view>
 
-  <view wx:for="{{newsList}}"
-        wx:key="item.uniquekey">
-    <view class="news-item" data-news="{{item}}" bindtap="onClickNewsItem">
-      <image class="preview-img" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
-      <text class="title">{{item.title}}</text>
-    </view>
-  </view>
+  <swiper class="news-list-container" bindchange="onSwiperChange">
+    <swiper-item
+            class="news-list"
+            wx:for="{{newsTag}}"
+            wx:for-item="tagItem">
+
+      <view wx:for="{{newsCategoryMap[tagItem.key]}}"
+            wx:key="item.uniquekey">
+        <view class="news-item" data-news="{{item}}" bindtap="onClickNewsItem">
+          <image class="preview-img" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
+          <text class="title">{{item.title}}</text>
+        </view>
+      </view>
+
+    </swiper-item>
+  </swiper>
+
 </view>
