@@ -56,8 +56,8 @@ Page({
         title: '时尚'
       }
     ],
-    newsList: [],
-    newsCategoryMap: {}
+    newsCategoryMap: {},
+    currentIndex: 0,
   },
   onLoad () {
     this.initNewsList()
@@ -81,13 +81,17 @@ Page({
   },
   async onClickNewsTag (event) {
     const newsTag = event.currentTarget.dataset['tagId']
+    const tagIndex = event.currentTarget.dataset['tagIndex']
     this.setData({
       currentTag: newsTag
     })
     try {
-      const news = await this.fetchNews(newsTag)
+      const newsList = await this.fetchNews(newsTag)
+      const newsCategoryMap = this.data.newsCategoryMap
+      newsCategoryMap[newsTag] =  newsList
       this.setData({
-        newsList: news
+        newsCategoryMap,
+        currentIndex: tagIndex
       })
     } catch (e) {
       wx.showToast({

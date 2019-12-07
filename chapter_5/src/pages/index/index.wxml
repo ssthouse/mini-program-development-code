@@ -4,6 +4,7 @@
   <view class="news-tag-container">
     <view wx:for="{{newsTag}}"
           data-tag-id="{{item.key}}"
+          data-tag-index="{{index}}"
           wx:key="item.key"
           bindtap="onClickNewsTag"
           class="news-tag {{item.key === currentTag ? 'active-tag' : ''}}">
@@ -11,7 +12,9 @@
     </view>
   </view>
 
-  <swiper class="news-list-container" bindchange="onSwiperChange">
+  <swiper class="news-list-container"
+          bindchange="onSwiperChange"
+          current="{{currentIndex}}">
     <swiper-item
             class="news-list"
             wx:for="{{newsTag}}"
