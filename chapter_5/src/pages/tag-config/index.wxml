@@ -3,7 +3,9 @@
   <view class="tag-list">
     <view class="selected-tag"
           wx:for="{{selectedTagList}}"
-          wx:key="{{item.key}}">
+          wx:key="{{item.key}}"
+          data-tag-index="{{index}}"
+          bindtap="onRemoveTag">
       {{item.title}}
       <image class="close-icon"
              src="./image/close.png"/>
@@ -15,7 +17,9 @@
   <view class="tag-list">
     <view class="unselected-tag"
           wx:for="{{unselectedTagList}}"
-          wx:key="{{item.key}}">
+          wx:key="{{item.key}}"
+          data-tag-index="{{index}}"
+          bindtap="onAddTag">
       {{item.title}}
       <image class="add-icon"
              src="./image/add.png"/>

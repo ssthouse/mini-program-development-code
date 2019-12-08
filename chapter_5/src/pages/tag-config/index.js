@@ -53,7 +53,9 @@ Page({
   },
   loadTagConfig() {
     const selectedTagList = tagConfigManager.getSelectedTagList()
-
+    this.updateTagList(selectedTagList)
+  },
+  updateTagList(selectedTagList) {
     const selectedKeySet = selectedTagList.map(selectedTag => {
       return selectedTag.key
     }).reduce((accumulator, curTagKey) => {
@@ -69,5 +71,16 @@ Page({
       selectedTagList,
       unselectedTagList
     })
+  },
+  onRemoveTag(event) {
+    const tagIndex = event.currentTarget.dataset['tagIndex']
+    this.data.selectedTagList.splice(tagIndex, 1)
+    this.updateTagList(this.data.selectedTagList)
+  },
+  onAddTag(event) {
+    const tagIndex = event.currentTarget.dataset['tagIndex']
+    const newTag = this.data.unselectedTagList[tagIndex]
+    this.data.selectedTagList.push(newTag)
+    this.updateTagList(this.data.selectedTagList)
   }
 })
