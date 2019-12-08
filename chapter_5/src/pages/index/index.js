@@ -129,5 +129,10 @@ Page({
     const currentIndex = event.detail.current
     const currentNewsKey = this.data.newsTag[currentIndex].key
     this.selectNewsCategory(currentNewsKey)
+  },
+  onClickTagConfig(){
+    wx.navigateTo({
+      url: `/pages/tag-config/index`
+    })
   }
 })

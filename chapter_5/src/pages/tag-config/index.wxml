@@ -1,0 +1,17 @@
+<view>
+  <text>当前新闻分类</text>
+  <view>
+    <view wx:for="{{selectedTagList}}"
+          wx:key="{{item.key}}">
+      {{item.title}}
+    </view>
+  </view>
+
+  <text>未选中新闻分类</text>
+  <view>
+    <view wx:for="{{unselectedTagList}}"
+          wx:key="{{item.key}}">
+      {{item.title}}
+    </view>
+  </view>
+</view>

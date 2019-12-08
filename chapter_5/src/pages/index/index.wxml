@@ -10,6 +10,7 @@
           class="news-tag {{item.key === currentTag ? 'active-tag' : ''}}">
       {{item.title}}
     </view>
+    <text bindtap="onClickTagConfig">编辑</text>
   </view>
 
   <swiper class="news-list-container"

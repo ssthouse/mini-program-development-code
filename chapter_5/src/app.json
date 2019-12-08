@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/news-detail/index",
+    "pages/tag-config/index",
     "pages/logs/logs"
   ],
   "window": {
