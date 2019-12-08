@@ -1,0 +1,36 @@
+.tag-list{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag{
+  margin: 12rpx;
+  position: relative;
+}
+
+.icon{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: -16rpx;
+  top: -16rpx;
+  border-radius: 50%;
+}
+
+.selected-tag{
+  .tag();
+
+  .close-icon{
+    .icon();
+    background-color: black;
+  }
+}
+
+.unselected-tag{
+  .tag();
+
+  .add-icon{
+    .icon();
+  }
+}

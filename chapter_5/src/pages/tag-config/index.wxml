@@ -1,17 +1,24 @@
 <view>
   <text>当前新闻分类</text>
-  <view>
-    <view wx:for="{{selectedTagList}}"
+  <view class="tag-list">
+    <view class="selected-tag"
+          wx:for="{{selectedTagList}}"
           wx:key="{{item.key}}">
       {{item.title}}
+      <image class="close-icon"
+             src="./image/close.png"/>
+
     </view>
   </view>
 
   <text>未选中新闻分类</text>
-  <view>
-    <view wx:for="{{unselectedTagList}}"
+  <view class="tag-list">
+    <view class="unselected-tag"
+          wx:for="{{unselectedTagList}}"
           wx:key="{{item.key}}">
       {{item.title}}
+      <image class="add-icon"
+             src="./image/add.png"/>
     </view>
   </view>
 </view>
