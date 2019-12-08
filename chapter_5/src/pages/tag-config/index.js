@@ -82,5 +82,8 @@ Page({
     const newTag = this.data.unselectedTagList[tagIndex]
     this.data.selectedTagList.push(newTag)
     this.updateTagList(this.data.selectedTagList)
+  },
+  saveSetting(){
+    tagConfigManager.setSelectedTagList(this.data.selectedTagList)
   }
 })

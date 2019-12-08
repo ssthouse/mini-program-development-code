@@ -1,5 +1,5 @@
 <view>
-  <text>当前新闻分类</text>
+  <text class="title">当前新闻分类</text>
   <view class="tag-list">
     <view class="selected-tag"
           wx:for="{{selectedTagList}}"
@@ -13,7 +13,7 @@
     </view>
   </view>
 
-  <text>未选中新闻分类</text>
+  <text class="title" style="margin-top: 32rpx;">未选中新闻分类</text>
   <view class="tag-list">
     <view class="unselected-tag"
           wx:for="{{unselectedTagList}}"
@@ -25,4 +25,6 @@
              src="./image/add.png"/>
     </view>
   </view>
+
+  <Button bindtap="saveSetting">保存修改</Button>
 </view>
