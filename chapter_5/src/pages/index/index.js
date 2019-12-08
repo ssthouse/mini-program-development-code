@@ -1,6 +1,7 @@
 const regeneratorRuntime = require('../../lib/runtime') // eslint-disable-line
 
 const app = getApp()
+const tagConfigManager = require('../tag-config/tag-config-manager')
 
 const mockNewsList = require('./newsList').newsList
 
@@ -16,7 +17,7 @@ const mockNewsList = require('./newsList').newsList
 
 Page({
   data: {
-    currentTag: 'top',
+    currentTag: '',
     newsTag: [
       {
         key: 'top',
@@ -60,7 +61,15 @@ Page({
     currentIndex: 0,
   },
   onLoad() {
+    this.initNewsTag()
     this.initNewsList()
+  },
+  initNewsTag(){
+    const newsTag = tagConfigManager.getSelectedTagList()
+    this.data.currentTag = newsTag[0].key
+    this.setData({
+      newsTag
+    })
   },
   async initNewsList() {
     this.selectNewsCategory(this.data.currentTag)
