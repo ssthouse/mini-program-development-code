@@ -39,26 +39,13 @@ class Board {
     }
   }
 
-  move(direction) {
-    if (!this.canMove(direction)) {
-      console.log('该方向不可用')
-    }
-    // 真实move逻辑
-    // 还是只实现向左移的逻辑, 通过旋转数组,移动完再移回去就好
-    /**
-     * 1. 0和非0分开
-     * 2. 相同数字合并
-     * 3. 再次分开
-     */
-
-    const rotatedMatrix = this.transformMatrixToDirectionLeft(this.matrix, direction)
-    // 按照向左移动
+  moveValidNumToLeft(matrix) {
     const movedMatrix = []
     for (let i = 0; i < MATRIX_SIZE; i++) {
       const row = []
       for (let j = 0; j < MATRIX_SIZE; j++) {
-        if (rotatedMatrix[i][j] !== 0) {
-          row.push(rotatedMatrix[i][j])
+        if (matrix[i][j] !== 0) {
+          row.push(matrix[i][j])
         }
       }
       while (row.length < MATRIX_SIZE) {
@@ -66,55 +53,28 @@ class Board {
       }
       movedMatrix.push(row)
     }
-    printMatrix(movedMatrix)
+    return movedMatrix
+  }
 
+  move(direction) {
+    if (!this.canMove(direction)) {
+      console.log('该方向不可用')
+    }
+    const rotatedMatrix = this.transformMatrixToDirectionLeft(this.matrix, direction)
+    const leftMovedMatrix = this.moveValidNumToLeft(rotatedMatrix)
     // 相同数字合并
     for (let i = 0; i < MATRIX_SIZE; i++) {
       for (let j = 0; j < MATRIX_SIZE - 1; j++) {
-        if (movedMatrix[i][j] > 0 && movedMatrix[i][j] === movedMatrix[i][j + 1]) {
-          movedMatrix[i][j] *= 2;
+        if (leftMovedMatrix[i][j] > 0 && leftMovedMatrix[i][j] === leftMovedMatrix[i][j + 1]) {
+          leftMovedMatrix[i][j] *= 2;
           // score += movedMatrix[i][j];
-          movedMatrix[i][j + 1] = 0;
+          leftMovedMatrix[i][j + 1] = 0;
         }
       }
     }
-
-    const againMovedMatrix = []
-    for (let i = 0; i < MATRIX_SIZE; i++) {
-      const row = []
-      for (let j = 0; j < MATRIX_SIZE; j++) {
-        if (movedMatrix[i][j] !== 0) {
-          row.push(movedMatrix[i][j])
-        }
-      }
-      while (row.length < MATRIX_SIZE) {
-        row.push(0)
-      }
-      againMovedMatrix.push(row)
-    }
-
-    printMatrix(againMovedMatrix)
+    const againMovedMatrix = this.moveValidNumToLeft(leftMovedMatrix)
     this.matrix = this.reverseTransformMatrixToDirectionLeft(againMovedMatrix, direction)
   }
-
-  // splitZero(matrix, direction) {
-  //   const rotatedMatrix = this.transformMatrixToDirectionLeft(matrix, direction)
-  //   // 按照向左移动
-  //   const movedMatrix = []
-  //   for (let i = 0; i < MATRIX_SIZE, i++) {
-  //     const row = []
-  //     for (let j = 0; j < MATRIX_SIZE; j++) {
-  //       if (rotatedMatrix[i][j] !== 0) {
-  //         row.push(rotatedMatrix[i][j])
-  //       }
-  //     }
-  //     while (row.length < MATRIX_SIZE) {
-  //       row.push(0)
-  //     }
-  //     movedMatrix.push(row)
-  //   }
-  //   // 按照
-  // }
 
   transformMatrixToDirectionLeft(matrix, direction) {
     switch (direction) {
@@ -170,37 +130,22 @@ class Board {
 
   canMove(direction) {
     let matrix = JSON.parse(JSON.stringify(this.matrix))
-    switch (direction) {
-      case MOVE_DIRECTION.LEFT:
-        break
-      case MOVE_DIRECTION.TOP:
-        matrix = this.rotateMultipleTimes(matrix, 3);
-        break
-      case MOVE_DIRECTION.RIGHT:
-        matrix = this.rotateMultipleTimes(matrix, 2);
-        break
-      case MOVE_DIRECTION.BOTTOM:
-        matrix = this.rotateMatrix(matrix);
-        break
-    }
+    const rotatedMatrix = this.transformMatrixToDirectionLeft(matrix, direction)
     // 根据direction, 改为向左判断
     for (let i = 0; i < MATRIX_SIZE; i++) {
       for (let j = 0; j < MATRIX_SIZE; j++) {
         // 如果有两个连着相等的,可以滑动
-        if (matrix[i][j] > 0 && matrix[i][j] === matrix[i][j + 1]) {
+        if (rotatedMatrix[i][j] > 0 && rotatedMatrix[i][j] === rotatedMatrix[i][j + 1]) {
           return true;
         }
         // 如果有数字左边有0,可以滑动
-        if (matrix[i][j] === 0 && matrix[i][j + 1] > 0) {
+        if (rotatedMatrix[i][j] === 0 && rotatedMatrix[i][j + 1] > 0) {
           return true;
         }
       }
     }
   }
 
-  combine(direction) {
-
-  }
 }
 
 module.exports.Board = Board

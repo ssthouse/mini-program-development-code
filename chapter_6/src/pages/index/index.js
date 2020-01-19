@@ -63,5 +63,6 @@ Page({
     this.setData({
       matrix: this.board.matrix
     })
+    // TODO: 移动后, 判断是否游戏结束
   }
 })
