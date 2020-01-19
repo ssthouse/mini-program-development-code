@@ -1,30 +1,41 @@
-/**index.wxss**/
-.userinfo {
+page {
+  height: 100%;
+  display: flex;
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.game-board {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  justify-content: center;
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-
-.outter {
-  width: 100%;
-
-  .inner{
-    width: 50%
+    .cell{
+      height: 25vw;
+      width: 25vw;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1e88e5;
+      border-radius: 8px;
+    }
   }
+}
+
+.score-panel{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }

@@ -1,6 +1,20 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <text class="user-motto">{{motto}}</text>
+  <view class="game-info-panel">
+    <view>2048</view>
+    <view bindtap="startGame">开始游戏!</view>
+  </view>
+
+  <view class="game-board">
+    <view class="row" wx:for="{{matrix}}" wx:for-item="row" wx:key="index">
+      <view class="cell" wx:for="{{row}}" wx:for-item="cell">
+        {{cell}}
+      </view>
+    </view>
+  </view>
+
+  <view class="score-panel">
+    <text>历史最高分: {{highestScore}}</text>
+    <text>本次层级: {{currentScore}}</text>
   </view>
 </view>
