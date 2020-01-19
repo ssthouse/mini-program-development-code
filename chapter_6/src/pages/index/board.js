@@ -7,6 +7,13 @@ const MOVE_DIRECTION = {
   BOTTOM: 3
 }
 
+class Point {
+  constructor(rowIndex, columnIndex) {
+    this.rowIndex = rowIndex
+    this.columnIndex = columnIndex
+  }
+}
+
 module.exports.MOVE_DIRECTION = MOVE_DIRECTION
 
 function printMatrix(matrix) {
@@ -74,6 +81,13 @@ class Board {
     }
     const againMovedMatrix = this.moveValidNumToLeft(leftMovedMatrix)
     this.matrix = this.reverseTransformMatrixToDirectionLeft(againMovedMatrix, direction)
+
+    // 增加一个新数字
+    const emptyPoints = this.getEmptyCells();
+    if (emptyPoints.length !== 0) {
+      const emptyPoint = emptyPoints[Math.floor(Math.random() * emptyPoints.length)]
+      this.matrix[emptyPoint.rowIndex][emptyPoint.columnIndex] = Math.random() < 0.8 ? 2 : 4
+    }
   }
 
   transformMatrixToDirectionLeft(matrix, direction) {
@@ -146,6 +160,38 @@ class Board {
     }
   }
 
+  isGameOver() {
+    return !this.canMove(MOVE_DIRECTION.LEFT) &&
+      !this.canMove(MOVE_DIRECTION.TOP) &&
+      !this.canMove(MOVE_DIRECTION.RIGHT) &&
+      !this.canMove(MOVE_DIRECTION.BOTTOM)
+  }
+
+  getEmptyCells() {
+    const emptyCells = []
+    for (let i = 0; i < MATRIX_SIZE; i++) {
+      for (let j = 0; j < MATRIX_SIZE; j++) {
+        if (this.matrix[i][j] === 0) {
+          emptyCells.push(new Point(i, j))
+        }
+      }
+    }
+    return emptyCells
+  }
+
+  isWinning() {
+    let max = 0
+    const winNum = 2048
+    for (let row of this.matrix) {
+      for (let cell of row) {
+        max = Math.max(cell, max)
+      }
+      if (max > winNum) {
+        return false
+      }
+    }
+    return max === winNum
+  }
 }
 
 module.exports.Board = Board
