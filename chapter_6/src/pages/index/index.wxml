@@ -5,9 +5,18 @@
     <view bindtap="startGame">开始游戏!</view>
   </view>
 
-  <view class="game-board">
-    <view class="row" wx:for="{{matrix}}" wx:for-item="row" wx:key="index">
-      <view class="cell" wx:for="{{row}}" wx:for-item="cell">
+  <view class="game-board"
+        bindtouchstart="onTouchStart"
+        bindtouchmove="onTouchMove"
+        bindtouchend="onTouchEnd">
+    <view class="row"
+          wx:for="{{matrix}}"
+          wx:for-item="row"
+          wx:key="index">
+      <view class="cell"
+            wx:for="{{row}}"
+            wx:for-item="cell"
+            wx:key="index">
         {{cell}}
       </view>
     </view>
