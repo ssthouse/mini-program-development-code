@@ -1,31 +1,28 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const board = require('./board')
+const MOVE_DIRECTION = board.MOVE_DIRECTION
 
 const MIN_OFFSET = 40;
-
-const MOVE_DIRECTION = {
-  LEFT: 0,
-  TOP: 1,
-  RIGHT: 2,
-  BOTTOM: 3
-}
 
 Page({
   data: {
     motto: 'Hello World',
     // 棋盘
-    matrix: [
-      [1, 2, 3, 4],
-      [1, 2, 3, 4],
-      [1, 2, 3, 4],
-      [1, 2, 3, 4],
-    ],
+    matrix: [[]],
     highestScore: 0,
     currentScore: 0,
   },
+  board: new board.Board(),
+  onLoad() {
+    this.startGame()
+  },
   startGame() {
-    console.log('start game')
+    this.board.startGame()
+    this.setData({
+      matrix: this.board.matrix
+    })
   },
   // 用于判断滑动方向的属性值
   touchStartX: 0,
@@ -49,15 +46,22 @@ Page({
     if (moveVertical) {
       if (offsetY < -MIN_OFFSET) {
         console.log('move top')
+        this.board.move(MOVE_DIRECTION.TOP)
       } else if (offsetY > MIN_OFFSET) {
         console.log('move bottom')
+        this.board.move(MOVE_DIRECTION.BOTTOM)
       }
     } else {
       if (offsetX < -MIN_OFFSET) {
         console.log('move left');
+        this.board.move(MOVE_DIRECTION.LEFT)
       } else if (offsetX > MIN_OFFSET) {
         console.log('move right');
+        this.board.move(MOVE_DIRECTION.RIGHT)
       }
     }
+    this.setData({
+      matrix: this.board.matrix
+    })
   }
 })
