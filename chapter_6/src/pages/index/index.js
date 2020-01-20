@@ -77,7 +77,7 @@ Page({
         title: '游戏结束',
         content: '再玩一次',
         showCancel: false,
-        success (res) {
+        success : () => {
           const highestScore = gameManager.getHighestScore()
           if (this.data.currentScore > highestScore) {
             gameManager.setHighestScore(this.data.currentScore)
