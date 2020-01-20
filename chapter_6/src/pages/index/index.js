@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const board = require('./board')
+const gameManager = require('./game-manager')
 const MOVE_DIRECTION = board.MOVE_DIRECTION
 
 const MIN_OFFSET = 40;
@@ -19,10 +20,16 @@ Page({
     this.startGame()
   },
   startGame() {
+    this.board = new board.Board()
     this.board.startGame()
     this.setData({
-      matrix: this.board.matrix
+      matrix: this.board.matrix,
+      currentScore: 0,
+      highestScore: gameManager.getHighestScore()
     })
+  },
+  onStartNewGame() {
+    this.startGame()
   },
   // 用于判断滑动方向的属性值
   touchStartX: 0,
@@ -61,22 +68,23 @@ Page({
       }
     }
     this.setData({
-      matrix: this.board.matrix
+      matrix: this.board.matrix,
+      currentScore: this.board.currentScore
     });
-    // TODO: 移动后, 判断是否游戏结束
+    console.log('current score', this.board.currentScore)
     if (this.board.isGameOver()) {
       wx.showModal({
         title: '游戏结束',
         content: '再玩一次',
         showCancel: false,
         success (res) {
-          // 保存当前数据
-          // 重新开始游戏
-
+          const highestScore = gameManager.getHighestScore()
+          if (this.data.currentScore > highestScore) {
+            gameManager.setHighestScore(this.data.currentScore)
+          }
+          this.startGame()
         }
       })
-      // 弹窗重新开始
-      // 如果是历史新高分数,显示一下对应的文本
     }
     // TODO: 判断是否2048
     if (this.board.isWinning()) {

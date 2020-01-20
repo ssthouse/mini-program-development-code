@@ -25,6 +25,10 @@ function printMatrix(matrix) {
 class Board {
 
   constructor() {
+    this.restart()
+  }
+
+  restart() {
     this.matrix = []
     for (let i = 0; i < MATRIX_SIZE; i++) {
       const row = []
@@ -33,6 +37,7 @@ class Board {
       }
       this.matrix.push(row)
     }
+    this.currentScore = 0
   }
 
   randomIndex() {
@@ -74,7 +79,7 @@ class Board {
       for (let j = 0; j < MATRIX_SIZE - 1; j++) {
         if (leftMovedMatrix[i][j] > 0 && leftMovedMatrix[i][j] === leftMovedMatrix[i][j + 1]) {
           leftMovedMatrix[i][j] *= 2;
-          // score += movedMatrix[i][j];
+          this.currentScore += leftMovedMatrix[i][j];
           leftMovedMatrix[i][j + 1] = 0;
         }
       }

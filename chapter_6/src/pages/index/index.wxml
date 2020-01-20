@@ -32,6 +32,6 @@
   </view>
 
   <view class="action-panel">
-    <view class="start-new-game" bindtap="startNewGame">New Game!</view>
+    <view class="start-new-game" bindtap="onStartNewGame">New Game!</view>
   </view>
 </view>
