@@ -1,8 +1,17 @@
 <!--index.wxml-->
 <view class="container">
   <view class="game-info-panel">
-    <view>2048</view>
-    <view bindtap="startGame">开始游戏!</view>
+    <view class="logo-cell">2048</view>
+
+    <view class="score-info">
+      <text class="title">分数</text>
+      <text class="score">{{currentScore}}</text>
+    </view>
+
+    <view class="score-info">
+      <text class="title">最高分</text>
+      <text class="score">{{highestScore}}</text>
+    </view>
   </view>
 
   <view class="game-board"
@@ -22,8 +31,7 @@
     </view>
   </view>
 
-  <view class="score-panel">
-    <text>历史最高分: {{highestScore}}</text>
-    <text>本次层级: {{currentScore}}</text>
+  <view class="action-panel">
+    <view class="start-new-game" bindtap="startNewGame">New Game!</view>
   </view>
 </view>
