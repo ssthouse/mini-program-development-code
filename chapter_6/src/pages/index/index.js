@@ -62,7 +62,29 @@ Page({
     }
     this.setData({
       matrix: this.board.matrix
-    })
+    });
     // TODO: 移动后, 判断是否游戏结束
+    if (this.board.isGameOver()) {
+      wx.showModal({
+        title: '游戏结束',
+        content: '再玩一次',
+        showCancel: false,
+        success (res) {
+          // 保存当前数据
+          // 重新开始游戏
+
+        }
+      })
+      // 弹窗重新开始
+      // 如果是历史新高分数,显示一下对应的文本
+    }
+    // TODO: 判断是否2048
+    if (this.board.isWinning()) {
+      // 显示祝福语,可以继续玩
+      wx.showToast({
+        title: '达成2048成就',
+        icon: 'success'
+      })
+    }
   }
 })

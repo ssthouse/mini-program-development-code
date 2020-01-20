@@ -17,7 +17,7 @@
             wx:for="{{row}}"
             wx:for-item="cell"
             wx:key="index">
-        {{cell === 0 ? '' : cell}}
+        <view class="text cell-{{cell}}" wx:if="{{cell !== 0}}">{{cell}}</view>
       </view>
     </view>
   </view>
