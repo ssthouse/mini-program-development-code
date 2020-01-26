@@ -24,12 +24,14 @@ function printMatrix(matrix) {
 
 class Board {
 
+  matrix = []
+  currentScore = 0
+
   constructor() {
-    this.restart()
+    this.fillEmptyMatrix()
   }
 
-  restart() {
-    this.matrix = []
+  fillEmptyMatrix() {
     for (let i = 0; i < MATRIX_SIZE; i++) {
       const row = []
       for (let j = 0; j < MATRIX_SIZE; j++) {
@@ -37,7 +39,6 @@ class Board {
       }
       this.matrix.push(row)
     }
-    this.currentScore = 0
   }
 
   randomIndex() {
