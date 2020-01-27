@@ -24,10 +24,9 @@ function printMatrix(matrix) {
 
 class Board {
 
-  matrix = []
-  currentScore = 0
-
   constructor() {
+    this.matrix = []
+    this.currentScore = 0
     this.fillEmptyMatrix()
   }
 
@@ -72,6 +71,7 @@ class Board {
   move(direction) {
     if (!this.canMove(direction)) {
       console.log('该方向不可用')
+      return
     }
     const rotatedMatrix = this.transformMatrixToDirectionLeft(this.matrix, direction)
     const leftMovedMatrix = this.moveValidNumToLeft(rotatedMatrix)
@@ -86,7 +86,7 @@ class Board {
       }
     }
     const againMovedMatrix = this.moveValidNumToLeft(leftMovedMatrix)
-    this.matrix = this.reverseTransformMatrixToDirectionLeft(againMovedMatrix, direction)
+    this.matrix = this.reverseTransformMatrixFromDirectionLeft(againMovedMatrix, direction)
 
     // 增加一个新数字
     const emptyPoints = this.getEmptyCells();
@@ -111,7 +111,7 @@ class Board {
     }
   }
 
-  reverseTransformMatrixToDirectionLeft(matrix, direction) {
+  reverseTransformMatrixFromDirectionLeft(matrix, direction) {
     switch (direction) {
       case MOVE_DIRECTION.LEFT:
         return matrix
@@ -149,8 +149,7 @@ class Board {
   }
 
   canMove(direction) {
-    let matrix = JSON.parse(JSON.stringify(this.matrix))
-    const rotatedMatrix = this.transformMatrixToDirectionLeft(matrix, direction)
+    const rotatedMatrix = this.transformMatrixToDirectionLeft(this.matrix, direction)
     // 根据direction, 改为向左判断
     for (let i = 0; i < MATRIX_SIZE; i++) {
       for (let j = 0; j < MATRIX_SIZE; j++) {
@@ -164,6 +163,7 @@ class Board {
         }
       }
     }
+    return false
   }
 
   isGameOver() {
