@@ -1,4 +1,3 @@
-<!--index.wxml-->
 <view class="container">
   <view class="game-info-panel">
     <view class="logo-cell">2048</view>
@@ -22,11 +21,13 @@
           wx:for="{{matrix}}"
           wx:for-item="row"
           wx:key="index">
-      <view class="cell"
+      <view class="cell cell-{{cell}}"
             wx:for="{{row}}"
             wx:for-item="cell"
             wx:key="index">
-        <view class="text cell-{{cell}}" wx:if="{{cell !== 0}}">{{cell}}</view>
+        <view class="text">
+          {{cell !== 0 ? cell : ''}}
+        </view>
       </view>
     </view>
   </view>

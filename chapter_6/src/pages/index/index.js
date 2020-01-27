@@ -86,7 +86,6 @@ Page({
         }
       })
     }
-    // TODO: 判断是否2048
     if (this.board.isWinning()) {
       // 显示祝福语,可以继续玩
       wx.showToast({

@@ -22,54 +22,11 @@ page {
   }
 }
 
-.cell-2 { background: #eee4da; color: #776e65}
-.cell-4 { background: #ede0c8; color: #776e65}
-.cell-8 {
-  color: #f9f6f2;
-  background: #f2b179;
-}
-.cell-16 {
-  color: #f9f6f2;
-  background: #f59563;
-}
-.cell-32 {
-  color: #f9f6f2;
-  background: #f67c5f;
-}
-.cell-64 {
-  color: #f9f6f2;
-  background: #f65e3b;
-}
-.cell-128 {
-  color: #f9f6f2;
-  background: #edcf72;
-  font-size: 30px;
-}
-.cell-256 {
-  color: #f9f6f2;
-  font-size: 30px;
-  background: #edcc61;
-}
-.cell-512 {
-  color: #f9f6f2;
-  font-size: 30px;
-  background: #edc850;
-}
-.cell-1024 {
-  color: #f9f6f2;
-  font-size: 25px;
-  background: #edc53f;
-}
-.cell-2048 {
-  color: #f9f6f2;
-  font-size: 25px;
-  background: #edc22e;
-}
-
 .game-info-panel{
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .logo-cell{
     background-color: #edc22e;
     width: 180rpx;
@@ -102,7 +59,6 @@ page {
       font-size: 60rpx;
     }
   }
-
 }
 
 
@@ -121,7 +77,7 @@ page {
   .row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
 
     .cell:after{
@@ -133,7 +89,6 @@ page {
     }
 
     .cell{
-      width: 25%;
       flex-grow: 1;
       display: flex;
       align-items: center;
@@ -144,17 +99,56 @@ page {
       border-radius: 8px;
       margin: 8rpx;
       overflow: hidden;
+      position: relative;
 
       .text{
-        width: 100%;
-        align-self: stretch;
-        justify-self: stretch;
-        text-align: center;
-        vertical-align: middle;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: absolute;
       }
+    }
+
+
+    .cell-2 { background: #eee4da; color: #776e65}
+    .cell-4 { background: #ede0c8; color: #776e65}
+    .cell-8 {
+      color: #f9f6f2;
+      background: #f2b179;
+    }
+    .cell-16 {
+      color: #f9f6f2;
+      background: #f59563;
+    }
+    .cell-32 {
+      color: #f9f6f2;
+      background: #f67c5f;
+    }
+    .cell-64 {
+      color: #f9f6f2;
+      background: #f65e3b;
+    }
+    .cell-128 {
+      color: #f9f6f2;
+      background: #edcf72;
+      font-size: 30px;
+    }
+    .cell-256 {
+      color: #f9f6f2;
+      font-size: 30px;
+      background: #edcc61;
+    }
+    .cell-512 {
+      color: #f9f6f2;
+      font-size: 30px;
+      background: #edc850;
+    }
+    .cell-1024 {
+      color: #f9f6f2;
+      font-size: 25px;
+      background: #edc53f;
+    }
+    .cell-2048 {
+      color: #f9f6f2;
+      font-size: 25px;
+      background: #edc22e;
     }
   }
 }
