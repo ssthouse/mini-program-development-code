@@ -73,15 +73,15 @@ Page({
     });
     console.log('current score', this.board.currentScore)
     if (this.board.isGameOver()) {
+      const highestScore = gameManager.getHighestScore()
+      if (this.data.currentScore > highestScore) {
+        gameManager.setHighestScore(this.data.currentScore)
+      }
       wx.showModal({
         title: '游戏结束',
         content: '再玩一次',
         showCancel: false,
         success : () => {
-          const highestScore = gameManager.getHighestScore()
-          if (this.data.currentScore > highestScore) {
-            gameManager.setHighestScore(this.data.currentScore)
-          }
           this.startGame()
         }
       })
