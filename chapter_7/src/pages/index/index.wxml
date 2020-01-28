@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="game-info-panel">
+    <view class="logo-cell">2048</view>
+
+    <view class="score-info">
+      <text class="title">分数</text>
+      <text class="score">{{currentScore}}</text>
+    </view>
+
+    <view class="score-info">
+      <text class="title">最高分</text>
+      <text class="score">{{highestScore}}</text>
+    </view>
+  </view>
+
+  <view class="game-board"
+        bindtouchstart="onTouchStart"
+        bindtouchmove="onTouchMove"
+        bindtouchend="onTouchEnd">
+    <view class="row"
+          wx:for="{{matrix}}"
+          wx:for-item="row"
+          wx:key="index">
+      <view class="cell cell-{{cell}}"
+            wx:for="{{row}}"
+            wx:for-item="cell"
+            wx:key="index">
+        <view class="text">
+          {{cell !== 0 ? cell : ''}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-panel">
+    <view class="start-new-game" bindtap="onStartNewGame">New Game!</view>
+  </view>
+</view>
