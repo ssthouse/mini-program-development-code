@@ -1,2 +1,11 @@
 <view class="container">
+
+  <view class="action-panel">
+    <button>清空</button>
+    <button>画矩形</button>
+    <button>画直线</button>
+  </view>
+
+  <canvas class="canvas" canvas-id="canvas">
+  </canvas>
 </view>
