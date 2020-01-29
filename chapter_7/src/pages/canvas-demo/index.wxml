@@ -11,9 +11,10 @@
   </view>
 
   <view class="action-panel">
-    <button>绘制圆</button>
-    <button>绘制圆角曲线</button>
-    <button>绘制圆角矩形</button>
+    <button bindtap="onDrawTriangle">三角形</button>
+    <button>圆</button>
+    <button>圆角曲线</button>
+    <button>圆角矩形</button>
   </view>
 
   <view class="action-panel">

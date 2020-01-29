@@ -6,7 +6,9 @@ Page({
   data: {
     logs: []
   },
+  context: null,
   onLoad: function () {
+    this.context = wx.createCanvasContext(CANVAS_ID);
   },
   getCanvasContext() {
     return wx.createCanvasContext(CANVAS_ID);
@@ -27,20 +29,20 @@ Page({
     const canvasSize = await this.getCanvasSize()
     const context = this.getCanvasContext()
     context.clearRect(0, 0, canvasSize, canvasSize)
-    context.draw()
+    context.draw(true)
   },
   onDrawRect() {
-    const context = this.getCanvasContext()
+    const context = this.context
     context.strokeRect(0, 0, 200, 200)
-    context.draw()
+    context.draw(true)
   },
   onFillRect() {
-    const context = this.getCanvasContext()
+    const context = this.context
     context.fillRect(0, 0, 200, 200)
-    context.draw()
+    context.draw(true)
   },
   onClearRect() {
-    const context = this.getCanvasContext()
+    const context = this.context
     context.clearRect(0, 0, 200, 200)
     context.draw()
   }
