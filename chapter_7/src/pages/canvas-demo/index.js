@@ -9,7 +9,7 @@ Page({
   onLoad: function () {
   },
   getCanvasContext() {
-    return wx.createCanvasContext(CANVAS_ID, this);
+    return wx.createCanvasContext(CANVAS_ID);
   },
   /**
    * 获取画布大小
@@ -29,12 +29,19 @@ Page({
     context.clearRect(0, 0, canvasSize, canvasSize)
     context.draw()
   },
-  onDrawReact() {
+  onDrawRect() {
     const context = this.getCanvasContext()
-    context.setStrokeStyle("#000000")
-    context.setLineWidth(1)
-    context.rect(0, 0, 200, 200)
-    context.stroke()
+    context.strokeRect(0, 0, 200, 200)
+    context.draw()
+  },
+  onFillRect() {
+    const context = this.getCanvasContext()
+    context.fillRect(0, 0, 200, 200)
+    context.draw()
+  },
+  onClearRect() {
+    const context = this.getCanvasContext()
+    context.clearRect(0, 0, 200, 200)
     context.draw()
   }
 })

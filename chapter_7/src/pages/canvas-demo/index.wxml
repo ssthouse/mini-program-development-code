@@ -5,9 +5,9 @@
   </view>
 
   <view class="action-panel">
-    <button bindtap="onDrawReact">画矩形</button>
-    <button>填充矩形</button>
-    <button>清空矩形</button>
+    <button bindtap="onDrawRect">画矩形</button>
+    <button bindtap="onFillRect">填充矩形</button>
+    <button bindtap="onClearRect">清空矩形</button>
   </view>
 
   <view class="action-panel">
