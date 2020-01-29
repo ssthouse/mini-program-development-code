@@ -1,9 +1,24 @@
 <view class="container">
 
   <view class="action-panel">
-    <button>清空</button>
-    <button>画矩形</button>
-    <button>画直线</button>
+    <button bindtap="onClearCanvas">清空画布</button>
+  </view>
+
+  <view class="action-panel">
+    <button bindtap="onDrawReact">画矩形</button>
+    <button>填充矩形</button>
+    <button>清空矩形</button>
+  </view>
+
+  <view class="action-panel">
+    <button>绘制圆</button>
+    <button>绘制圆角曲线</button>
+    <button>绘制圆角矩形</button>
+  </view>
+
+  <view class="action-panel">
+    <button>绘制简单动画</button>
+    <button>使用变量记录进度绘制动画</button>
   </view>
 
   <canvas class="canvas" canvas-id="canvas">
