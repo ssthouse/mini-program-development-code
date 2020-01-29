@@ -6,7 +6,6 @@ Page({
   data: {
     logs: []
   },
-  context: null,
   onLoad: function () {
     this.context = wx.createCanvasContext(CANVAS_ID);
   },
@@ -32,22 +31,22 @@ Page({
     context.draw(true)
   },
   onDrawRect() {
-    const context = this.context
+    const context = this.getCanvasContext()
     context.strokeRect(0, 0, 200, 200)
     context.draw(true)
   },
   onFillRect() {
-    const context = this.context
+    const context = this.getCanvasContext()
     context.fillRect(0, 0, 200, 200)
     context.draw(true)
   },
   onClearRect() {
-    const context = this.context
+    const context = this.getCanvasContext()
     context.clearRect(0, 0, 200, 200)
     context.draw(true)
   },
   onDrawTriangle() {
-    const context = this.context
+    const context = this.getCanvasContext()
     context.beginPath()
     context.moveTo(100, 100)
     context.lineTo(160, 200);
@@ -55,5 +54,11 @@ Page({
     context.closePath()
     context.stroke()
     context.draw(true)
+  },
+  onDrawArc() {
+    const context = this.getCanvasContext();
+    context.arc(100, 100, 50, 0, Math.PI);
+    context.stroke()
+    context.draw(false)
   }
 })

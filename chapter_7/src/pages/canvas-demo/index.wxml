@@ -12,9 +12,9 @@
 
   <view class="action-panel">
     <button bindtap="onDrawTriangle">三角形</button>
-    <button>圆</button>
-    <button>圆角曲线</button>
+    <button bindtap="onDrawArc">arc</button>
     <button>圆角矩形</button>
+    <button></button>
   </view>
 
   <view class="action-panel">
