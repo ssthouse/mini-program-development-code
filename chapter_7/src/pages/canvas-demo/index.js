@@ -44,6 +44,16 @@ Page({
   onClearRect() {
     const context = this.context
     context.clearRect(0, 0, 200, 200)
-    context.draw()
+    context.draw(true)
+  },
+  onDrawTriangle() {
+    const context = this.context
+    context.beginPath()
+    context.moveTo(100, 100)
+    context.lineTo(160, 200);
+    context.lineTo(220, 100);
+    context.closePath()
+    context.stroke()
+    context.draw(true)
   }
 })
