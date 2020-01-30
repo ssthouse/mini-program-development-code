@@ -1,4 +1,5 @@
-//index.js
+const regeneratorRuntime = require('../../lib/runtime') // eslint-disable-line
+
 //获取应用实例
 const app = getApp()
 const board = require('./board')
@@ -6,6 +7,8 @@ const gameManager = require('./game-manager')
 const MOVE_DIRECTION = board.MOVE_DIRECTION
 
 const MIN_OFFSET = 40;
+const MATRIX_SIZE = 4
+
 
 Page({
   data: {
@@ -16,11 +19,12 @@ Page({
     currentScore: 0,
   },
   board: new board.Board(),
-  onLoad() {
+  async onLoad() {
+    await this.initCanvas()
     this.startGame()
   },
   startGame() {
-    this.board = new board.Board()
+    this.board = new board.Board(this.context, this.canvasSize)
     this.board.startGame()
     this.setData({
       matrix: this.board.matrix,
@@ -30,6 +34,51 @@ Page({
   },
   onStartNewGame() {
     this.startGame()
+  },
+  canvasSize: null,
+  canvas: null,
+  context: null,
+  colorMap: {
+    0: {color: '#776e65', bgColor: '#EEE4DA40'},
+    2: {color: '#776e65', bgColor: '#eee4da'},
+    4: {color: '#776e65', bgColor: '#eee4da'},
+    8: {color: '#f9f6f2', bgColor: '#f2b179'},
+    16: {color: '#f9f6f2', bgColor: '#f59563'},
+    32: {color: '#f9f6f2', bgColor: '#f67c5f'},
+    64: {color: '#f9f6f2', bgColor: '#f65e3b'},
+    128: {color: '#f9f6f2', bgColor: '#edcf72'},
+    256: {color: '#f9f6f2', bgColor: '#edcc61'},
+    512: {color: '#f9f6f2', bgColor: '#edc850'},
+    1024: {color: '#f9f6f2', bgColor: '#edc53f'},
+    2048: {color: '#f9f6f2', bgColor: '#edc22e'}
+  },
+  async initCanvas() {
+    this.canvas = await this.getCanvas()
+    this.canvasSize = await this.getCanvasSize()
+    this.context = this.canvas.getContext('2d')
+  },
+  async getCanvasSize() {
+    return new Promise((resolve, reject) => {
+      wx.createSelectorQuery().select('#canvas')
+        .boundingClientRect(function (rect) {
+          resolve(rect['width'])
+        }).exec()
+    })
+  },
+  async getCanvas() {
+    return new Promise(resolve => {
+      wx.createSelectorQuery()
+        .select('#canvas')
+        .fields({
+          node: true,
+          size: true,
+        })
+        .exec((res) => {
+          console.log('res', res[0])
+          const canvas = res[0].node
+          resolve(canvas)
+        })
+    })
   },
   // 用于判断滑动方向的属性值
   touchStartX: 0,
@@ -71,7 +120,7 @@ Page({
       matrix: this.board.matrix,
       currentScore: this.board.currentScore
     });
-    console.log('current score', this.board.currentScore)
+    this.board.drawBoard()
     if (this.board.isGameOver()) {
       const highestScore = gameManager.getHighestScore()
       if (this.data.currentScore > highestScore) {
@@ -81,7 +130,7 @@ Page({
         title: '游戏结束',
         content: '再玩一次',
         showCancel: false,
-        success : () => {
+        success: () => {
           this.startGame()
         }
       })

@@ -17,19 +17,7 @@
         bindtouchstart="onTouchStart"
         bindtouchmove="onTouchMove"
         bindtouchend="onTouchEnd">
-    <view class="row"
-          wx:for="{{matrix}}"
-          wx:for-item="row"
-          wx:key="index">
-      <view class="cell cell-{{cell}}"
-            wx:for="{{row}}"
-            wx:for-item="cell"
-            wx:key="index">
-        <view class="text">
-          {{cell !== 0 ? cell : ''}}
-        </view>
-      </view>
-    </view>
+    <canvas type="2d" id="canvas"></canvas>
   </view>
 
   <view class="action-panel">
