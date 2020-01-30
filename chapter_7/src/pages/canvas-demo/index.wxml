@@ -18,10 +18,15 @@
   </view>
 
   <view class="action-panel">
-    <button>绘制简单动画</button>
-    <button>使用变量记录进度绘制动画</button>
+    <button bindtap="onDrawSimpleAnimation">简单动画</button>
   </view>
 
-  <canvas class="canvas" canvas-id="canvas">
-  </canvas>
+<!--  <canvas type="2d" class="canvas" id="canvas">-->
+<!--  </canvas>-->
+
+  <canvas
+          type="2d"
+          id="canvas"
+          class="canvas"
+  ></canvas>
 </view>

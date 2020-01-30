@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.8.4",
 	"appid": "wxaced3d26422230d9",
 	"projectname": "mini-programe-template",
 	"debugOptions": {
@@ -36,7 +36,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+          "list": [
+            {
+              "id": -1,
+              "name": "canvas-demo",
+              "pathName": "pages/canvas-demo/index",
+              "scene": null
+            }
+          ]
 		}
 	}
 }

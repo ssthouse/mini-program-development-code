@@ -6,8 +6,10 @@ Page({
   data: {
     logs: []
   },
-  onLoad: function () {
-    this.context = wx.createCanvasContext(CANVAS_ID);
+  onLoad: async function () {
+    this.canvas = await this.getCanvas()
+    this.context = this.canvas.getContext('2d')
+    this.canvasSize = await this.getCanvasSize()
   },
   getCanvasContext() {
     return wx.createCanvasContext(CANVAS_ID);
@@ -22,6 +24,21 @@ Page({
         .boundingClientRect(function (rect) {
           resolve(rect['width'])
         }).exec()
+    })
+  },
+  async getCanvas() {
+    return new Promise(resolve => {
+      wx.createSelectorQuery()
+        .select('#canvas')
+        .fields({
+          node: true,
+          size: true,
+        })
+        .exec((res) => {
+          console.log('res', res[0])
+          const canvas = res[0].node
+          resolve(canvas)
+        })
     })
   },
   async onClearCanvas() {
@@ -83,5 +100,26 @@ Page({
     context.closePath()
     context.stroke()
     context.draw(true)
+  },
+  async onDrawSimpleAnimation() {
+    const rectSize = 50
+    const leftTopPoint = {
+      x: 100,
+      y: 100
+    }
+    const requestAnimationFrame = this.canvas.requestAnimationFrame
+    console.log('requestAnimationFrame', requestAnimationFrame)
+    const drawRect = () => {
+      console.log('canvas size', this.canvasSize)
+      this.context.clearRect(0, 0, 1000, 1000)
+      this.context.fillRect(leftTopPoint.x, leftTopPoint.y, rectSize, rectSize)
+      console.log('repeat?',  leftTopPoint.x < 200)
+      if (leftTopPoint.x < 200) {
+        leftTopPoint.x += 1;
+        console.log(leftTopPoint.x)
+        requestAnimationFrame(drawRect)
+      }
+    }
+    drawRect()
   }
 })
