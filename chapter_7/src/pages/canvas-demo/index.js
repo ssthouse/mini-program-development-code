@@ -59,6 +59,29 @@ Page({
     const context = this.getCanvasContext();
     context.arc(100, 100, 50, 0, Math.PI);
     context.stroke()
-    context.draw(false)
+    context.draw(true)
+  },
+  onDrawRoundedRect() {
+    const context = this.getCanvasContext();
+    const points = {
+      point1: {x: 100, y: 100},
+      point2: {x: 200, y: 100},
+      point3: {x: 200, y: 200},
+      point4: {x: 100, y: 200}
+    }
+    context.beginPath();
+    context.moveTo((points.point1.x + points.point2.x) / 2,
+      (points.point1.y + points.point2.y) / 2)
+    context.arcTo(points.point2.x, points.point2.y,
+      points.point3.x, points.point3.y, 12)
+    context.arcTo(points.point3.x, points.point3.y,
+      points.point4.x, points.point4.y, 12)
+    context.arcTo(points.point4.x, points.point4.y,
+      points.point1.x, points.point1.y, 12)
+    context.arcTo(points.point1.x, points.point1.y,
+      points.point2.x, points.point2.y, 12)
+    context.closePath()
+    context.stroke()
+    context.draw(true)
   }
 })
