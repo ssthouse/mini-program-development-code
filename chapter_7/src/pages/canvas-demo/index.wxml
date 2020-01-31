@@ -24,6 +24,7 @@
   <canvas class="canvas" canvas-id="canvas">
   </canvas>
 
+  <!--  用于绘制动画的canvas-->
   <canvas
           type="2d"
           id="canvas-animation"
