@@ -29,7 +29,7 @@ Page({
   async getCanvas() {
     return new Promise(resolve => {
       wx.createSelectorQuery()
-        .select('#canvas')
+        .select('#canvas-animation')
         .fields({
           node: true,
           size: true,
@@ -101,22 +101,18 @@ Page({
     context.stroke()
     context.draw(true)
   },
-  async onDrawSimpleAnimation() {
+  onDrawSimpleAnimation() {
     const rectSize = 50
     const leftTopPoint = {
       x: 100,
       y: 100
     }
     const requestAnimationFrame = this.canvas.requestAnimationFrame
-    console.log('requestAnimationFrame', requestAnimationFrame)
     const drawRect = () => {
-      console.log('canvas size', this.canvasSize)
       this.context.clearRect(0, 0, 1000, 1000)
       this.context.fillRect(leftTopPoint.x, leftTopPoint.y, rectSize, rectSize)
-      console.log('repeat?',  leftTopPoint.x < 200)
       if (leftTopPoint.x < 200) {
         leftTopPoint.x += 1;
-        console.log(leftTopPoint.x)
         requestAnimationFrame(drawRect)
       }
     }
