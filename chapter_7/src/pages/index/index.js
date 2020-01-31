@@ -7,27 +7,23 @@ const gameManager = require('./game-manager')
 const MOVE_DIRECTION = board.MOVE_DIRECTION
 
 const MIN_OFFSET = 40;
-const MATRIX_SIZE = 4
-
 
 Page({
   data: {
     motto: 'Hello World',
     // 棋盘
-    matrix: [[]],
     highestScore: 0,
     currentScore: 0,
   },
-  board: new board.Board(),
+  board: null,
   async onLoad() {
     await this.initCanvas()
     this.startGame()
   },
   startGame() {
-    this.board = new board.Board(this.context, this.canvasSize)
+    this.board = new board.Board(this.canvas, this.context, this.canvasSize)
     this.board.startGame()
     this.setData({
-      matrix: this.board.matrix,
       currentScore: 0,
       highestScore: gameManager.getHighestScore()
     })
@@ -38,20 +34,6 @@ Page({
   canvasSize: null,
   canvas: null,
   context: null,
-  colorMap: {
-    0: {color: '#776e65', bgColor: '#EEE4DA40'},
-    2: {color: '#776e65', bgColor: '#eee4da'},
-    4: {color: '#776e65', bgColor: '#eee4da'},
-    8: {color: '#f9f6f2', bgColor: '#f2b179'},
-    16: {color: '#f9f6f2', bgColor: '#f59563'},
-    32: {color: '#f9f6f2', bgColor: '#f67c5f'},
-    64: {color: '#f9f6f2', bgColor: '#f65e3b'},
-    128: {color: '#f9f6f2', bgColor: '#edcf72'},
-    256: {color: '#f9f6f2', bgColor: '#edcc61'},
-    512: {color: '#f9f6f2', bgColor: '#edc850'},
-    1024: {color: '#f9f6f2', bgColor: '#edc53f'},
-    2048: {color: '#f9f6f2', bgColor: '#edc22e'}
-  },
   async initCanvas() {
     this.canvas = await this.getCanvas()
     this.canvasSize = await this.getCanvasSize()
@@ -117,10 +99,8 @@ Page({
       }
     }
     this.setData({
-      matrix: this.board.matrix,
       currentScore: this.board.currentScore
     });
-    this.board.drawBoard()
     if (this.board.isGameOver()) {
       const highestScore = gameManager.getHighestScore()
       if (this.data.currentScore > highestScore) {

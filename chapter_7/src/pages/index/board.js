@@ -1,4 +1,7 @@
+const regeneratorRuntime = require('../../lib/runtime') // eslint-disable-line
+
 const MATRIX_SIZE = 4
+const PADDING = 8
 
 const MOVE_DIRECTION = {
   LEFT: 0,
@@ -10,7 +13,7 @@ const MOVE_DIRECTION = {
 const COLOR_MAP = {
   0: {color: '#776e65', bgColor: '#EEE4DA40'},
   2: {color: '#776e65', bgColor: '#eee4da'},
-  4: {color: '#776e65', bgColor: '#eee4da'},
+  4: {color: '#776e65', bgColor: '#ede0c8'},
   8: {color: '#f9f6f2', bgColor: '#f2b179'},
   16: {color: '#f9f6f2', bgColor: '#f59563'},
   32: {color: '#f9f6f2', bgColor: '#f67c5f'},
@@ -33,12 +36,19 @@ class Point {
 class Cell {
   constructor(value) {
     this.value = value
-
-    // 用于保存移动状态,以便绘制动画
+    // 是否新建方块
     this.isNew = false
+    // 移动距离
     this.moveStep = 0
   }
 
+  newStatus(newStatus) {
+    if (newStatus !== undefined) {
+      this.isNew = newStatus
+      return this
+    }
+    return this.isNew
+  }
 }
 
 module.exports.MOVE_DIRECTION = MOVE_DIRECTION
@@ -52,12 +62,14 @@ function printMatrix(matrix) {
 
 class Board {
 
-  constructor(context, canvasSize) {
+  constructor(canvas, context, canvasSize) {
     this.matrix = []
     this.currentScore = 0
     this.fillEmptyMatrix()
+    this.canvas = canvas
     this.context = context
     this.canvasSize = canvasSize
+    this.CELL_SIZE = (canvasSize - (5 * PADDING)) / MATRIX_SIZE
   }
 
   fillEmptyMatrix() {
@@ -78,6 +90,8 @@ class Board {
     // 初始化两个cell
     for (let i = 0; i < 2; i++) {
       this.matrix[this.randomIndex()][this.randomIndex()].value = Math.random() < 0.8 ? 2 : 4
+      this.matrix[this.randomIndex()][this.randomIndex()].newStatus(true)
+      this.drawWithAnimation(-1)
     }
   }
 
@@ -87,7 +101,7 @@ class Board {
       const row = []
       for (let j = 0; j < MATRIX_SIZE; j++) {
         if (matrix[i][j].value !== 0) {
-          matrix[i][j].moveStep = j - row.length
+          matrix[i][j].moveStep += j - row.length
           row.push(matrix[i][j])
         }
       }
@@ -99,45 +113,101 @@ class Board {
     return movedMatrix
   }
 
-  drawBoard() {
+  drawBoard(process = 1, direction) {
     const context = this.context
     const canvasSize = this.canvasSize
     const matrix = this.matrix
-    const PADDING = 8
-    const CELL_SIZE = (canvasSize - (5 * PADDING)) / MATRIX_SIZE
-    // console.log(this)
+    const CELL_SIZE = this.CELL_SIZE
     context.clearRect(0, 0, canvasSize, canvasSize)
+    this.drawBgCells()
     for (let rowIndex = 0; rowIndex < MATRIX_SIZE; rowIndex++) {
       for (let colIndex = 0; colIndex < MATRIX_SIZE; colIndex++) {
         // 画出当前矩形
-        const point1 = {
-          x: PADDING + colIndex * (CELL_SIZE + PADDING),
+        const moveStep = matrix[rowIndex][colIndex].moveStep
+        const startPoint = {
+          x: (PADDING + colIndex * (CELL_SIZE + PADDING)),
           y: PADDING + rowIndex * (CELL_SIZE + PADDING)
         }
+        switch (direction) {
+          case MOVE_DIRECTION.LEFT:
+            startPoint.x += moveStep * (CELL_SIZE + PADDING) * (1 - process)
+            break
+          case MOVE_DIRECTION.RIGHT:
+            startPoint.x -= moveStep * (CELL_SIZE + PADDING) * (1 - process)
+            break
+          case MOVE_DIRECTION.TOP:
+            startPoint.y += moveStep * (CELL_SIZE + PADDING) * (1 - process)
+            break
+          case MOVE_DIRECTION.BOTTOM:
+            startPoint.y -= moveStep * (CELL_SIZE + PADDING) * (1 - process)
+            break
+        }
         this.drawCell(
-          {
-            point1,
-            point2: {
-              x: point1.x + CELL_SIZE,
-              y: point1.y
-            },
-            point3: {
-              x: point1.x + CELL_SIZE,
-              y: point1.y + CELL_SIZE
-            },
-            point4: {
-              x: point1.x,
-              y: point1.y + CELL_SIZE
-            }
-          },
-          matrix[rowIndex][colIndex].value
+          startPoint.x,
+          startPoint.y,
+          CELL_SIZE,
+          matrix[rowIndex][colIndex],
+          process
         )
       }
     }
   }
 
-  drawCell(points, text) {
+  drawBgCells() {
+    const context = this.context
+    context.globalAlpha = 1
+    for (let rowIndex = 0; rowIndex < MATRIX_SIZE; rowIndex++) {
+      for (let colIndex = 0; colIndex < MATRIX_SIZE; colIndex++) {
+        context.fillStyle = 'rgba(238, 228, 218, 0.35)'
+        this.drawRoundSquare(
+          PADDING + colIndex * (this.CELL_SIZE + PADDING),
+          PADDING + rowIndex * (this.CELL_SIZE + PADDING),
+          this.CELL_SIZE
+        )
+        context.fill()
+      }
+    }
+  }
+
+  drawCell(x, y, size, cell, process) {
+    const text = cell.value
     if (text === 0) return
+    const context = this.context
+    context.globalAlpha = cell.isNew ? process * process : 1
+    context.fillStyle = COLOR_MAP[text].bgColor
+    this.drawRoundSquare(x, y, size)
+    context.fill()
+    context.fillStyle = COLOR_MAP[text].color
+    context.font = '40px Clear Sans'
+    context.textAlign = 'center'
+    context.textBaseline = 'middle'
+    context.fillText(
+      text,
+      x + size / 2,
+      y + size / 2
+    )
+  }
+
+  drawRoundSquare(startX, startY, size) {
+    const point1 = {
+      x: startX,
+      y: startY
+    }
+    const points = {
+      point1,
+      point2: {
+        x: point1.x + size,
+        y: point1.y
+      },
+      point3: {
+        x: point1.x + size,
+        y: point1.y + size
+      },
+      point4: {
+        x: point1.x,
+        y: point1.y + size
+      }
+    }
     const context = this.context
     context.beginPath()
     context.moveTo((points.point1.x + points.point2.x) / 2,
@@ -151,37 +221,46 @@ class Board {
     context.arcTo(points.point1.x, points.point1.y,
       points.point2.x, points.point2.y, 12)
     context.closePath()
-    context.fillStyle = COLOR_MAP[text].bgColor
-    context.fill()
-    context.fillStyle = COLOR_MAP[text].color
-    context.font = '30px serif'
-    context.textAlign = 'center'
-    context.textBaseline = 'middle'
-    context.fillText(
-      text,
-      (points.point1.x + points.point2.x) / 2,
-      (points.point1.y + points.point4.y) / 2
-    )
   }
 
+  async drawWithAnimation(direction) {
+    return new Promise(resolve => {
+      let process = 0
+      const draw = () => {
+        this.drawBoard(process / 100, direction)
+        if (process < 100) {
+          process += 10
+          this.canvas.requestAnimationFrame(draw)
+        } else {
+          // 将cell数据复位
+          for (let row of this.matrix) {
+            for (let cell of row) {
+              cell.newStatus(false)
+              cell.moveStep = 0
+            }
+          }
+          resolve()
+        }
+      }
+      draw()
+    })
+  }
 
-  move(direction) {
+  async move(direction) {
     if (!this.canMove(direction)) {
       console.log('该方向不可用')
       return
     }
     const rotatedMatrix = this.transformMatrixToDirectionLeft(this.matrix, direction)
     const leftMovedMatrix = this.moveValidNumToLeft(rotatedMatrix)
-
-    // TODO 尝试绘出中间动画
     this.matrix = this.reverseTransformMatrixFromDirectionLeft(leftMovedMatrix, direction)
-
     // 相同数字合并
     for (let i = 0; i < MATRIX_SIZE; i++) {
       for (let j = 0; j < MATRIX_SIZE - 1; j++) {
         if (leftMovedMatrix[i][j].value > 0
           && leftMovedMatrix[i][j].value === leftMovedMatrix[i][j + 1].value) {
           leftMovedMatrix[i][j].value *= 2;
+          leftMovedMatrix[i][j].newStatus(true)
           this.currentScore += leftMovedMatrix[i][j].value;
           leftMovedMatrix[i][j + 1].value = 0;
         }
@@ -189,16 +268,17 @@ class Board {
     }
     const againMovedMatrix = this.moveValidNumToLeft(leftMovedMatrix)
     this.matrix = this.reverseTransformMatrixFromDirectionLeft(againMovedMatrix, direction)
-
     // 增加一个新数字
     const emptyPoints = this.getEmptyCells();
     if (emptyPoints.length !== 0) {
       const emptyPoint = emptyPoints[Math.floor(Math.random() * emptyPoints.length)]
-      this.matrix[emptyPoint.rowIndex][emptyPoint.columnIndex] = Math.random() < 0.8 ?
+      const cell = Math.random() < 0.8 ?
         new Cell(2)
         : new Cell(4)
+      cell.newStatus(true)
+      this.matrix[emptyPoint.rowIndex][emptyPoint.columnIndex] = cell
     }
-    printMatrix(this.matrix)
+    await this.drawWithAnimation(direction)
   }
 
   transformMatrixToDirectionLeft(matrix, direction) {
@@ -264,9 +344,6 @@ class Board {
           return true;
         }
         // 如果有数字左边有0,可以滑动
-        // console.log('i:j', i, j)
-        // console.log('rotatedMatrix[i][j]', rotatedMatrix[i][j])
-        // console.log('rotatedMatrix[i][j + 1]', rotatedMatrix[i][j + 1])
         if (rotatedMatrix[i][j].value === 0 && rotatedMatrix[i][j + 1].value > 0) {
           return true;
         }
