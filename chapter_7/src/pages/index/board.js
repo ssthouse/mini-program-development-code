@@ -223,30 +223,27 @@ class Board {
     context.closePath()
   }
 
-  async drawWithAnimation(direction) {
-    return new Promise(resolve => {
-      let process = 0
-      const draw = () => {
-        this.drawBoard(process / 100, direction)
-        if (process < 100) {
-          process += 10
-          this.canvas.requestAnimationFrame(draw)
-        } else {
-          // 将cell数据复位
-          for (let row of this.matrix) {
-            for (let cell of row) {
-              cell.newStatus(false)
-              cell.moveStep = 0
-            }
+  drawWithAnimation(direction) {
+    let process = 0
+    const draw = () => {
+      this.drawBoard(process / 100, direction)
+      if (process < 100) {
+        process += 10
+        this.canvas.requestAnimationFrame(draw)
+      } else {
+        // 将cell数据复位
+        for (let row of this.matrix) {
+          for (let cell of row) {
+            cell.newStatus(false)
+            cell.moveStep = 0
           }
-          resolve()
         }
       }
-      draw()
-    })
+    }
+    draw()
   }
 
-  async move(direction) {
+  move(direction) {
     if (!this.canMove(direction)) {
       console.log('该方向不可用')
       return
@@ -278,7 +275,7 @@ class Board {
       cell.newStatus(true)
       this.matrix[emptyPoint.rowIndex][emptyPoint.columnIndex] = cell
     }
-    await this.drawWithAnimation(direction)
+    this.drawWithAnimation(direction)
   }
 
   transformMatrixToDirectionLeft(matrix, direction) {
