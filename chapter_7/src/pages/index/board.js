@@ -91,7 +91,7 @@ class Board {
     for (let i = 0; i < 2; i++) {
       this.matrix[this.randomIndex()][this.randomIndex()].value = Math.random() < 0.8 ? 2 : 4
       this.matrix[this.randomIndex()][this.randomIndex()].newStatus(true)
-      this.drawWithAnimation(-1)
+      this.drawWithAnimation(MOVE_DIRECTION.LEFT)
     }
   }
 
@@ -113,7 +113,7 @@ class Board {
     return movedMatrix
   }
 
-  drawBoard(process = 1, direction) {
+  drawBoard(process, direction) {
     const context = this.context
     const canvasSize = this.canvasSize
     const matrix = this.matrix
@@ -145,7 +145,6 @@ class Board {
         this.drawCell(
           startPoint.x,
           startPoint.y,
-          CELL_SIZE,
           matrix[rowIndex][colIndex],
           process
         )
@@ -169,13 +168,13 @@ class Board {
     }
   }
 
-  drawCell(x, y, size, cell, process) {
+  drawCell(x, y, cell, process) {
     const text = cell.value
     if (text === 0) return
     const context = this.context
     context.globalAlpha = cell.isNew ? process * process : 1
     context.fillStyle = COLOR_MAP[text].bgColor
-    this.drawRoundSquare(x, y, size)
+    this.drawRoundSquare(x, y, this.CELL_SIZE)
     context.fill()
     context.fillStyle = COLOR_MAP[text].color
     context.font = '40px Clear Sans'
@@ -183,8 +182,8 @@ class Board {
     context.textBaseline = 'middle'
     context.fillText(
       text,
-      x + size / 2,
-      y + size / 2
+      x + this.CELL_SIZE / 2,
+      y + this.CELL_SIZE / 2
     )
   }
 
