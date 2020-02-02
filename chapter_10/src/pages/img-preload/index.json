@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "查看启动日志",
-  "usingComponents": {}
+  "usingComponents": {
+    "img-loader": "/pages/img-preload/img-loader/img-loader"
+  }
 }
