@@ -36,7 +36,20 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+              {
+                "id": -1,
+                "name": "列表渲染优化",
+                "pathName": "pages/img-list-optimize/index",
+                "scene": null
+              },
+              {
+                "id": -1,
+                "name": "图片预加载",
+                "pathName": "pages/img-preload/index",
+                "scene": null
+              }
+            ]
 		}
 	}
 }

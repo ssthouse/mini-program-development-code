@@ -1,0 +1,3 @@
+<image src="{{imgSrc}}"
+       class="hidden"
+       bindload="onImageLoaded"></image>
