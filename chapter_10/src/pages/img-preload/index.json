@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "查看启动日志",
+  "navigationBarTitleText": "原图懒加载",
   "usingComponents": {
     "img-loader": "/pages/img-preload/img-loader/img-loader"
   }

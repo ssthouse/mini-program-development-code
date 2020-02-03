@@ -1,17 +1,19 @@
-//logs.js
-const util = require('../../utils/util.js')
+const ImgURL = {
+  COMPRESSED: 'https://raw.githubusercontent.com/ssthouse/mini-program-development-code/master/chapter_10/src/imgs/octocat-compressed.png',
+  ORIGIN: 'https://raw.githubusercontent.com/ssthouse/mini-program-development-code/master/chapter_10/src/imgs/octocat.png'
+}
 
 Page({
   data: {
-    imgUrl: '',
-    compressedImgUrl: '',
-    originImgUrl: '',
+    imgUrl: ImgURL.COMPRESSED,
   },
   onLoad: function () {
-    this.getImgLoader().loadImg(this.originImgUrl, () => {
-      this.setData({
-        imgUrl: this.originImgUrl
-      })
+    this.getImgLoader().loadImg(ImgURL.ORIGIN, () => {
+      setTimeout(() => {
+        this.setData({
+          imgUrl: ImgURL.ORIGIN
+        })
+      }, 1000)
     })
   },
   getImgLoader() {
