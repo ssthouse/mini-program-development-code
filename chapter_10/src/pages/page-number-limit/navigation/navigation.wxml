@@ -1,0 +1,8 @@
+<view class="navigation" style="height:60px; padding-top:24px; background-color: white;">
+  <view wx:if="{{needBack}}">
+    <view class="back" bindtap="navigateBack">
+      <image src="./navigation-back.png" class="back-icon"></image>
+    </view>
+  </view>
+  <view class="title" style="top: 24px; line-height:42px">页面数目限制</view>
+</view>

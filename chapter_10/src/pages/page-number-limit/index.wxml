@@ -1,0 +1,5 @@
+<navigation needBack="{{true}}"></navigation>
+<view class="container">
+  <text>页面 {{pageIndex}}</text>
+  <Button bindtap="onClickOpenNewPage">打开新页面</Button>
+</view>

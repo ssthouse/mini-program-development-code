@@ -2,6 +2,7 @@
   "pages": [
     "pages/img-list-optimize/index",
     "pages/img-preload/index",
+    "pages/page-number-limit/index",
     "pages/logs/logs"
   ],
   "window": {

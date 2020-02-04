@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "页面数目限制",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navigation": "/pages/page-number-limit/navigation/navigation"
+  }
+}

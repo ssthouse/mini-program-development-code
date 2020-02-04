@@ -34,6 +34,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    pageList: ['/pages/page-number-limit/index']
   }
 })
