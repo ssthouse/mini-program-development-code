@@ -20,7 +20,7 @@ function navigateBack() {
     wx.redirectTo({url: url})
   } else {
     // 如果两个数目一致, app.pageList pop, 当前页面navigateBack
-    const url = getApp().globalData.pageList.pop();
+    getApp().globalData.pageList.pop();
     wx.navigateBack()
   }
 }
