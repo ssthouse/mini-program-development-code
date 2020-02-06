@@ -6,6 +6,11 @@ Page({
     dataReporter.reportOpenPage('index-page')
   },
   onClickBtn() {
-    dataReporter.reportClickBtn('index-btn')
+    // dataReporter.reportClickBtn('index-btn')
+    wx.reportAnalytics('demo_event', // 事件名
+      {
+        'field_one': 'field_one_value',
+        'field_two': 'field_two_value'
+      })
   }
 })
