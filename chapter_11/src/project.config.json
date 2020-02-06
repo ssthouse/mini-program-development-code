@@ -1,0 +1,61 @@
+{
+	"description": "Project configuration file",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wxd67c6168ce9f928d",
+	"projectname": "chapter11",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+              {
+                "id": -1,
+                "name": "列表渲染优化",
+                "pathName": "pages/img-list-optimize/index",
+                "scene": null
+              },
+              {
+                "id": -1,
+                "name": "图片预加载",
+                "pathName": "pages/img-preload/index",
+                "scene": null
+              },
+              {
+                "id": -1,
+                "name": "页面数目限制",
+                "pathName": "pages/page-number-limit/index",
+                "scene": null
+              }
+            ]
+		}
+	}
+}
