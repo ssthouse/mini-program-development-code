@@ -39,20 +39,14 @@
 			"list": [
               {
                 "id": -1,
-                "name": "列表渲染优化",
-                "pathName": "pages/img-list-optimize/index",
+                "name": "数据上报",
+                "pathName": "pages/data-report/index",
                 "scene": null
               },
               {
                 "id": -1,
-                "name": "图片预加载",
-                "pathName": "pages/img-preload/index",
-                "scene": null
-              },
-              {
-                "id": -1,
-                "name": "页面数目限制",
-                "pathName": "pages/page-number-limit/index",
+                "name": "动态banner",
+                "pathName": "pages/dynamic-banner/index",
                 "scene": null
               }
             ]

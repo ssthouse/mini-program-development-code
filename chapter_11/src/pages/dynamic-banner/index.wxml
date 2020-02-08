@@ -1,0 +1,21 @@
+<view class="container">
+  <swiper class="banner"
+          previous-margin="{{previousMargin}}rpx"
+          next-margin="{{nextMargin}}rpx">
+
+    <swiper-item wx:for="{{bannerItems}}"
+                 wx:key="index"
+                 id="{{index}}"
+                 data-item="{{item}}"
+                 class="swiper-item"
+                 bindtap="onClickBanner"
+                 style="overflow: visible">
+      <view class="banner-item">
+        <image class="banner-image" src="{{item.imgUrl}}"></image>
+      </view>
+
+    </swiper-item>
+
+  </swiper>
+
+</view>
