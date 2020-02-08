@@ -48,6 +48,12 @@
                 "name": "动态banner",
                 "pathName": "pages/dynamic-banner/index",
                 "scene": null
+              },
+              {
+                "id": -1,
+                "name": "广告测试",
+                "pathName": "pages/ads/index",
+                "scene": null
               }
             ]
 		}
