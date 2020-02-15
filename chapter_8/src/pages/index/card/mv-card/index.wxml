@@ -1,0 +1,9 @@
+<view class="card">
+  <view class="square">
+    <image src="{{mv.picUrl}}"
+           class="cover-img"></image>
+  </view>
+
+  <text class="mv-name">{{mv.name}}</text>
+  <text class="artist-name">{{mv.artistName}}</text>
+</view>

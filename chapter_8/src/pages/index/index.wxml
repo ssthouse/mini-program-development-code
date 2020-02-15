@@ -41,5 +41,24 @@
         </song-card>
       </view>
     </view>
+
+    <!--    推荐MV-->
+    <view class="recommend-panel">
+      <view class="top-title">
+        <image src="./images/mv_icon.png"></image>
+        <text class="recommend-title">推荐MV</text>
+        <view class="placeholder"></view>
+        <text class="more-btn">更多></text>
+      </view>
+      <view class="card-list">
+        <mv-card wx:for="{{mvList}}"
+                   wx:for-item="mv"
+                   wx:key="{{index}}"
+                   mv="{{mv}}"
+                   class="mv-card">
+        </mv-card>
+      </view>
+    </view>
+
   </view>
 </view>
