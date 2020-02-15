@@ -1,0 +1,33 @@
+.square {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 26rpx;
+
+
+  .cover-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .radio-name{
+    max-lines: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+}

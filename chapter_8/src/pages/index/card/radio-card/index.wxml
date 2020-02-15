@@ -1,0 +1,8 @@
+<view class="card">
+  <view class="square">
+    <image src="{{radio.picUrl}}?param=200y200"
+           class="cover-img"></image>
+  </view>
+
+  <text class="radio-name">{{radio.name}}</text>
+</view>

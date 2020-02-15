@@ -60,5 +60,24 @@
       </view>
     </view>
 
+    <!--    主播电台-->
+    <view class="recommend-panel">
+      <view class="top-title">
+        <image src="./images/dj_icon.png"></image>
+        <text class="recommend-title">主播电台</text>
+        <view class="placeholder"></view>
+        <text class="more-btn">更多></text>
+      </view>
+      <view class="card-list">
+        <radio-card wx:for="{{djList}}"
+                 wx:for-item="radio"
+                 wx:key="{{index}}"
+                 radio="{{radio}}"
+                 class="card">
+        </radio-card>
+      </view>
+    </view>
+
+
   </view>
 </view>
