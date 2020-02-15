@@ -23,10 +23,10 @@ Page({
       ])
       this.setData({
         loading: false,
-        playlists,
-        newSongList,
-        mvList,
-        djList,
+        playlists: playlists.slice(0,6),
+        newSongList: newSongList.slice(0,6),
+        mvList: mvList.slice(0,6),
+        djList: djList.slice(0,6),
       })
     } catch (e) {
       wx.showToast({

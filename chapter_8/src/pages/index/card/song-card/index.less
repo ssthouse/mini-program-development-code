@@ -1,0 +1,33 @@
+.square {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 26rpx;
+
+
+  .cover-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .song-name{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .artist-name{
+    color: #666;
+  }
+
+}

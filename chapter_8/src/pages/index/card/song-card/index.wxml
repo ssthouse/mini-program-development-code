@@ -1,0 +1,9 @@
+<view class="card">
+  <view class="square">
+    <image src="{{song.picUrl}}?param=200y200"
+           class="cover-img"></image>
+  </view>
+
+  <text class="song-name">{{song.song.name}}</text>
+  <text class="artist-name">{{song.song.artists[0].name}}</text>
+</view>

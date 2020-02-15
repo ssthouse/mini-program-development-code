@@ -3,6 +3,7 @@
   "usingComponents": {
     "navigation-tab": "/components/navigation-tab/index",
     "action-panel": "/components/action-panel/index",
-    "playlist-card": "./card/playlist-card/index"
+    "playlist-card": "./card/playlist-card/index",
+    "song-card": "./card/song-card/index"
   }
 }

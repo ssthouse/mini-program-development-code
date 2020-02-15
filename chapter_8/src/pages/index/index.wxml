@@ -23,5 +23,23 @@
         </playlist-card>
       </view>
     </view>
+
+    <!--    最新音乐-->
+    <view class="recommend-panel">
+      <view class="top-title">
+        <image src="./images/new_song_icon.png"></image>
+        <text class="recommend-title">最新音乐</text>
+        <view class="placeholder"></view>
+        <text class="more-btn">更多></text>
+      </view>
+      <view class="card-list">
+        <song-card wx:for="{{newSongList}}"
+                       wx:for-item="song"
+                       wx:key="{{index}}"
+                       song="{{song}}"
+                       class="card">
+        </song-card>
+      </view>
+    </view>
   </view>
 </view>
