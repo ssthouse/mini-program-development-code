@@ -1,20 +1,16 @@
-page {
+.navigation-tab {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
+  justify-content: stretch;
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .tab-container {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
 
-  text {
-    font-size: 40px;
+    .tab-item {
+      flex-grow: 1;
+    }
   }
+
 }

@@ -1,0 +1,16 @@
+<view class="navigation-tab">
+  <view class="tab-container">
+    <view wx:for="{{tabList}}"
+          wx:for-item="tabItem"
+          wx:key="{{tabItem.id}}"
+          class="tab-item {{activeTabId === tabItem.id ? 'active' : ''}}"
+          data-tab="{{tabItem}}"
+    bindtap="onClickTab">
+      <text class="tab-title">{{tabItem.title}}</text>
+    </view>
+  </view>
+
+  <view class="search-btn" bindtap="onClickSearch">
+    <icon type="search" size="18" color="#666"/>
+  </view>
+</view>

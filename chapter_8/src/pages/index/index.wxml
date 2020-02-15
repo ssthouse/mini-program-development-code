@@ -1,2 +1,3 @@
 <view class="container">
+  <navigation-tab></navigation-tab>
 </view>
