@@ -1,3 +1,10 @@
 <view class="container">
   <navigation-tab></navigation-tab>
+
+  <view class="content">
+
+    <!--    个性推荐-->
+    <action-panel class="action-panel"/>
+
+  </view>
 </view>

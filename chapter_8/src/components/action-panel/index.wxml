@@ -1,0 +1,19 @@
+<view class="action-panel">
+  <navigator url="/pages/index/index"
+             class="action-item">
+    <image src="./images/personal_fm.png"></image>
+    <text>私人FM</text>
+  </navigator>
+
+  <navigator url="/pages/index"
+             class="action-item">
+    <view class="date-label">{{dateNumber}}</view>
+    <text>每日歌曲推荐</text>
+  </navigator>
+
+  <navigator url="/pages/index"
+             class="action-item">
+    <image src="./images/ranking.png"></image>
+    <text>云音乐热歌榜</text>
+  </navigator>
+</view>

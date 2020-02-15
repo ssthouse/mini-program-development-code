@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "navigation-tab": "/components/navigation-tab/index"
+    "navigation-tab": "/components/navigation-tab/index",
+    "action-panel": "/components/action-panel/index"
   }
 }
