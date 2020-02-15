@@ -5,7 +5,7 @@ const dao = require('../../dao/index')
 Page({
   data: {
     loading: true,
-    playList: [],
+    playlists: [],
     newSongList: [],
     mvList: [],
     djList: [],
@@ -15,15 +15,15 @@ Page({
   },
   async initData() {
     try {
-      const [playList, newSongList, mvList, djList] = await Promise.all([
-        dao.getRecommendPlaylist(),
+      const [playlists, newSongList, mvList, djList] = await Promise.all([
+        dao.getRecommendPlaylists(),
         dao.getRecommendNewSong(),
         dao.getRecommendMV(),
         dao.getRecommendDJ()
       ])
       this.setData({
         loading: false,
-        playList,
+        playlists,
         newSongList,
         mvList,
         djList,

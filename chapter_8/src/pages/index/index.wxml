@@ -6,5 +6,32 @@
     <!--    个性推荐-->
     <action-panel class="action-panel"/>
 
+    <!--    推荐歌单-->
+    <view class="recommend-panel">
+      <view class="top-title">
+        <image src="./images/calendar_icon.png"></image>
+        <text class="recommend-title">推荐歌单</text>
+        <view class="placeholder"></view>
+        <text class="more-btn">更多></text>
+      </view>
+      <view class="card-list">
+        <view wx:for="{{playlists}}"
+              wx:for-item="playlist"
+              wx:key="{{index}}"
+              class="card">
+          <view class="square">
+            <image src="{{playlist.picUrl}}?param=200y200"
+            class="cover-img"></image>
+
+            <view class="top-right-title">
+              <image class="count-icon" src="./images/headset_icon.png"></image>
+              {{playlist.playCount}}
+            </view>
+          </view>
+
+          <text class="title">{{playlist.name}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

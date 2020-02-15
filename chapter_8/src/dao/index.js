@@ -2,7 +2,7 @@ const regeneratorRuntime = require('../lib/runtime'); // eslint-disable-line
 
 const BASE_URL = `http://localhost:3000/v1/`
 
-async function getRecommendPlaylist() {
+async function getRecommendPlaylists() {
   return new Promise((resolve, reject) => {
     wx.request({
       url: BASE_URL + 'personalized',
@@ -53,7 +53,7 @@ async function getRecommendDJ() {
 }
 
 module.exports = {
-  getRecommendPlaylist,
+  getRecommendPlaylists,
   getRecommendNewSong,
   getRecommendMV,
   getRecommendDJ
