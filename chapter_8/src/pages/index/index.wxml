@@ -15,22 +15,12 @@
         <text class="more-btn">更多></text>
       </view>
       <view class="card-list">
-        <view wx:for="{{playlists}}"
-              wx:for-item="playlist"
-              wx:key="{{index}}"
-              class="card">
-          <view class="square">
-            <image src="{{playlist.picUrl}}?param=200y200"
-            class="cover-img"></image>
-
-            <view class="top-right-title">
-              <image class="count-icon" src="./images/headset_icon.png"></image>
-              {{playlist.playCount}}
-            </view>
-          </view>
-
-          <text class="title">{{playlist.name}}</text>
-        </view>
+        <playlist-card wx:for="{{playlists}}"
+                       wx:for-item="playlist"
+                       wx:key="{{index}}"
+                       playlist="{{playlist}}"
+                       class="card">
+        </playlist-card>
       </view>
     </view>
   </view>

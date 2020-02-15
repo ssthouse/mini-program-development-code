@@ -2,6 +2,7 @@
   "navigationBarTitleText": "首页",
   "usingComponents": {
     "navigation-tab": "/components/navigation-tab/index",
-    "action-panel": "/components/action-panel/index"
+    "action-panel": "/components/action-panel/index",
+    "playlist-card": "./card/playlist-card/index"
   }
 }
