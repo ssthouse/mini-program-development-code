@@ -42,6 +42,13 @@
                 "name": "首页",
                 "pathName": "pages/index/index",
                 "scene": null
+              },
+              {
+                "id": 0,
+                "name": "音乐播放页",
+                "pathName": "pages/play/index",
+                "query": "songId=1419789491",
+                "scene": null
               }
             ]
 		}

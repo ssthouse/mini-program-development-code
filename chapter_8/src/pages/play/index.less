@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .bg-img, .blur-bg-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-img {
+    z-index: -2;
+  }
+
+  .blur-bg-img {
+    filter: blur(20px) brightness(.8);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: scale(1.3);
+    z-index: -1;
+  }
+
+  // 转盘指针
+  .music-pointer{
+    width: 222rpx;
+    height: 366rpx;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    margin: -60rpx 0 0 60rpx;
+    transform-origin: 60rpx 60rpx;
+    transition: all linear .5s;
+
+    &.playing{
+      transform: rotate(-20deg);
+    }
+  }
+
+  // 中心转盘
+  .plate-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600rpx;
+    height: 600rpx;
+
+    .plate-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .song-cover{
+      z-index: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 400rpx;
+      height: 400rpx;
+    }
+  }
+
+  // 控制按钮
+  .control-panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    image{
+      width: 140rpx;
+      height: 140rpx;
+    }
+  }
+}

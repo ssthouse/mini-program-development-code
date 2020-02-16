@@ -1,0 +1,26 @@
+<view class="container">
+  <image src="./images/bg.jpg"
+         class="bg-img"></image>
+
+  <image src="{{songDetail.al.picUrl}}?param=600y600"
+         mode="aspectFill"
+         class="blur-bg-img"></image>
+
+  <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
+         src="./images/pointer.png"></image>
+
+  <!--  中心唱片-->
+  <view class="plate-container">
+    <image class="plate-bg"
+           src="./images/plate_bg.png"></image>
+    <image class="song-cover"
+           src="{{songDetail.al.picUrl}}?param=600y600"></image>
+  </view>
+
+  <view class="control-panel">
+    <image src="./images/previous_icon.png"></image>
+    <image src="./images/play_icon.png"
+           bindtap="onClickPlay"></image>
+    <image src="./images/next_icon.png"></image>
+  </view>
+</view>

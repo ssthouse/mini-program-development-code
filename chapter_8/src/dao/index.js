@@ -52,9 +52,23 @@ async function getRecommendDJ() {
   })
 }
 
+// 获取歌曲详情(用于播放页面)
+async function getSongDetail(songId) {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: BASE_URL + 'music/detail',
+      data: {id: songId},
+      success: function (res) {
+        resolve(res.data.songs[0])
+      }
+    })
+  })
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
   getRecommendMV,
-  getRecommendDJ
+  getRecommendDJ,
+  getSongDetail
 }
