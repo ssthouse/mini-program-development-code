@@ -17,6 +17,9 @@
            src="{{songDetail.al.picUrl}}?param=600y600"></image>
   </view>
 
+  <!--  歌词部分-->
+  <lyric lyric="{{lyric}}" progress="{{0.2}}"></lyric>
+
   <view class="control-panel">
     <image src="./images/previous_icon.png"></image>
     <image src="./images/play_icon.png"

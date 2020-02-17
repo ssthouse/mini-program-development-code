@@ -81,11 +81,27 @@ async function getMusicUrl(songId, br){
   })
 }
 
+// 获取歌词
+async function getLyric(songId) {
+  return new Promise((resolve, reject) =>{
+    wx.request({
+      url: BASE_URL + 'lyric',
+      data:{
+        id: songId
+      },
+      success: function (res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
   getRecommendMV,
   getRecommendDJ,
   getSongDetail,
-  getMusicUrl
+  getMusicUrl,
+  getLyric
 }

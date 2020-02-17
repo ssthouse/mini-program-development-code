@@ -2,6 +2,7 @@ const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
 
 const dao = require('../../dao/index')
 const player = require('../../utils/player')
+const lyricUtil = require('../../utils/lyric')
 
 Page({
   data: {
@@ -74,6 +75,7 @@ Page({
     songDetail: null,
     isPlaying: false,
     musicUrl: '',
+    lyric: null
   },
   onLoad(options) {
     const songId = options['songId']
@@ -82,6 +84,7 @@ Page({
       return
     }
     this.fetchSongDetail(songId)
+    this.fetchLyric(songId)
   },
   onClickPlay() {
     this.setData({
@@ -114,5 +117,12 @@ Page({
       });
       wx.navigateBack()
     }
+  },
+  async fetchLyric(songId) {
+    const lyric = await dao.getLyric(songId)
+    console.log('lyric', lyric)
+    this.setData({
+      lyric: lyricUtil.parseLyric(lyric.lrc.lyric)
+    })
   }
 })
