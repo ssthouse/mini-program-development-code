@@ -20,7 +20,11 @@
   <view class="control-panel">
     <image src="./images/previous_icon.png"></image>
     <image src="./images/play_icon.png"
-           bindtap="onClickPlay"></image>
+           bindtap="onClickPlay"
+           hidden="{{isPlaying}}"></image>
+    <image src="./images/pause_icon.png"
+           bindtap="onClickPause"
+           hidden="{{!isPlaying}}"></image>
     <image src="./images/next_icon.png"></image>
   </view>
 </view>

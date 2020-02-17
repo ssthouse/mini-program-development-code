@@ -1,6 +1,7 @@
 const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
 
 const dao = require('../../dao/index')
+const player = require('../../utils/player')
 
 Page({
   data: {
@@ -72,6 +73,7 @@ Page({
      */
     songDetail: null,
     isPlaying: false,
+    musicUrl: '',
   },
   onLoad(options) {
     const songId = options['songId']
@@ -83,8 +85,15 @@ Page({
   },
   onClickPlay() {
     this.setData({
-      isPlaying: !this.data.isPlaying,
+      isPlaying: true,
     })
+    player.playMusic(this.data.musicUrl)
+  },
+  onClickPause() {
+    this.setData({
+      isPlaying: false
+    })
+    player.pause()
   },
   async fetchSongDetail(songId) {
     try {
@@ -93,6 +102,10 @@ Page({
         songDetail
       })
       console.log(songDetail.al.picUrl)
+      const musicUrl = await dao.getMusicUrl(songId, songDetail.l.br)
+      this.setData({
+        musicUrl
+      })
     } catch (e) {
       wx.showToast({
         icon: 'none',
