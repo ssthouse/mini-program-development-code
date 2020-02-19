@@ -172,3 +172,16 @@ page {
     margin-top: 16px;
   }
 }
+
+@ratio: ~"750/1448";
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)
+, only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)
+, only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)
+, only screen and (max-aspect-ratio: @ratio){
+  .action-panel {
+    .start-new-game{
+      margin-top: 40px;
+    }
+  }
+}
