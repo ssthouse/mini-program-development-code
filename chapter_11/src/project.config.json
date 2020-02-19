@@ -54,6 +54,12 @@
                 "name": "广告测试",
                 "pathName": "pages/ads/index",
                 "scene": null
+              },
+              {
+                "id": -1,
+                "name": "长屏适配",
+                "pathName": "pages/index/index",
+                "scene": null
               }
             ]
 		}

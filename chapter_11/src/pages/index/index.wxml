@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="usermotto">
+    <text class="money-num" animation="{{numAnimation}}">{{moneyNum}}</text>
+    <text class="user-motto">块钱</text>
+  </view>
+</view>

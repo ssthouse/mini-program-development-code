@@ -29,5 +29,5 @@ function isSameMatrix(matrixA, matrixB) {
 // console.assert(isSameMatrix(targetMatrix, testBoard.rotateMatrix(originMatrix)), '二维数组旋转逻辑有误')
 
 test('rotated matrix should be same', () => {
-  expect(isSameMatrix(targetMatrix, testBoard.rotateMatrix(originMatrix))).toBe(true)
+  expect(!isSameMatrix(targetMatrix, testBoard.rotateMatrix(originMatrix))).toBe(true)
 })
