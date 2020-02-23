@@ -2,6 +2,7 @@ const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
 
 const dao = require('../../dao/index')
 const playerManager = require('../../utils/player-manager')
+const PLAYER_EVENT_TYPE = playerManager.EVENT_TYPE
 const lyricUtil = require('../../utils/lyric')
 
 const DISPLAY_MODE = {
@@ -96,14 +97,14 @@ Page({
     this.initPlayerListener()
   },
   onUnload() {
-    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_PLAY, this.onPlay)
-    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_PAUSE, this.onPause)
-    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
+    playerManager.unregisterEvent(PLAYER_EVENT_TYPE.ON_PLAY, this.onPlay)
+    playerManager.unregisterEvent(PLAYER_EVENT_TYPE.ON_PAUSE, this.onPause)
+    playerManager.unregisterEvent(PLAYER_EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
   },
   initPlayerListener() {
-    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_PLAY, this.onPlay)
-    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_PAUSE, this.onPause)
-    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
+    playerManager.registerEvent(PLAYER_EVENT_TYPE.ON_PLAY, this.onPlay)
+    playerManager.registerEvent(PLAYER_EVENT_TYPE.ON_PAUSE, this.onPause)
+    playerManager.registerEvent(PLAYER_EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
   },
   onPlay(){
     this.setData({
