@@ -1,6 +1,6 @@
 <view class="lyric-container">
   <view bindtap="closeLyric">
-    <view style="transform: translateY(-{{lrcindex*100/(lyric.lyricItems.length+6)}}%)">
+    <view style="transform: translateY(-{{currentIndex*100/(lyric.lyricItems.length+6)}}%)">
 <!--      <view wx:if="{{lrc.nolyric}}" class="notext">纯音乐，无歌词</view>-->
 <!--      <view wx:if="{{lrc.scroll&&!lrc.nolyric&&!lrc.uncollected}}" class="notext">*歌词不支持滚动*</view>-->
 <!--      <view wx:if="{{lrc.uncollected}}" class="notext">暂无歌词</view>-->

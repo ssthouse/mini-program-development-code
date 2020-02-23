@@ -25,7 +25,7 @@
   <view class="lyric-container">
     <lyric hidden="{{displayMode !== 'lyric'}}"
            lyric="{{lyric}}"
-           progress="{{0.2}}"></lyric>
+           currentIndex="{{lyricCurrentIndex}}"></lyric>
   </view>
 
   <view class="control-panel">

@@ -81,6 +81,7 @@ Page({
     isPlaying: false,
     musicUrl: '',
     lyric: null,
+    lyricCurrentIndex: 0,
     displayMode: DISPLAY_MODE.LYRIC
   },
   lyricRefreshInterval: null,// 歌词进度刷新interval
@@ -107,10 +108,26 @@ Page({
   // 刷新歌曲进度
   refreshSongProgress() {
     wx.getBackgroundAudioManager().onTimeUpdate((error) => {
-      if(error) return
-      // 获取当前进度
-
+      if (error) return
+      const lyricIndex = this.findCurrentLyricIndex(this.data.lyric,
+        wx.getBackgroundAudioManager().currentTime)
+      this.setData({
+        lyricCurrentIndex: lyricIndex
+      })
     })
+  },
+  /**
+   * 计算当前播放歌词的index
+   * @param lyric: Lyric
+   * @param currentTime: number current music play time
+   */
+  findCurrentLyricIndex(lyric, currentTime) {
+    let lyricIndex = 0
+    for (let i = 0; i < lyric.lyricItems.length; i++) {
+      const lyricItem = lyric.lyricItems[i]
+      if (lyricItem.second < currentTime) lyricIndex = i
+    }
+    return lyricIndex
   },
   onClickPause() {
     this.setData({
