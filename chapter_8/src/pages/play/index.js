@@ -1,7 +1,7 @@
 const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
 
 const dao = require('../../dao/index')
-const player = require('../../utils/player')
+const playerManager = require('../../utils/player-manager')
 const lyricUtil = require('../../utils/lyric')
 
 const DISPLAY_MODE = {
@@ -93,28 +93,38 @@ Page({
     }
     this.fetchSongDetail(songId)
     this.fetchLyric(songId)
+    this.initPlayerListener()
+  },
+  onUnload() {
+    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_PLAY, this.onPlay)
+    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_PAUSE, this.onPause)
+    playerManager.unregisterEvent(playerManager.EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
+  },
+  initPlayerListener() {
+    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_PLAY, this.onPlay)
+    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_PAUSE, this.onPause)
+    playerManager.registerEvent(playerManager.EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
+  },
+  onPlay(){
+    this.setData({
+      isPlaying: true
+    })
+  },
+  onPause(){
+    this.setData({
+      isPlaying: false
+    })
+  },
+  onPlayerTimeUpdate() {
+    const lyricIndex = this.findCurrentLyricIndex(this.data.lyric,
+      wx.getBackgroundAudioManager().currentTime)
+    this.setData({
+      lyricCurrentIndex: lyricIndex
+    })
   },
   onClickPlay() {
-    this.setData({
-      isPlaying: true,
-    })
     console.log('music url', this.data.musicUrl)
-    player.playMusic(this.data.musicUrl)
-    // 启动循环刷新interval
-    setInterval(() => {
-      this.refreshSongProgress()
-    }, 1000)
-  },
-  // 刷新歌曲进度
-  refreshSongProgress() {
-    wx.getBackgroundAudioManager().onTimeUpdate((error) => {
-      if (error) return
-      const lyricIndex = this.findCurrentLyricIndex(this.data.lyric,
-        wx.getBackgroundAudioManager().currentTime)
-      this.setData({
-        lyricCurrentIndex: lyricIndex
-      })
-    })
+    playerManager.playMusic(this.data.musicUrl)
   },
   /**
    * 计算当前播放歌词的index
@@ -130,10 +140,7 @@ Page({
     return lyricIndex
   },
   onClickPause() {
-    this.setData({
-      isPlaying: false
-    })
-    player.pause()
+    playerManager.pause()
   },
   async fetchSongDetail(songId) {
     try {
