@@ -55,6 +55,13 @@ function pause() {
   audioManager.pause()
 }
 
+function seekMusic(seekTime) {
+  if (seekTime < 0) return
+  const audioManager = wx.getBackgroundAudioManager()
+  audioManager.seek(seekTime)
+}
+
+
 init()
 
 module.exports = {
@@ -62,5 +69,6 @@ module.exports = {
   registerEvent,
   unregisterEvent,
   playMusic,
-  pause
+  pause,
+  seekMusic
 }

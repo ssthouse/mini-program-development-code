@@ -34,7 +34,8 @@
           style="width: 100%;"
           currentTime="{{currentTime}}"
           duration="{{duration}}"
-          downloadPercent="{{downloadPercent}}"></music-progress>
+          downloadPercent="{{downloadPercent}}"
+          bind:seek-music="onSeekMusic"></music-progress>
 
   <view class="control-panel">
     <image src="./images/previous_icon.png"></image>

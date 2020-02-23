@@ -125,5 +125,9 @@ Page({
     this.setData({
       displayMode: DISPLAY_MODE.LYRIC
     })
+  },
+  onSeekMusic(e) {
+    const seekTime = e.detail.seekTime
+    playerManager.seekMusic(seekTime)
   }
 })
