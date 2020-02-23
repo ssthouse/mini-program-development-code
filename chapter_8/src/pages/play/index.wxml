@@ -2,23 +2,31 @@
   <image src="./images/bg.jpg"
          class="bg-img"></image>
 
-  <image src="{{songDetail.al.picUrl}}?param=600y600"
-         mode="aspectFill"
-         class="blur-bg-img"></image>
+  <view hidden="{{displayMode !== 'cover'}}">
+    <image src="{{songDetail.al.picUrl}}?param=600y600"
+           mode="aspectFill"
+           class="blur-bg-img"></image>
 
-  <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
-         src="./images/pointer.png"></image>
+    <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
+           src="./images/pointer.png"></image>
 
-  <!--  中心唱片-->
-  <view class="plate-container">
-    <image class="plate-bg"
-           src="./images/plate_bg.png"></image>
-    <image class="song-cover"
-           src="{{songDetail.al.picUrl}}?param=600y600"></image>
+    <!--  中心唱片-->
+    <view class="plate-container">
+      <image class="plate-bg"
+             src="./images/plate_bg.png"></image>
+      <image class="song-cover"
+             src="{{songDetail.al.picUrl}}?param=600y600"></image>
+    </view>
+
   </view>
 
+
   <!--  歌词部分-->
-  <lyric lyric="{{lyric}}" progress="{{0.2}}"></lyric>
+  <view class="lyric-container">
+    <lyric hidden="{{displayMode !== 'lyric'}}"
+           lyric="{{lyric}}"
+           progress="{{0.2}}"></lyric>
+  </view>
 
   <view class="control-panel">
     <image src="./images/previous_icon.png"></image>

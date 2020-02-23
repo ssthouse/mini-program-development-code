@@ -27,7 +27,7 @@ Component({
       type: Object,
       value: {}
     },
-    progress: {
+    currentIndex: {
       type: Number,
       value: 0
     }

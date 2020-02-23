@@ -4,6 +4,11 @@ const dao = require('../../dao/index')
 const player = require('../../utils/player')
 const lyricUtil = require('../../utils/lyric')
 
+const DISPLAY_MODE = {
+  COVER: 'cover',
+  LYRIC: 'lyric'
+}
+
 Page({
   data: {
     /**
@@ -75,8 +80,10 @@ Page({
     songDetail: null,
     isPlaying: false,
     musicUrl: '',
-    lyric: null
+    lyric: null,
+    displayMode: DISPLAY_MODE.LYRIC
   },
+  lyricRefreshInterval: null,// 歌词进度刷新interval
   onLoad(options) {
     const songId = options['songId']
     if (!songId) {
@@ -90,7 +97,20 @@ Page({
     this.setData({
       isPlaying: true,
     })
+    console.log('music url', this.data.musicUrl)
     player.playMusic(this.data.musicUrl)
+    // 启动循环刷新interval
+    setInterval(() => {
+      this.refreshSongProgress()
+    }, 1000)
+  },
+  // 刷新歌曲进度
+  refreshSongProgress() {
+    wx.getBackgroundAudioManager().onTimeUpdate((error) => {
+      if(error) return
+      // 获取当前进度
+
+    })
   },
   onClickPause() {
     this.setData({

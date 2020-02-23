@@ -16,7 +16,6 @@ function parseLyric(lrcContentStr) {
         let lrc_sec = parseInt(tmp2[0] * 60 + tmp2[1] * 1);
         if (lrc_sec && (lrc_sec > 0)) {
           let lrc = (tmp[tmp.length - 1]).replace(/(^\s*)|(\s*$)/g, "");
-          lrc && lrcList.push({lrc_sec: lrc_sec, lrc: lrc});
           lrc && lrcList.push(new LyricItem(lrc, lrc_sec));
         }
       }
