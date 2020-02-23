@@ -2,11 +2,13 @@
   <image src="./images/bg.jpg"
          class="bg-img"></image>
 
-  <view hidden="{{displayMode !== 'cover'}}">
-    <image src="{{songDetail.al.picUrl}}?param=600y600"
-           mode="aspectFill"
-           class="blur-bg-img"></image>
+  <image src="{{songDetail.al.picUrl}}?param=600y600"
+         mode="aspectFill"
+         class="blur-bg-img"></image>
 
+  <view hidden="{{displayMode !== 'cover'}}"
+        bindtap="onCloseCover"
+        class="cover-container">
     <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
            src="./images/pointer.png"></image>
 
@@ -17,7 +19,6 @@
       <image class="song-cover"
              src="{{songDetail.al.picUrl}}?param=600y600"></image>
     </view>
-
   </view>
 
 
@@ -25,7 +26,8 @@
   <view class="lyric-container">
     <lyric hidden="{{displayMode !== 'lyric'}}"
            lyric="{{lyric}}"
-           currentIndex="{{lyricCurrentIndex}}"></lyric>
+           currentIndex="{{lyricCurrentIndex}}"
+           bind:click-lyric="onCloseLyric"></lyric>
   </view>
 
   <view class="control-panel">

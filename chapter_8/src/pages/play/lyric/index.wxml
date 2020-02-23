@@ -1,5 +1,5 @@
 <view class="lyric-container"
-      bindtap="closeLyric">
+      bindtap="clickLyric">
   <view style="transform: translateY(calc(-{{currentIndex*100/(lyric.lyricItems.length)}}% + 40vh)); transition: all ease 1s;"
         hidden="{{!lyric}}">
     <!--      <view wx:if="{{lrc.nolyric}}" class="notext">纯音乐，无歌词</view>-->

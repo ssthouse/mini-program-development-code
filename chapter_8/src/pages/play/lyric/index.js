@@ -31,5 +31,10 @@ Component({
       type: Number,
       value: 0
     }
+  },
+  methods:{
+    clickLyric() {
+      this.triggerEvent('click-lyric')
+    }
   }
 })

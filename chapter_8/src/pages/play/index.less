@@ -3,8 +3,8 @@ page{
   width: 100%;
 }
 
-[hidden=true]{
-  display: none;
+view[hidden]{
+  display: none!important;
 }
 
 .container {
@@ -29,54 +29,63 @@ page{
 
   .blur-bg-img {
     filter: blur(20px) brightness(.8);
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
     transform: scale(1.3);
     z-index: -1;
   }
 
-  // 转盘指针
-  .music-pointer{
-    width: 222rpx;
-    height: 366rpx;
-    position: absolute;
-    top: 0;
-    z-index: 99;
-    margin: -60rpx 0 0 60rpx;
-    transform-origin: 60rpx 60rpx;
-    transition: all linear .5s;
-
-    &.playing{
-      transform: rotate(-20deg);
-    }
-  }
-
-  // 中心转盘
-  .plate-container{
-    position: relative;
+  // 转盘封面
+  .cover-container{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 600rpx;
-    height: 600rpx;
 
-    .plate-bg {
+    // 转盘指针
+    .music-pointer{
+      width: 222rpx;
+      height: 366rpx;
       position: absolute;
-      left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
+      z-index: 99;
+      margin: -60rpx 0 0 60rpx;
+      transform-origin: 60rpx 60rpx;
+      transition: all linear .5s;
+      transform: rotate(-20deg);
+
+      &.playing{
+        transform: rotate(0deg);
+      }
     }
 
-    .song-cover{
-      z-index: 1;
-      border-radius: 50%;
-      overflow: hidden;
-      width: 400rpx;
-      height: 400rpx;
+    .plate-container{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 600rpx;
+      height: 600rpx;
+      margin-top: 14vh;
+
+      .plate-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .song-cover{
+        z-index: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 400rpx;
+        height: 400rpx;
+      }
     }
   }
+
 
   .lyric-container{
     height: 100%;

@@ -82,7 +82,7 @@ Page({
     musicUrl: '',
     lyric: null,
     lyricCurrentIndex: 0,
-    displayMode: DISPLAY_MODE.LYRIC
+    displayMode: DISPLAY_MODE.COVER
   },
   lyricRefreshInterval: null,// 歌词进度刷新interval
   onLoad(options) {
@@ -160,6 +160,16 @@ Page({
     console.log('lyric', lyric)
     this.setData({
       lyric: lyricUtil.parseLyric(lyric.lrc.lyric)
+    })
+  },
+  onCloseLyric() {
+    this.setData({
+      displayMode: DISPLAY_MODE.COVER
+    })
+  },
+  onCloseCover() {
+    this.setData({
+      displayMode: DISPLAY_MODE.LYRIC
     })
   }
 })
