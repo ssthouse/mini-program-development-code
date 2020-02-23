@@ -38,13 +38,15 @@
           bind:seek-music="onSeekMusic"></music-progress>
 
   <view class="control-panel">
-    <image src="./images/previous_icon.png"></image>
+    <image src="./images/previous_icon.png"
+           class="previous-btn"></image>
     <image src="./images/play_icon.png"
            bindtap="onClickPlay"
            hidden="{{isPlaying}}"></image>
     <image src="./images/pause_icon.png"
            bindtap="onClickPause"
            hidden="{{!isPlaying}}"></image>
-    <image src="./images/next_icon.png"></image>
+    <image src="./images/next_icon.png"
+           class="next-btn"></image>
   </view>
 </view>
