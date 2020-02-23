@@ -23,12 +23,18 @@
 
 
   <!--  歌词部分-->
-  <view class="lyric-container">
-    <lyric hidden="{{displayMode !== 'lyric'}}"
-           lyric="{{lyric}}"
+  <view class="lyric-container"
+        hidden="{{displayMode !== 'lyric'}}">
+    <lyric lyric="{{lyric}}"
            currentIndex="{{lyricCurrentIndex}}"
            bind:click-lyric="onCloseLyric"></lyric>
   </view>
+
+  <music-progress
+          style="width: 100%;"
+          currentTime="{{currentTime}}"
+          duration="{{duration}}"
+          downloadPercent="{{downloadPercent}}"></music-progress>
 
   <view class="control-panel">
     <image src="./images/previous_icon.png"></image>

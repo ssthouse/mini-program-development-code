@@ -1,0 +1,14 @@
+<view class="music-progress">
+  <text class="current-time-label label">{{playTimeLabel}}</text>
+  <slider bindchange="onSeek"
+          class="music-slide"
+          max="{{duration}}"
+          min="0"
+          step="1"
+          color="white"
+          activeColor="white"
+          backgroundColor="grey"
+          block-size="12"
+          value="{{currentTime}}"></slider>
+  <text class="duration-label label">{{durationTimeLabel}}</text>
+</view>

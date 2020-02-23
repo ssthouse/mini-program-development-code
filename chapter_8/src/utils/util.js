@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatMusicTime = (second) =>{
+  return `${(Math.floor(second/60)+'').padStart(2, '0')}:${(Math.floor(second%60)+'').padStart(2, '0')}`
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime,
+  formatMusicTime
 }
