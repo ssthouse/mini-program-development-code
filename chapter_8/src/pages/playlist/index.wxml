@@ -1,7 +1,8 @@
 <view class="container">
 
   <!--  上面的详情面板-->
-  <view style="position: relative; overflow: hidden;">
+  <view class="playlist-detail"
+        style="position: relative; overflow: hidden;">
 
     <image src="{{playlistDetail.playlist.coverImgUrl}}"
            class="blur-bg"
@@ -17,25 +18,24 @@
         <!--      歌名-->
         <text>{{playlistDetail.playlist.name}}</text>
         <!--      用户icon-->
-        <view>
-          <user-info nick-name="{{creator.nickname}}"
-                     avatar-url="{{creator.avatarUrl}}"
-                     user-id="{{creator.userId}}"></user-info>
-        </view>
+        <user-info nick-name="{{creator.nickname}}"
+                   avatar-url="{{creator.avatarUrl}}"
+                   user-id="{{creator.userId}}"></user-info>
       </view>
     </view>
 
     <!--    歌单UGC数据-->
-    <view>
-      <ugc-panel collectNum="{{playlist.subscribedCount}}"
-                 commentNum="{{playlist.commentCount}}"
-                 shareNum="{{playlist.shareCount}}"></ugc-panel>
-    </view>
+    <ugc-panel collectNum="{{playlist.subscribedCount}}"
+               commentNum="{{playlist.commentCount}}"
+               shareNum="{{playlist.shareCount}}"></ugc-panel>
   </view>
 
   <!--  播放歌单按钮-->
-  <view>
-    播放全部(共{{playlist.trackCount}}首)
+  <view class="play-all-row">
+    <image src="./images/play-icon.png"
+           mode="widthFix"
+           class="play-icon"></image>
+    <text>播放全部(共{{playlist.trackCount}}首)</text>
   </view>
 
   <!--  歌曲列表-->
