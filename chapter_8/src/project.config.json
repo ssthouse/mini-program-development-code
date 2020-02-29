@@ -49,6 +49,13 @@
                 "pathName": "pages/play/index",
                 "query": "songId=1419789491",
                 "scene": null
+              },
+              {
+                "id": 1,
+                "name": "歌单页面",
+                "pathName": "pages/playlist/index",
+                "query": "playlistId=3080807257",
+                "scene": null
               }
             ]
 		}

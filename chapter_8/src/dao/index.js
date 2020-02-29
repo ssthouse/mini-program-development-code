@@ -96,6 +96,21 @@ async function getLyric(songId) {
   })
 }
 
+// 获取歌单详情
+async function getPlaylistDetail(playlistId) {
+  return new Promise((resolve, reject) =>{
+    wx.request({
+      url: BASE_URL + 'playlist/detail',
+      data:{
+        id: playlistId
+      },
+      success: function (res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -103,5 +118,6 @@ module.exports = {
   getRecommendDJ,
   getSongDetail,
   getMusicUrl,
-  getLyric
+  getLyric,
+  getPlaylistDetail
 }

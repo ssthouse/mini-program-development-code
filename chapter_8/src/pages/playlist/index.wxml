@@ -1,0 +1,36 @@
+<view class="container">
+
+  <!--  上面的详情面板-->
+  <view>
+    <view class="row-container">
+      <!--      歌单封面-->
+      <playlist-card playlist="{{playlistDetail.playlist}}"
+                     showBottomTitle="{{false}}"
+                     class="playlist-cover"/>
+
+      <view>
+        <!--      歌名-->
+        <text>{{playlistDetail.playlist.name}}</text>
+        <!--      用户icon-->
+      </view>
+    </view>
+
+    <!--    歌单UGC数据-->
+    <view>
+
+    </view>
+  </view>
+
+  <!--  播放歌单按钮-->
+  <view>
+    播放全部(共101首)
+  </view>
+
+  <!--  歌曲列表-->
+  <view class="song-list">
+    <view wx:for="{{playlistDetail.playlist.tracks}}"
+          wx:for-item="track">
+      {{track.name}}
+    </view>
+  </view>
+</view>

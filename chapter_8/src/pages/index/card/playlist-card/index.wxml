@@ -1,6 +1,6 @@
 <view class="card">
   <view class="square">
-    <image src="{{playlist.picUrl}}?param=200y200"
+    <image src="{{playlist.picUrl || playlist.coverImgUrl}}?param=200y200"
            class="cover-img"></image>
 
     <view class="top-right-title">
@@ -9,5 +9,5 @@
     </view>
   </view>
 
-  <text class="title">{{playlist.name}}</text>
+  <text class="title" wx-if="{{showBottomTitle}}">{{playlist.name}}</text>
 </view>

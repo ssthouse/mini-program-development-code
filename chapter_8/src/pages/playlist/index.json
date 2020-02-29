@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "歌单详情",
+  "usingComponents": {
+    "playlist-card": "/pages/index/card/playlist-card/index"
+  }
+}

@@ -15,6 +15,10 @@ Component({
         trackNumberUpdateTime: 1581729072582,
         type: 0,
       }
+    },
+    showBottomTitle:{
+      type:Boolean,
+      value: true,
     }
   },
   data: {
