@@ -18,7 +18,7 @@ function formatCommentTime(timestamp) {
   // 今天
   if (isToday(timestamp)) {
     if (Date.now() - date.getTime() < ONE_HOUR) {
-      return `${(date.getTime() - Date.now()) / ONE_MINUTE}分钟前`
+      return `${Math.floor((Date.now() - date.getTime()) / ONE_MINUTE)}分钟前`
     }
     return `${date.getHours()}:${date.getMinutes()}`
   }
