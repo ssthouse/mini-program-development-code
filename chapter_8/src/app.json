@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/play/index",
-    "pages/playlist/index"
+    "pages/playlist/index",
+    "pages/comment/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

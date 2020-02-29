@@ -1,0 +1,25 @@
+<view class="comment-item">
+
+  <view class="comment-info-row">
+    <image class="user-avatar"
+           mode="widthFix"
+           src="{{comment.user.avatarUrl}}"/>
+
+    <view class="column-layout">
+      <text class="nick-name">{{comment.user.nickname}}</text>
+      <text class="comment-time">{{comment.time}}</text>
+    </view>
+
+    <view class="placeholder"></view>
+
+    <text class="star-number">{{comment.likedCount}}</text>
+    <image src="./images/star.png"
+           mode="widthFix"
+           class="star-icon"/>
+
+  </view>
+
+  <view class="comment-content">
+    {{comment.content}}
+  </view>
+</view>

@@ -112,6 +112,23 @@ async function getPlaylistDetail(playlistId) {
   })
 }
 
+// 获取评论列表
+async function getCommentList(commentThreadId, offset=0, limit=20){
+  return new Promise((resolve) => {
+    wx.request({
+      url: BASE_URL + 'comments',
+      data:{
+        id: commentThreadId,
+        offset,
+        limit
+      },
+      success: function (res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -120,5 +137,6 @@ module.exports = {
   getSongDetail,
   getMusicUrl,
   getLyric,
-  getPlaylistDetail
+  getPlaylistDetail,
+  getCommentList
 }

@@ -56,6 +56,13 @@
                 "pathName": "pages/playlist/index",
                 "query": "playlistId=3203915472",
                 "scene": null
+              },
+              {
+                "id": 2,
+                "name": "评论页",
+                "pathName": "pages/comment/index",
+                "query": "from=playlist&id=A_PL_0_3186978831",
+                "scene": null
               }
             ]
 		}
