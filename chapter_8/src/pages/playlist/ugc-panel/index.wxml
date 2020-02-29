@@ -1,0 +1,20 @@
+<view class="ugc-panel" bindtap="onClick">
+  <view>
+    <image class="icon"
+           mode="widthFix"
+           src="./images/collect.png"></image>
+    <text class="count-number">{{collectNum}}</text>
+  </view>
+  <view bindtap="{{onClickComment}}">
+    <image class="icon"
+           mode="widthFix"
+           src="./images/comment.png"></image>
+    <text class="count-number">{{commentNum}}</text>
+  </view>
+  <view bindtap="{{onClickShare}}">
+    <image class="icon"
+           mode="widthFix"
+           src="./images/share.png"></image>
+    <text class="count-number">{{shareNum}}</text>
+  </view>
+</view>

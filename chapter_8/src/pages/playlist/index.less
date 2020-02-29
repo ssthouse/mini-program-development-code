@@ -1,9 +1,59 @@
-.row-container{
+.blur-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(30px) brightness(0.8);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+.row-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.playlist-cover{
+.playlist-cover {
   width: 32%;
+}
+
+
+.song-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #e1e2e3;
+  padding: 12rpx 0;
+
+  .index-label{
+    font-size: 28rpx;
+    color: #666666;
+    width: 72rpx;
+    text-align: center;
+  }
+
+  .song-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .song-name{
+      font-size: 32rpx;
+      color: black;
+    }
+
+    .song-source{
+      font-size: 24rpx;
+      color: #666666;
+    }
+  }
+
+  .placeholder {
+    flex: 1;
+  }
 }

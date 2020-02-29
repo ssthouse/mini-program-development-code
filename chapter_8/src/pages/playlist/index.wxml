@@ -1,7 +1,12 @@
 <view class="container">
 
   <!--  上面的详情面板-->
-  <view>
+  <view style="position: relative; overflow: hidden;">
+
+    <image src="{{playlistDetail.playlist.coverImgUrl}}"
+           class="blur-bg"
+           mode="widthFix"/>
+
     <view class="row-container">
       <!--      歌单封面-->
       <playlist-card playlist="{{playlistDetail.playlist}}"
@@ -12,25 +17,39 @@
         <!--      歌名-->
         <text>{{playlistDetail.playlist.name}}</text>
         <!--      用户icon-->
+        <view>
+          <user-info nick-name="{{creator.nickname}}"
+                     avatar-url="{{creator.avatarUrl}}"
+                     user-id="{{creator.userId}}"></user-info>
+        </view>
       </view>
     </view>
 
     <!--    歌单UGC数据-->
     <view>
-
+      <ugc-panel collectNum="{{playlist.subscribedCount}}"
+                 commentNum="{{playlist.commentCount}}"
+                 shareNum="{{playlist.shareCount}}"></ugc-panel>
     </view>
   </view>
 
   <!--  播放歌单按钮-->
   <view>
-    播放全部(共101首)
+    播放全部(共{{playlist.trackCount}}首)
   </view>
 
   <!--  歌曲列表-->
   <view class="song-list">
     <view wx:for="{{playlistDetail.playlist.tracks}}"
-          wx:for-item="track">
-      {{track.name}}
+          wx:for-item="track"
+          class="song-row">
+      <text class="index-label">{{index + 1}}</text>
+      <view class="song-info">
+        <text class="song-name">{{track.name}}</text>
+        <text class="song-source">{{track.ar[0].name + '-' + track.al.name}}</text>
+      </view>
+
+      <view class="placeholder"></view>
     </view>
   </view>
 </view>

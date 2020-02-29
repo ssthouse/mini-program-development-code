@@ -102,7 +102,8 @@ async function getPlaylistDetail(playlistId) {
     wx.request({
       url: BASE_URL + 'playlist/detail',
       data:{
-        id: playlistId
+        id: playlistId,
+        limit: 1000,
       },
       success: function (res) {
         resolve(res.data)

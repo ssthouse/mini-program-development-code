@@ -4,6 +4,8 @@ const dao = require('../../dao/index')
 Page({
   data: {
     playlistDetail: null,
+    playlist: null,
+    creator: null,
   },
   onLoad(options) {
     if (!options.playlistId) {
@@ -17,7 +19,9 @@ Page({
     try {
       const playlistDetail = await dao.getPlaylistDetail(playlistId)
       this.setData({
-        playlistDetail
+        playlistDetail,
+        creator: playlistDetail.playlist.creator,
+        playlist: playlistDetail.playlist
       })
       wx.hideLoading()
     } catch (e) {

@@ -1,0 +1,7 @@
+<view class="user-info" bindtap="onClick">
+  <image class="user-avatar"
+       mode="widthFix"
+       src="{{avatarUrl}}"/>
+
+  <text class="nick-name">{{nickName}}</text>
+</view>
