@@ -31,4 +31,16 @@ Page({
       })
     }
   },
+  onClickSong(e) {
+    const track = e.currentTarget.dataset.song
+    wx.navigateTo({
+      url: `/pages/play/index?songId=${track.id}`
+    })
+  },
+  onClickMV(e) {
+    const mvId = e.currentTarget.dataset.mvId
+    wx.navigateTo({
+      url: `/pages/mv/index?mvId=${mvId}`
+    })
+  }
 })

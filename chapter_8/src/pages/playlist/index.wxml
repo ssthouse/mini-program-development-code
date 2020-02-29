@@ -42,7 +42,9 @@
   <view class="song-list">
     <view wx:for="{{playlistDetail.playlist.tracks}}"
           wx:for-item="track"
-          class="song-row">
+          class="song-row"
+          data-song="{{track}}"
+          bindtap="onClickSong">
       <text class="index-label">{{index + 1}}</text>
       <view class="song-info">
         <text class="song-name">{{track.name}}</text>
@@ -50,6 +52,14 @@
       </view>
 
       <view class="placeholder"></view>
+
+      <!--      MV按钮-->
+      <image wx:if="{{track.mv !== 0}}"
+             src="./images/mv.png"
+             mode="widthFix"
+             style="width: 54rpx;"
+             data-mv-id="{{track.mv}}"
+             catchtap="onClickMV"></image>
     </view>
   </view>
 </view>
