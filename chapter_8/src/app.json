@@ -4,7 +4,8 @@
     "pages/play/index",
     "pages/playlist/index",
     "pages/comment/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/mv/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

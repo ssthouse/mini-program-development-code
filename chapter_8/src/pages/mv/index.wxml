@@ -1,0 +1,4 @@
+<view class="container">
+
+  <loading-panel wx:if="{{showLoading}}"></loading-panel>
+</view>

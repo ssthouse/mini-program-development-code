@@ -161,6 +161,21 @@ async function getUserPlaylist(uid, offset, limit) {
   }))
 }
 
+// 获取MV详情
+async function getMvDetail(id) {
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'mv',
+      data: {
+        id
+      },
+      success(res) {
+        resolve(res.data.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -172,5 +187,6 @@ module.exports = {
   getPlaylistDetail,
   getCommentList,
   getUserProfile,
-  getUserPlaylist
+  getUserPlaylist,
+  getMvDetail
 }
