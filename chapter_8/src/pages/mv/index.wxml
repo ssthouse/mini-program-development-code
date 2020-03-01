@@ -31,8 +31,9 @@
   </view>
 
 
-  <view class="mv-comment-panel">
-
+  <view class="mv-comment-panel"
+  wx:if="{{currentTab === TAB_NAME.COMMENT}}">
+    <comment-thread comment-thread-id="{{mvDetail.commentThreadId}}"></comment-thread>
   </view>
 
   <view class="related-mv-panel">
