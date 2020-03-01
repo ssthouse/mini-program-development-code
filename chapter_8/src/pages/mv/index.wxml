@@ -39,16 +39,17 @@
 
   <view class="related-mv-panel"
         wx:if="{{currentTab === TAB_NAME.RELATED_MV}}">
-    <view wx:for="{{recommendMvList}}"
-          wx:for-item="mv"
-          wx:key="{{index}}"
-          class="mv-item">
+    <navigator wx:for="{{recommendMvList}}"
+               wx:for-item="mv"
+               wx:key="{{index}}"
+               class="mv-item"
+               url="/pages/mv/index?id={{mv.id}}">
       <image src="{{mv.cover}}"
              class="mv-cover"
              mode="widthFix"></image>
-        <view class="mv-name">{{mv.name}}</view>
-        <view class="singer">{{mv.artistName}}</view>
-    </view>
+      <view class="mv-name">{{mv.name}}</view>
+      <view class="singer">{{mv.artistName}}</view>
+    </navigator>
   </view>
 
   <loading-panel wx:if="{{showLoading}}"></loading-panel>
