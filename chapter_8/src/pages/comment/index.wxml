@@ -1,5 +1,6 @@
 <view class="container">
   <!--热门评论列表-->
+  <view class="comment-title">热门评论</view>
   <view class="hot-comment-list">
     <comment-item wx:for="{{hotComments}}"
                   wx:for-item="commentItem"
@@ -9,6 +10,7 @@
   </view>
 
   <!--  普通评论列表-->
+  <view class="comment-title">精彩评论</view>
   <view class="comment-list">
     <comment-item wx:for="{{comments}}"
                   wx:for-item="commentItem"
