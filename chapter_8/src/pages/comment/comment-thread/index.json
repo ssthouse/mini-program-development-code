@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "comment-item": "../comment-item/index",
+    "loading-panel": "/components/loading-panel/index"
+  }
+}

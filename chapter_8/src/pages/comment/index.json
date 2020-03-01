@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "评论页",
   "usingComponents": {
-    "comment-item": "./comment-item/index",
-    "loading-panel": "/components/loading-panel/index"
+    "comment-thread": "./comment-thread/index"
   }
 }
