@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 0 32rpx;
 
   .basic-info{
     display: flex;
@@ -13,9 +14,13 @@
     justify-content: flex-start;
 
     .avatar{
-      width: 56rpx;
-      height: 56rpx;
+      width: 96rpx;
+      height: 96rpx;
       border-radius: 50%;
+    }
+
+    >text{
+      padding: 0 16rpx;
     }
 
     .gender-icon{
@@ -25,7 +30,7 @@
   }
 
   .signature{
-    font-size: 32rpx;
+    font-size: 28rpx;
   }
 
   .ugc-info{
@@ -41,6 +46,45 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+  }
+
+}
+
+
+.playlist-title{
+  display: flex;
+  background-color: #eeeeee;
+  font-size: 32rpx;
+  padding: 12rpx 16rpx;
+  color: #666666;
+}
+
+.playlist-item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16rpx;
+  border-bottom: 1rpx solid #e1e2e3;
+
+  .cover-img{
+    width: 96rpx;
+    height: 96rpx;
+  }
+
+  .playlist-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 16rpx;
+
+    .name{
+      font-size: 32rpx;
+    }
+
+    .info{
+      font-size: 24rpx;
+      color: #999;
     }
   }
 

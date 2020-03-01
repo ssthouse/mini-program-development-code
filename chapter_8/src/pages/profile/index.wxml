@@ -7,7 +7,7 @@
              src="{{profile.avatarUrl}}"></image>
       <text>{{profile.nickname}}</text>
       <image class="gender-icon"
-             src="{{profile.gender === 1 ? './images/boy-icon.png' : '.images/girl-icon.png'}}"></image>
+             src="{{profile.gender === 1 ? './images/boy-icon.png' : './images/girl-icon.png'}}"></image>
     </view>
 
     <text class="signature">
@@ -27,6 +27,21 @@
         <text>{{profile.followeds}}</text>
         <text>粉丝</text>
       </view>
+    </view>
+  </view>
+
+  <view class="playlist-title">
+    <text>{{profile.nickname}}的歌单(共{{profile.playlistCount}}个歌单)</text>
+  </view>
+
+  <view wx:for="{{playlists}}"
+        wx:key="{{index}}"
+        wx:for-item="playlist"
+        class="playlist-item">
+    <image class="cover-img" src="{{playlist.coverImgUrl}}"></image>
+    <view class="playlist-info">
+      <text class="name">{{playlist.name}}</text>
+      <text class="info">共{{playlist.trackCount}}首, 播放{{playlist.playCount}}次</text>
     </view>
   </view>
 
