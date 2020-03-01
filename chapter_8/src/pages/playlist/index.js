@@ -48,5 +48,10 @@ Page({
     wx.navigateTo({
       url: `/pages/comment/index?id=${commentThreadId}`
     })
+  },
+  onClickUserInfo(e) {
+    wx.navigateTo({
+      url: `/pages/profile/index?uid=${e.detail}`
+    })
   }
 })

@@ -20,7 +20,8 @@
         <!--      用户icon-->
         <user-info nick-name="{{creator.nickname}}"
                    avatar-url="{{creator.avatarUrl}}"
-                   user-id="{{creator.userId}}"></user-info>
+                   user-id="{{creator.userId}}"
+        bind:click="onClickUserInfo"></user-info>
       </view>
     </view>
 
