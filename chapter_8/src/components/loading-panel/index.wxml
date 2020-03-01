@@ -1,0 +1,6 @@
+<view class="loading-panel">
+  <text class="loading-label">加载中...</text>
+  <view class="block block-one"></view>
+  <view class="block block-two"></view>
+  <view class="block block-three"></view>
+</view>

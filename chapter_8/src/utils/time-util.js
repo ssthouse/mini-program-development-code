@@ -26,7 +26,7 @@ function formatCommentTime(timestamp) {
   if (isYesterday(timestamp)) {
     return `昨天${date.getHours()}:${date.getMinutes()}`
   }
-  return `${date.getFullYear()}年${date.getMonth()}月${date.getDay()} ${date.getHours()}:${date.getMinutes()}`;
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
 }
 
 module.exports = {

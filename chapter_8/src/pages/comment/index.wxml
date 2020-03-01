@@ -1,4 +1,6 @@
 <view class="container">
+
+
   <!--热门评论列表-->
   <view class="comment-title">热门评论</view>
   <view class="hot-comment-list">
@@ -18,4 +20,6 @@
                   wx:key="{{index}}">
     </comment-item>
   </view>
+
+  <loading-panel wx:if="{{showLoading}}"></loading-panel>
 </view>

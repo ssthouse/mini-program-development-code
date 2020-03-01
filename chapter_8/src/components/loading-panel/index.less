@@ -1,0 +1,44 @@
+@keyframes jump {
+  0% {
+    height: 8rpx;
+  }
+
+  50% {
+    height: 32rpx;
+  }
+
+  100%{
+    height: 8rpx;
+  }
+}
+
+.loading-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120rpx;
+  font-size: 28rpx;
+  color: #999;
+
+  .loading-label{
+    padding: 0 8rpx;
+  }
+
+  .block {
+    display: inline-block;
+    width: 4rpx;
+    background-color: red;
+    animation: 0.8s ease-in-out jump infinite;
+    margin: 0 4rpx;
+  }
+
+  .block-one{
+    animation-delay: 0s;
+  }
+  .block-two{
+    animation-delay: 0.1s;
+  }
+  .block-three{
+    animation-delay: 0.2s;
+  }
+}
