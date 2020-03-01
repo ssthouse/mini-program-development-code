@@ -1,0 +1,47 @@
+.top-panel{
+  background-size: 100%;
+  background-position: center center;
+  height: 40vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .basic-info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .avatar{
+      width: 56rpx;
+      height: 56rpx;
+      border-radius: 50%;
+    }
+
+    .gender-icon{
+      width: 24rpx;
+      height: 24rpx;
+    }
+  }
+
+  .signature{
+    font-size: 32rpx;
+  }
+
+  .ugc-info{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    background-color: #3d3d3d55;
+    font-size: 28rpx;
+
+    > view{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+}

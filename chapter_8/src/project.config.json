@@ -63,6 +63,13 @@
                 "pathName": "pages/comment/index",
                 "query": "from=playlist&id=A_PL_0_3186978831",
                 "scene": null
+              },
+              {
+                "id": 3,
+                "name": "个人页",
+                "pathName": "pages/profile/index",
+                "query": "uid=34885501",
+                "scene": null
               }
             ]
 		}

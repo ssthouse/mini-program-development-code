@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "个人页",
+  "usingComponents": {
+    "loading-panel": "/components/loading-panel/index"
+  }
+}

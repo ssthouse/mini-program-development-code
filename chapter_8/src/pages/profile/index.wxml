@@ -1,0 +1,34 @@
+<view class="container">
+
+  <view class="top-panel"
+        style="background-image: url({{profile.backgroundUrl}})">
+    <view class="basic-info">
+      <image class="avatar"
+             src="{{profile.avatarUrl}}"></image>
+      <text>{{profile.nickname}}</text>
+      <image class="gender-icon"
+             src="{{profile.gender === 1 ? './images/boy-icon.png' : '.images/girl-icon.png'}}"></image>
+    </view>
+
+    <text class="signature">
+      {{profile.signature}}
+    </text>
+
+    <view class="ugc-info">
+      <view>
+        <text>{{profile.eventCount}}</text>
+        <text>动态</text>
+      </view>
+      <view>
+        <text>{{profile.follows}}</text>
+        <text>关注</text>
+      </view>
+      <view>
+        <text>{{profile.followeds}}</text>
+        <text>粉丝</text>
+      </view>
+    </view>
+  </view>
+
+  <loading-panel wx:if="{{showLoading}}"></loading-panel>
+</view>

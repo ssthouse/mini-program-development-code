@@ -129,6 +129,38 @@ async function getCommentList(commentThreadId, offset=0, limit=20){
   })
 }
 
+// 获取用户profile
+async function getUserProfile(uid) {
+  return new Promise((resolve) => {
+    wx.request({
+      url: BASE_URL + 'user/detail',
+      data:{
+        uid
+      },
+      success: function (res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
+// 获取用户歌单
+async function getUserPlaylist(uid, offset, limit) {
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'user/playlist',
+      data: {
+        uid,
+        offset,
+        limit
+      },
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -138,5 +170,7 @@ module.exports = {
   getMusicUrl,
   getLyric,
   getPlaylistDetail,
-  getCommentList
+  getCommentList,
+  getUserProfile,
+  getUserPlaylist
 }
