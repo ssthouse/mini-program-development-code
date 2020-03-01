@@ -9,6 +9,7 @@ Page({
     newSongList: [],
     mvList: [],
     djList: [],
+    currentTabId: 'recommend'
   },
   onLoad() {
     this.initData()
@@ -35,5 +36,11 @@ Page({
         title: '获取数据失败, 请稍后重试'
       });
     }
+  },
+  onChangeTab(e) {
+    const tabId = e.detail
+    this.setData({
+      currentTabId: tabId
+    })
   }
 })

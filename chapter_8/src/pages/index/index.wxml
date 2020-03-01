@@ -1,10 +1,8 @@
 <view class="container">
-  <navigation-tab></navigation-tab>
+  <navigation-tab bind:change-tab="onChangeTab"></navigation-tab>
 
-  <view class="content">
-
-    <!--    个性推荐-->
-    <action-panel class="action-panel"/>
+  <view class="content recommend-tab"
+        hidden="{{currentTabId !== 'recommend'}}">
 
     <!--    推荐歌单-->
     <view class="recommend-panel">
@@ -34,10 +32,10 @@
       </view>
       <view class="card-list">
         <song-card wx:for="{{newSongList}}"
-                       wx:for-item="song"
-                       wx:key="{{index}}"
-                       song="{{song}}"
-                       class="card">
+                   wx:for-item="song"
+                   wx:key="{{index}}"
+                   song="{{song}}"
+                   class="card">
         </song-card>
       </view>
     </view>
@@ -52,10 +50,10 @@
       </view>
       <view class="card-list">
         <mv-card wx:for="{{mvList}}"
-                   wx:for-item="mv"
-                   wx:key="{{index}}"
-                   mv="{{mv}}"
-                   class="mv-card">
+                 wx:for-item="mv"
+                 wx:key="{{index}}"
+                 mv="{{mv}}"
+                 class="mv-card">
         </mv-card>
       </view>
     </view>
@@ -70,14 +68,27 @@
       </view>
       <view class="card-list">
         <radio-card wx:for="{{djList}}"
-                 wx:for-item="radio"
-                 wx:key="{{index}}"
-                 radio="{{radio}}"
-                 class="card">
+                    wx:for-item="radio"
+                    wx:key="{{index}}"
+                    radio="{{radio}}"
+                    class="card">
         </radio-card>
       </view>
     </view>
+  </view>
 
+  <view class="content playlist-tab"
+          hidden="{{currentTabId !== 'playlist'}}">
+    <playlist-tab></playlist-tab>
+  </view>
+
+  <view class="content radio-tab"
+        hidden="{{currentTabId !== 'radio'}}">
+
+  </view>
+
+  <view class="content ranking-tab"
+        hidden="{{currentTabId !== 'ranking'}}">
 
   </view>
 </view>
