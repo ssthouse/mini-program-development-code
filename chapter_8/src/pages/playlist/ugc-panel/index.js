@@ -20,10 +20,10 @@ Component({
   data: {},
   methods: {
     onClickComment() {
-      this.triggerEvent('clickComment', this.data.playlistId)
+      this.triggerEvent('click-comment', this.data.playlistId)
     },
     onClickShare() {
-      this.triggerEvent('clickShare', this.data.playlistId)
+      this.triggerEvent('click-share', this.data.playlistId)
     }
   }
 });

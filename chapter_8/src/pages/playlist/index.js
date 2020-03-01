@@ -42,5 +42,11 @@ Page({
     wx.navigateTo({
       url: `/pages/mv/index?mvId=${mvId}`
     })
+  },
+  onClickComment() {
+    const commentThreadId = this.data.playlist.commentThreadId
+    wx.navigateTo({
+      url: `/pages/comment/index?id=${commentThreadId}`
+    })
   }
 })

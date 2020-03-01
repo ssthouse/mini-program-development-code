@@ -27,7 +27,8 @@
     <!--    歌单UGC数据-->
     <ugc-panel collectNum="{{playlist.subscribedCount}}"
                commentNum="{{playlist.commentCount}}"
-               shareNum="{{playlist.shareCount}}"></ugc-panel>
+               shareNum="{{playlist.shareCount}}"
+               bind:click-comment="onClickComment"></ugc-panel>
   </view>
 
   <!--  播放歌单按钮-->
