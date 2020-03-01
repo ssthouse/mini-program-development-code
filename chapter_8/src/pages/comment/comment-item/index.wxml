@@ -20,6 +20,20 @@
   </view>
 
   <view class="comment-content">
-    {{comment.content}}
+    <view wx:if="{{comment.beReplied.length !== 0}}">
+      回复:
+      <text class="user-link">{{'@' + comment.beReplied[0].user.nickname}}</text>
+    </view>
+    <view>
+      {{comment.content}}
+    </view>
+    <view class="replied-comment"
+          wx:if="{{comment.beReplied.length !== 0}}">
+      <text class="user-link">{{'@' + comment.beReplied[0].user.nickname}}</text>
+      :
+      <view>
+        {{comment.beReplied[0].content}}
+      </view>
+    </view>
   </view>
 </view>

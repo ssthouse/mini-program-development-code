@@ -1,6 +1,6 @@
 .comment-item{
   border-bottom: 1rpx solid #e1e2e3;
-  padding: 28rpx 0 12rpx 0;
+  padding: 28rpx 16rpx 12rpx 16rpx;
 
   .comment-info-row{
     display: flex;
@@ -44,6 +44,21 @@
   .comment-content{
     font-size: 28rpx;
     margin-left: 82rpx;
-    line-height: 56rpx;
+    padding-top: 8rpx;
+    color: #3d3d3d;
+
+    .user-link{
+      color: #1e88e5;
+    }
+
+    >view{
+      line-height: 56rpx;
+    }
+  }
+
+  .replied-comment{
+    border: 1rpx solid #e1e2e3;
+    padding: 16rpx;
+    color: #797979;
   }
 }

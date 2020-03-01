@@ -1,15 +1,19 @@
 <view class="container">
   <!--热门评论列表-->
-  <comment-item wx:for="{{hotComments}}"
-                wx:for-item="commentItem"
-                comment="{{commentItem}}"
-                wx:key="{{index}}">
-  </comment-item>
+  <view class="hot-comment-list">
+    <comment-item wx:for="{{hotComments}}"
+                  wx:for-item="commentItem"
+                  comment="{{commentItem}}"
+                  wx:key="{{index}}">
+    </comment-item>
+  </view>
 
   <!--  普通评论列表-->
-  <comment-item wx:for="{{comments}}"
-                wx:for-item="commentItem"
-                comment="{{commentItem}}"
-                wx:key="{{index}}">
-  </comment-item>
+  <view class="comment-list">
+    <comment-item wx:for="{{comments}}"
+                  wx:for-item="commentItem"
+                  comment="{{commentItem}}"
+                  wx:key="{{index}}">
+    </comment-item>
+  </view>
 </view>
