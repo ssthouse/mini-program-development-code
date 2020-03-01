@@ -32,7 +32,7 @@ Page({
   },
   async init() {
     this.fetchMvDetail()
-    // this.fetchPlaylist()
+    this.fetchRecommendMvs()
   },
   async fetchMvDetail() {
     try {
@@ -48,21 +48,17 @@ Page({
       })
     }
   },
-  async fetchPlaylist() {
+  async fetchRecommendMvs() {
     try {
-      const response = await dao.getUserPlaylist(this.uid, this.offset, PAGE_SIZE)
-      const newPlaylists = response.playlist
-      const playlists = this.data.playlists.concat(newPlaylists)
+      const mvs = await dao.getSimilarMV(this.id)
       this.setData({
-        playlists
+        recommendMvList: mvs
       })
-      this.offset = playlists.length;
-      this.hasMore = response.more
     } catch (e) {
       console.error(e)
       wx.showToast({
         duration: 2000,
-        title: '获取歌单信息失败'
+        title: '获取相关MV失败'
       })
     }
   },

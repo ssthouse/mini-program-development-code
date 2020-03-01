@@ -66,7 +66,7 @@ async function getSongDetail(songId) {
 }
 
 // 获取歌曲播放url
-async function getMusicUrl(songId, br){
+async function getMusicUrl(songId, br) {
   return new Promise((resolve, reject) => {
     wx.request({
       url: BASE_URL + 'music/url',
@@ -83,10 +83,10 @@ async function getMusicUrl(songId, br){
 
 // 获取歌词
 async function getLyric(songId) {
-  return new Promise((resolve, reject) =>{
+  return new Promise((resolve, reject) => {
     wx.request({
       url: BASE_URL + 'lyric',
-      data:{
+      data: {
         id: songId
       },
       success: function (res) {
@@ -98,10 +98,10 @@ async function getLyric(songId) {
 
 // 获取歌单详情
 async function getPlaylistDetail(playlistId) {
-  return new Promise((resolve, reject) =>{
+  return new Promise((resolve, reject) => {
     wx.request({
       url: BASE_URL + 'playlist/detail',
-      data:{
+      data: {
         id: playlistId,
         limit: 1000,
       },
@@ -113,11 +113,11 @@ async function getPlaylistDetail(playlistId) {
 }
 
 // 获取评论列表
-async function getCommentList(commentThreadId, offset=0, limit=20){
+async function getCommentList(commentThreadId, offset = 0, limit = 20) {
   return new Promise((resolve) => {
     wx.request({
       url: BASE_URL + 'comments',
-      data:{
+      data: {
         id: commentThreadId,
         offset,
         limit
@@ -134,7 +134,7 @@ async function getUserProfile(uid) {
   return new Promise((resolve) => {
     wx.request({
       url: BASE_URL + 'user/detail',
-      data:{
+      data: {
         uid
       },
       success: function (res) {
@@ -176,6 +176,21 @@ async function getMvDetail(id) {
   }))
 }
 
+// 获取相关MV
+async function getSimilarMV(mvId) {
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'mv/simi',
+      data: {
+        id: mvId
+      },
+      success(res) {
+        resolve(res.data.mvs)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -188,5 +203,6 @@ module.exports = {
   getCommentList,
   getUserProfile,
   getUserPlaylist,
-  getMvDetail
+  getMvDetail,
+  getSimilarMV
 }

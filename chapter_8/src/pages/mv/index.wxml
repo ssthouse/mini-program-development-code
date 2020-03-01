@@ -10,7 +10,7 @@
     </view>
     <view data-tab-name="{{TAB_NAME.COMMENT}}"
           bindtap="onClickTab"
-          class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}">评论
+          class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}">评论 ({{mvDetail.commentCount}})
     </view>
     <view data-tab-name="{{TAB_NAME.RELATED_MV}}"
           bindtap="onClickTab"
@@ -20,24 +20,35 @@
 
   <view class="mv-info-panel"
         wx:if="{{currentTab === TAB_NAME.DETAIL}}">
-    <text>{{mvDetail.name}}</text>
-    <text>歌手: {{mvDetail.artists[0].name}}</text>
-    <text>播放量: {{mvDetail.playCount}}</text>
-    <text>发行时间: {{mvDetail.publishTime}}</text>
+    <text class="mv-name">{{mvDetail.name}}</text>
+    <text class="info-text">歌手: {{mvDetail.artists[0].name}}</text>
+    <text class="info-text">播放量: {{mvDetail.playCount}}</text>
+    <text class="info-text">发行时间: {{mvDetail.publishTime}}</text>
 
-    <view>
+    <view class="divider"></view>
+    <view class="info-text">
       {{mvDetail.desc}}
     </view>
   </view>
 
 
   <view class="mv-comment-panel"
-  wx:if="{{currentTab === TAB_NAME.COMMENT}}">
+        wx:if="{{currentTab === TAB_NAME.COMMENT}}">
     <comment-thread comment-thread-id="{{mvDetail.commentThreadId}}"></comment-thread>
   </view>
 
-  <view class="related-mv-panel">
-
+  <view class="related-mv-panel"
+        wx:if="{{currentTab === TAB_NAME.RELATED_MV}}">
+    <view wx:for="{{recommendMvList}}"
+          wx:for-item="mv"
+          wx:key="{{index}}"
+          class="mv-item">
+      <image src="{{mv.cover}}"
+             class="mv-cover"
+             mode="widthFix"></image>
+        <view class="mv-name">{{mv.name}}</view>
+        <view class="singer">{{mv.artistName}}</view>
+    </view>
   </view>
 
   <loading-panel wx:if="{{showLoading}}"></loading-panel>
