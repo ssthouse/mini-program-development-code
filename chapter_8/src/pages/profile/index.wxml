@@ -37,7 +37,9 @@
   <view wx:for="{{playlists}}"
         wx:key="{{index}}"
         wx:for-item="playlist"
-        class="playlist-item">
+        class="playlist-item"
+  data-playlist-id="{{playlist.id}}"
+  bindtap="onClickPlaylist">
     <image class="cover-img" src="{{playlist.coverImgUrl}}"></image>
     <view class="playlist-info">
       <text class="name">{{playlist.name}}</text>

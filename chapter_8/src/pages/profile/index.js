@@ -68,5 +68,10 @@ Page({
       })
     }
   },
-
+  onClickPlaylist(e) {
+    const playlistId = e.currentTarget.dataset['playlistId']
+    wx.navigateTo({
+      url: `/pages/playlist/index?playlistId=${playlistId}`
+    })
+  }
 })
