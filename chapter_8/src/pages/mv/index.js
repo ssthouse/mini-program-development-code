@@ -3,11 +3,19 @@ const dao = require('../../dao/index')
 
 const PAGE_SIZE = 20
 
+const TAB_NAME = {
+  DETAIL: 'detail',
+  COMMENT: 'comment',
+  RELATED_MV: 'relatedMV'
+}
+
 Page({
   data: {
-   mvDetail: null,
+    mvDetail: null,
     commentList: [],
     recommendMvList: [],
+    currentTab: TAB_NAME.DETAIL,
+    TAB_NAME
   },
   id: '', // MV id
   hasMoreComments: true,
