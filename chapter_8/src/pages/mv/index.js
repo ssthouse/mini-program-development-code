@@ -66,4 +66,10 @@ Page({
       })
     }
   },
+  onClickTab(e) {
+    const tabName = e.currentTarget.dataset['tabName']
+    this.setData({
+      currentTab: tabName
+    })
+  }
 })

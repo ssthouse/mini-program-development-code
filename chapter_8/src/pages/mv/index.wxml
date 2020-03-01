@@ -4,19 +4,39 @@
          class="video"></video>
 
   <view class="tab-bar">
-    <view class="tab {{currentTab === TAB_NAME.DETAIL ? 'active' :''}}">详情</view>
-    <view class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}">评论</view>
-    <view class="tab {{currentTab === TAB_NAME.RELATED_MV ? 'active' :''}}">相关MV</view>
+    <view data-tab-name="{{TAB_NAME.DETAIL}}"
+          bindtap="onClickTab"
+          class="tab {{currentTab === TAB_NAME.DETAIL ? 'active' :''}}">详情
+    </view>
+    <view data-tab-name="{{TAB_NAME.COMMENT}}"
+          bindtap="onClickTab"
+          class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}">评论
+    </view>
+    <view data-tab-name="{{TAB_NAME.RELATED_MV}}"
+          bindtap="onClickTab"
+          class="tab {{currentTab === TAB_NAME.RELATED_MV ? 'active' :''}}">相关MV
+    </view>
   </view>
 
-  <view class="mv-info-panel">
+  <view class="mv-info-panel"
+        wx:if="{{currentTab === TAB_NAME.DETAIL}}">
     <text>{{mvDetail.name}}</text>
     <text>歌手: {{mvDetail.artists[0].name}}</text>
     <text>播放量: {{mvDetail.playCount}}</text>
     <text>发行时间: {{mvDetail.publishTime}}</text>
+
+    <view>
+      {{mvDetail.desc}}
+    </view>
   </view>
-  <view>
-    {{mvDetail.desc}}
+
+
+  <view class="mv-comment-panel">
+
+  </view>
+
+  <view class="related-mv-panel">
+
   </view>
 
   <loading-panel wx:if="{{showLoading}}"></loading-panel>
