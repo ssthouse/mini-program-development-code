@@ -191,6 +191,23 @@ async function getSimilarMV(mvId) {
   }))
 }
 
+// 根据歌单类别获取歌单列表
+async function getPlaylistByCategory(category, offset, limit) {
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'top/playlist',
+      data: {
+        type: category,
+        offset,
+        limit
+      },
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -204,5 +221,6 @@ module.exports = {
   getUserProfile,
   getUserPlaylist,
   getMvDetail,
-  getSimilarMV
+  getSimilarMV,
+  getPlaylistByCategory
 }

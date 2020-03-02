@@ -1,3 +1,23 @@
 <view class="playlist-tab">
-  播单页面
+
+  <scroll-view bindscrolltolower="onReachBottom"
+               scroll-y="true">
+    <view>
+      {{category}}
+      <view>
+        全部分类
+      </view>
+    </view>
+
+    <view class="playlist-container">
+      <playlist-card wx:for="{{playlists}}"
+                     wx:for-item="playlist"
+                     wx:key="{{index}}"
+                     playlist="{{playlist}}"
+                     class="card">
+      </playlist-card>
+    </view>
+
+    <loading-panel hidden="{{showLoading !== true}}"></loading-panel>
+  </scroll-view>
 </view>

@@ -1,0 +1,21 @@
+.playlist-tab{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  scroll-view{
+    height: 100%;
+  }
+
+  .playlist-container{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card{
+      box-sizing: border-box;
+      padding: 16rpx;
+      width: 50%;
+    }
+  }
+}

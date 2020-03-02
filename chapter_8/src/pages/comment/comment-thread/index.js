@@ -15,14 +15,13 @@ Component({
     hotComments: [],
     comments: [],
     showLoading: false,
+    offset: 0,
   },
   // 当前评论加载位置
-  offset: 0,
   hasMore: true,
   lifetimes: {
     attached() {
       this.fetchComments()
-      console.log(this)
     }
   },
   observers:{
@@ -34,7 +33,8 @@ Component({
     async fetchComments() {
       if(!this.data.commentThreadId) return
       try {
-        const response = await dao.getCommentList(this.data.commentThreadId, this.offset, PAGE_SIZE)
+        console.log('')
+        const response = await dao.getCommentList(this.data.commentThreadId, this.data.offset, PAGE_SIZE)
         const hotComments = response.hotComments && response.hotComments.map(comment => {
           return this.formatCommentTime(comment)
         })
@@ -45,7 +45,7 @@ Component({
         if (hotComments) newData.hotComments = hotComments
         const comments = this.data.comments.concat(newComments)
         newData.comments = comments
-        this.offset = comments.length
+        this.data.offset = comments.length
         this.hasMore = response.more
         this.setData(newData)
       } catch (e) {
