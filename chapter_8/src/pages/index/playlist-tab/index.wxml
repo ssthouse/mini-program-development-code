@@ -2,9 +2,9 @@
 
   <scroll-view bindscrolltolower="onReachBottom"
                scroll-y="true">
-    <view>
-      {{category}}
-      <view>
+    <view class="category-panel">
+      <text class="current-category">{{category}}</text>
+      <view class="category-btn">
         全部分类
       </view>
     </view>

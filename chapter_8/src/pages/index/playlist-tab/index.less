@@ -1,18 +1,38 @@
-.playlist-tab{
+.playlist-tab {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  scroll-view{
+  scroll-view {
     height: 100%;
   }
 
-  .playlist-container{
+  .category-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32rpx;
+    padding: 8rpx 16rpx;
+
+    .current-category{
+      border-left: 3px solid red;
+      padding-left: 8rpx;
+    }
+
+    .category-btn{
+      font-size: 28rpx;
+      padding: 8rpx;
+      color: #3d3d3d;
+      border: 1rpx solid #e1e2e3;
+    }
+  }
+
+  .playlist-container {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
 
-    .card{
+    .card {
       box-sizing: border-box;
       padding: 16rpx;
       width: 50%;
