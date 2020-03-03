@@ -102,6 +102,12 @@ Component({
     onClickCategory(e) {
       const categoryName = e.currentTarget.dataset['category']
       this.switchCategory(categoryName)
+    },
+    onClickPlaylist(e){
+      const playlistId = e.currentTarget.dataset['playlistId']
+      wx.navigateTo({
+        url: `/pages/playlist/index?playlistId=${playlistId}`
+      })
     }
   },
 })

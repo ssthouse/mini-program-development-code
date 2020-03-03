@@ -47,7 +47,9 @@
                      wx:for-item="playlist"
                      wx:key="{{index}}"
                      playlist="{{playlist}}"
-                     class="card">
+                     data-playlist-id="{{playlist.id}}"
+                     class="card"
+      bindtap="onClickPlaylist">
       </playlist-card>
     </view>
 
