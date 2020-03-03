@@ -84,7 +84,7 @@
 
   <view class="content radio-tab"
         hidden="{{currentTabId !== 'radio'}}">
-
+    <radio-tab></radio-tab>
   </view>
 
   <view class="content ranking-tab"

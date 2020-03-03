@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "radio-card": "/pages/index/card/radio-card/index",
+    "loading-panel": "/components/loading-panel/index"
+  }
+}

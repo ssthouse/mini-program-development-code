@@ -7,6 +7,7 @@
     "song-card": "./card/song-card/index",
     "mv-card": "./card/mv-card/index",
     "radio-card": "./card/radio-card/index",
-    "playlist-tab": "./playlist-tab/index"
+    "playlist-tab": "./playlist-tab/index",
+    "radio-tab": "./radio-tab/index"
   }
 }

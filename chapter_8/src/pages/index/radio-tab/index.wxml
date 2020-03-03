@@ -1,0 +1,8 @@
+<view class="radio-tab">
+radio
+  <scroll-view bindscrolltolower="onReachBottom"
+               scroll-y="true">
+
+    <loading-panel hidden="{{showLoading !== true}}"></loading-panel>
+  </scroll-view>
+</view>
