@@ -1,7 +1,65 @@
+page, view{
+  box-sizing: border-box;
+}
+
+.checked-card{
+  border: 3rpx solid #ee1719 !important;
+}
+
+
 .playlist-tab {
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  .category-selector{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 100;
+    background-color: white;
+
+    .all-music{
+      height: 84rpx;
+      text-align: center;
+      width: 100%;
+      border: 1rpx solid #e1e2e3;
+      font-size: 32rpx;
+      line-height: 84rpx;
+      position: relative;
+    }
+
+    .category-item{
+      display: block;
+
+      .category-label{
+        font-size: 32rpx;
+        text-align: center;
+      }
+
+      .sub-category-list{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .sub-category-item{
+          position: relative;
+          box-sizing: border-box;
+          height: 84rpx;
+          text-align: center;
+          line-height: 84rpx;
+          border: 1rpx solid #e1e2e3;
+          width: 25%;
+          font-size: 24rpx;
+          margin-top: 8rpx;
+        }
+      }
+    }
+  }
 
   scroll-view {
     height: 100%;

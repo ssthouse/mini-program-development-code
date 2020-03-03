@@ -1,10 +1,38 @@
 <view class="playlist-tab">
 
+  <!--  分类选择面板-->
+  <view hidden="{{!showCategory}}" class="category-selector">
+    <text bindtap="onClickClose">关闭</text>
+
+    <view class="all-music {{selectedCategory === '全部歌单' ? 'checked-card' : ''}}">
+      全部歌曲
+    </view>
+
+    <view wx:for="{{categoryList}}"
+          wx:for-item="category"
+          wx:key="index"
+          class="category-item">
+
+      <view class="category-label">{{category}}</view>
+
+      <view class="sub-category-list">
+        <view wx:for="{{subCategoryMap[index]}}"
+              wx:for-item="subCategory"
+              data-category="{{subCategory.name}}"
+              bindtap="onClickCategory"
+              class="sub-category-item {{selectedCategory === subCategory.name ? 'checked-card' : ''}}">
+          {{subCategory.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+
   <scroll-view bindscrolltolower="onReachBottom"
                scroll-y="true">
     <view class="category-panel">
-      <text class="current-category">{{category}}</text>
-      <view class="category-btn">
+      <text class="current-category">{{selectedCategory}}</text>
+      <view class="category-btn"
+            bindtap="onClickAllCategory">
         全部分类
       </view>
     </view>

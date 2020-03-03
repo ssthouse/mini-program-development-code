@@ -208,6 +208,19 @@ async function getPlaylistByCategory(category, offset, limit) {
   }))
 }
 
+// 获取歌单分类信息
+async function getPlaylistCategory() {
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'playlist/catlist',
+      data: {},
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -222,5 +235,6 @@ module.exports = {
   getUserPlaylist,
   getMvDetail,
   getSimilarMV,
-  getPlaylistByCategory
+  getPlaylistByCategory,
+  getPlaylistCategory
 }
