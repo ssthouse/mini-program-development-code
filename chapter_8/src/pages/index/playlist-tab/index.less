@@ -17,10 +17,22 @@ page, view{
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     z-index: 100;
     background-color: white;
+
+
+    .close-category-panel{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+       > image{
+         width: 72rpx;
+         height: 72rpx;
+       }
+    }
 
     .all-music{
       height: 84rpx;
@@ -34,6 +46,7 @@ page, view{
 
     .category-item{
       display: block;
+      margin-top: 32rpx;
 
       .category-label{
         font-size: 32rpx;

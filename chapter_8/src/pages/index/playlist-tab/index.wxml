@@ -2,7 +2,12 @@
 
   <!--  分类选择面板-->
   <view hidden="{{!showCategory}}" class="category-selector">
-    <text bindtap="onClickClose">关闭</text>
+
+    <view class="close-category-panel">
+      <image src="../images/close.png"
+             mode="widthFix"
+             bindtap="onClickClose"></image>
+    </view>
 
     <view class="all-music {{selectedCategory === '全部歌单' ? 'checked-card' : ''}}">
       全部歌曲
