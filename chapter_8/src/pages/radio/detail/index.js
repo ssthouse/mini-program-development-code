@@ -23,7 +23,7 @@ Page({
     this.init()
   },
   async onReachBottom() {
-    if(!this.hasMore) return
+    if (!this.hasMore) return
     this.setData({
       showLoading: true
     })
@@ -52,6 +52,9 @@ Page({
     }
   },
   async fetchRadioPrograms() {
+    this.setData({
+      showLoading: true
+    })
     try {
       const response = await dao.getRadioPrograms(this.radioId, this.offset, PAGE_SIZE)
       const newPrograms = response.programs
@@ -72,14 +75,11 @@ Page({
         title: '获取节目单信息失败'
       })
     }
-  },
-  async onReachBottom() {
-    this.setData({
-      showLoading: true
-    })
-    await this.fetchRadioPrograms()
     this.setData({
       showLoading: false
     })
+  },
+  async onReachBottom() {
+    this.fetchRadioPrograms()
   }
 })
