@@ -16,7 +16,7 @@
     {{radioDetail.desc}}
   </view>
 
-  <text>共{{radioDetail.programCount}}期</text>
+  <text class="count-label">共{{radioDetail.programCount}}期</text>
 
 <view class="program-container">
   <view wx:for="{{programList}}"
@@ -24,7 +24,7 @@
         wx:key="{{index}}"
         class="program-item">
     <text>{{index + 1}}</text>
-    <text>{{program.name}}</text>
+    <text class="program-title">{{program.name}}</text>
   </view>
 </view>
 

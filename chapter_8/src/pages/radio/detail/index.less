@@ -15,6 +15,7 @@
   }
 
   .dj-info{
+    margin: 16rpx;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -26,20 +27,39 @@
     }
   }
 
+  .radio-description{
+    padding: 16rpx;
+    font-size: 28rpx;
+  }
+
+  .count-label{
+    background-color: #e1e2e3;
+    display: block;
+    font-size: 26rpx;
+    padding: 8rpx;
+  }
+
   .program-container{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    padding: 16rpx;
 
     .program-item{
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 28rpx;
+      border-bottom: 1rpx solid #e1e2e3;
+      height: 120rpx;
+      width: 100%;
 
-      > image{
-        width: 72rpx;
-        height: 72rpx;
+      .program-title{
+        margin-left: 16rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
