@@ -221,6 +221,48 @@ async function getPlaylistCategory() {
   }))
 }
 
+// 获取精彩节目推荐
+async function getRecommendProgram() {
+  return new Promise((resolve) => {
+    wx.request({
+      url: BASE_URL + 'program/recommend',
+      data: {},
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
+// 获取推荐电台
+async function getRecommendRadio(){
+  return new Promise((resolve) => {
+    wx.request({
+      url: BASE_URL + 'djradio/recommend',
+      data: {},
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
+// 获取热门电台
+async function getHotRadio(offset, limit){
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'djradio/hot',
+      data: {
+        offset,
+        limit
+      },
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -236,5 +278,8 @@ module.exports = {
   getMvDetail,
   getSimilarMV,
   getPlaylistByCategory,
-  getPlaylistCategory
+  getPlaylistCategory,
+  getRecommendProgram,
+  getRecommendRadio,
+  getHotRadio
 }

@@ -1,7 +1,38 @@
 <view class="radio-tab">
-radio
+
+  <text class="label">精彩节目</text>
+  <view wx:for="{{programList}}"
+        wx:for-item="program"
+        wx:key="{{index}}"
+  class="program-item">
+    <image src="{{program.coverUrl}}"
+           mode="widthFix"></image>
+    <view>
+      <text class="name">{{program.name}}</text>
+      <text class="reason">{{program.reason}}</text>
+    </view>
+  </view>
+
+  <text class="label">精选电台</text>
+  <view class="recommend-radio-container">
+    <radio-card wx:for="{{radioList}}"
+                wx:for-item="radio"
+                wx:key="{{index}}"
+                radio="{{radio}}"
+                class="card"></radio-card>
+  </view>
+
   <scroll-view bindscrolltolower="onReachBottom"
                scroll-y="true">
+
+
+    <view class="hot-radio-container">
+      <radio-card wx:for="{{hotRadioList}}"
+                  wx:for-item="radio"
+                  wx:key="{{index}}"
+                  radio="{{radio}}"
+                  class="card"></radio-card>
+    </view>
 
     <loading-panel hidden="{{showLoading !== true}}"></loading-panel>
   </scroll-view>

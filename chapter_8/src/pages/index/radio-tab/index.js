@@ -7,6 +7,8 @@ Component({
   data: {
     hasMore: true,
     radioList: [],
+    hotRadioList: [],
+    programList: [],
     showLoading: false,
     offset: 0,
   },
@@ -14,60 +16,71 @@ Component({
     attached() {
       this.fetchRecommendPrograms()
       this.fetchRecommendRadios()
+      this.fetchHotRadios()
     }
   },
   methods: {
+    onReachBottom() {
+      this.fetchHotRadios()
+    },
     async fetchRecommendPrograms() {
-      this.setData({
-        showLoading: true
-      })
       try {
-        const response = await dao.getPlaylistByCategory(this.data.selectedCategory, this.data.offset, LIMIT)
-        const newPlaylists = response.playlists
-        const newData = {
-          hasMore: response['more'],
-        }
-        if (newPlaylists) {
-          newData.playlists = this.data.playlists.concat(newPlaylists)
-          this.data.offset = newData.playlists.length
-        }
-        this.setData(newData)
+        const response = await dao.getRecommendProgram()
+        const programList = response.programs
+        this.setData({
+          programList
+        })
       } catch (e) {
+        console.error(e)
         wx.showToast({
           icon: 'none',
           duration: 2000,
-          title: '获取歌单信息失败'
+          title: '获取推荐节目失败'
         })
       }
-      this.setData({
-        showLoading: false
-      })
     },
     async fetchRecommendRadios() {
-      this.setData({
-        showLoading: true
-      })
       try {
-        const response = await dao.getPlaylistByCategory(this.data.selectedCategory, this.data.offset, LIMIT)
-        const newPlaylists = response.playlists
-        const newData = {
-          hasMore: response['more'],
-        }
-        if (newPlaylists) {
-          newData.playlists = this.data.playlists.concat(newPlaylists)
-          this.data.offset = newData.playlists.length
-        }
-        this.setData(newData)
+        const response = await dao.getRecommendRadio()
+        this.setData({
+          radioList: response.djRadios.slice(0, 6)
+        })
       } catch (e) {
+        console.error(e)
         wx.showToast({
           icon: 'none',
           duration: 2000,
           title: '获取歌单信息失败'
         })
       }
+    },
+    async fetchHotRadios() {
+      this.setData({
+        showLoading: true
+      })
+      try {
+        const response = await dao.getHotRadio(this.data.offset, LIMIT)
+        const newRadios = response.djRadios
+        const newData = {
+          hasMore: response['hasMore'],
+        }
+        if (newRadios) {
+          newData.hotRadioList = this.data.hotRadioList.concat(newRadios)
+          this.data.offset = newData.hotRadioList.length
+          console.log('newData.hotRadioList', newData.hotRadioList)
+        }
+        this.setData(newData)
+      } catch (e) {
+        console.error(e)
+        wx.showToast({
+          icon: 'none',
+          duration: 2000,
+          title: '获取热门电台信息失败'
+        })
+      }
       this.setData({
         showLoading: false
       })
-    },
+    }
   },
 })

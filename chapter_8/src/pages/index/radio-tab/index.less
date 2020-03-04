@@ -1,14 +1,69 @@
-page, view{
+page, view {
   box-sizing: border-box;
 }
 
+.label{
+  border-left: 3px solid red;
+  font-size: 32rpx;
+  margin-left: 16rpx;
+  padding-left: 8rpx;
+  margin-top: 16rpx;
+}
 
 .radio-tab {
   display: flex;
   flex-direction: column;
   height: 100%;
 
+  .program-item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    > image{
+      width: 118rpx;
+      height: 118rpx;
+      margin: 16rpx
+    }
+
+    > view{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 32rpx;
+
+      .reason{
+        font-size: 26rpx;
+        color: #999;
+      }
+    }
+  }
+
+  .recommend-radio-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .card{
+      width: 33%;
+      box-sizing: border-box;
+      padding: 8rpx;
+    }
+  }
+
   scroll-view {
     height: 100%;
+
+    .hot-radio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .card {
+        width: 50%;
+        padding: 16rpx;
+        box-sizing: border-box;
+      }
+    }
   }
 }

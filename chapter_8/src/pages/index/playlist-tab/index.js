@@ -38,6 +38,7 @@ Component({
         }
         this.setData(newData)
       } catch (e) {
+        console.error(e)
         wx.showToast({
           icon: 'none',
           duration: 2000,
