@@ -1,5 +1,32 @@
 <view class="container">
-  radio详情页
+  <view class="info-panel">
+    <image src="{{radioDetail.picUrl}}"
+           class="bgImage"
+           mode="widthFix"></image>
+
+    <text>{{radioDetail.name}}</text>
+  </view>
+
+  <view class="dj-info">
+    <image src="{{radioDetail.dj.avatarUrl}}"></image>
+    <text>{{radioDetail.dj.nickname}}</text>
+  </view>
+
+  <view class="radio-description">
+    {{radioDetail.desc}}
+  </view>
+
+  <text>共{{radioDetail.programCount}}期</text>
+
+<view class="program-container">
+  <view wx:for="{{programList}}"
+        wx:for-item="program"
+        wx:key="{{index}}"
+        class="program-item">
+    <text>{{index + 1}}</text>
+    <text>{{program.name}}</text>
+  </view>
+</view>
 
   <loading-panel wx:if="{{showLoading}}"></loading-panel>
 </view>

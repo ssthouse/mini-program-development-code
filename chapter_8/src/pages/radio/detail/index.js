@@ -40,7 +40,7 @@ Page({
     try {
       const response = await dao.getRadioDetail(this.radioId)
       this.setData({
-        radioDetail: response.profile
+        radioDetail: response.djRadio
       })
     } catch (e) {
       console.error(e)
@@ -73,4 +73,13 @@ Page({
       })
     }
   },
+  async onReachBottom() {
+    this.setData({
+      showLoading: true
+    })
+    await this.fetchRadioPrograms()
+    this.setData({
+      showLoading: false
+    })
+  }
 })
