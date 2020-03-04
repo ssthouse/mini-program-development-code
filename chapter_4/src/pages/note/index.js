@@ -10,6 +10,7 @@ Page({
     const noteId = options['noteId']
     if (!noteId) {
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '便签参数错误'
       })

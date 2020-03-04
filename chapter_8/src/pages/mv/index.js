@@ -43,6 +43,7 @@ Page({
     } catch (e) {
       console.error(e)
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '获取MV信息失败'
       })
@@ -57,6 +58,7 @@ Page({
     } catch (e) {
       console.error(e)
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '获取相关MV失败'
       })

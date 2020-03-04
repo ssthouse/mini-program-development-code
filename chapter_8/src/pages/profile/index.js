@@ -45,6 +45,7 @@ Page({
     } catch (e) {
       console.error(e)
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '获取用户信息失败'
       })
@@ -63,6 +64,7 @@ Page({
     } catch (e) {
       console.error(e)
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '获取歌单信息失败'
       })

@@ -39,6 +39,7 @@ Component({
         this.setData(newData)
       } catch (e) {
         wx.showToast({
+          icon: 'none',
           duration: 2000,
           title: '获取歌单信息失败'
         })

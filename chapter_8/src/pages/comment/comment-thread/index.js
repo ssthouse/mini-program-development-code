@@ -51,6 +51,7 @@ Component({
       } catch (e) {
         console.error(e)
         wx.showToast({
+          icon: 'none',
           duration: 2000,
           title: '获取评论信息失败'
         })

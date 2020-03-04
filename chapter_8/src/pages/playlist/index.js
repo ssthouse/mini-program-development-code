@@ -26,6 +26,7 @@ Page({
       wx.hideLoading()
     } catch (e) {
       wx.showToast({
+        icon: 'none',
         duration: 2000,
         title: '获取歌单详情错误'
       })
