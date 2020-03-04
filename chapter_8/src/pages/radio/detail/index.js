@@ -1,0 +1,76 @@
+const regeneratorRuntime = require('../../../lib/runtime'); // eslint-disable-line
+const dao = require('../../../dao/index')
+
+const PAGE_SIZE = 20
+
+Page({
+  data: {
+    radioDetail: null,
+    programList: [],
+    showLoading: false,
+  },
+  radioId: null,
+  offset: 0,
+  hasMore: true,
+  // url参数: radioId
+  onLoad(options) {
+    const radioId = options['radioId']
+    if (radioId === undefined) {
+      wx.navigateBack()
+      return
+    }
+    this.radioId = radioId
+    this.init()
+  },
+  async onReachBottom() {
+    if(!this.hasMore) return
+    this.setData({
+      showLoading: true
+    })
+    await this.fetchPlaylist()
+    this.setData({
+      showLoading: false
+    })
+  },
+  async init() {
+    this.fetchRadioDetail()
+    this.fetchRadioPrograms()
+  },
+  async fetchRadioDetail() {
+    try {
+      const response = await dao.getRadioDetail(this.radioId)
+      this.setData({
+        radioDetail: response.profile
+      })
+    } catch (e) {
+      console.error(e)
+      wx.showToast({
+        icon: 'none',
+        duration: 2000,
+        title: '获取电台信息失败'
+      })
+    }
+  },
+  async fetchRadioPrograms() {
+    try {
+      const response = await dao.getRadioPrograms(this.radioId, this.offset, PAGE_SIZE)
+      const newPrograms = response.programs
+      let programList = []
+      if (newPrograms) {
+        programList = this.data.programList.concat(newPrograms)
+      }
+      this.hasMore = response.more
+      this.offset = programList.length
+      this.setData({
+        programList
+      })
+    } catch (e) {
+      console.error(e)
+      wx.showToast({
+        icon: 'none',
+        duration: 2000,
+        title: '获取节目单信息失败'
+      })
+    }
+  },
+})

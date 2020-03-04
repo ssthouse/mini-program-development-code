@@ -1,0 +1,5 @@
+<view class="container">
+  radio详情页
+
+  <loading-panel wx:if="{{showLoading}}"></loading-panel>
+</view>

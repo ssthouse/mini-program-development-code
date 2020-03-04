@@ -77,6 +77,13 @@
                 "pathName": "pages/mv/index",
                 "query": "id=10917739",
                 "scene": null
+              },
+              {
+                "id": 5,
+                "name": "Radio详情页",
+                "pathName": "pages/radio/detail/index",
+                "query": "radioId=794068369",
+                "scene": null
               }
             ]
 		}

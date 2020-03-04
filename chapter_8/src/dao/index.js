@@ -263,6 +263,38 @@ async function getHotRadio(offset, limit){
   }))
 }
 
+// 获取radio详情
+async function getRadioDetail(radioId){
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'dj/detail',
+      data: {
+        id: radioId
+      },
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
+// 获取radio program列表
+async function getRadioPrograms(radioId, offset, limit){
+  return new Promise((resolve => {
+    wx.request({
+      url: BASE_URL + 'dj/program',
+      data: {
+        id: radioId,
+        offset,
+        limit
+      },
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  }))
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -281,5 +313,7 @@ module.exports = {
   getPlaylistCategory,
   getRecommendProgram,
   getRecommendRadio,
-  getHotRadio
+  getHotRadio,
+  getRadioDetail,
+  getRadioPrograms
 }
