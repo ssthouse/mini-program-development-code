@@ -81,5 +81,13 @@ Page({
   },
   async onReachBottom() {
     this.fetchRadioPrograms()
+  },
+  onClickProgram(e) {
+    const program = e.currentTarget.dataset['program']
+    getApp().globalData.selectedRadio = this.data.radioDetail
+    getApp().globalData.selectedProgram = program
+    wx.navigateTo({
+      url: `/pages/radio/play/index?programId=${program.id}`
+    })
   }
 })

@@ -3,6 +3,7 @@ App({
   onLaunch: function () {
   },
   globalData: {
-    pageList: ['/pages/index/index']
+    selectedRadio: null, // 当前播放电台
+    selectedProgram: null, // 当前播放电台 program
   }
 })

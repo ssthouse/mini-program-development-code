@@ -23,7 +23,6 @@
           wx:for-item="program"
           wx:key="{{index}}"
           class="program-item"
-          data-program="{{program}}"
           bindtap="onClickProgram">
       <text>{{index + 1}}</text>
       <text class="program-title">{{program.name}}</text>

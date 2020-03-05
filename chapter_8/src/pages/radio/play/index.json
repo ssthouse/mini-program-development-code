@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "电台详情页",
+  "usingComponents": {
+    "loading-panel": "/components/loading-panel/index"
+  }
+}
