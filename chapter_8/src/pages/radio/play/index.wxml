@@ -1,2 +1,34 @@
 <view class="container">
+
+  <view>
+    电台logo部分
+  </view>
+
+  <!--  中心唱片-->
+  <view class="plate-container">
+    <image class="plate-bg"
+           src="./images/plate_bg.png"></image>
+    <image class="song-cover"
+           src="{{mainSong.album.picUrl}}"></image>
+  </view>
+
+  <music-progress
+          style="width: 100%;"
+          currentTime="{{currentTime}}"
+          duration="{{duration}}"
+          downloadPercent="{{downloadPercent}}"
+          bind:seek-music="onSeekMusic"></music-progress>
+
+  <view class="control-panel">
+    <image src="./images/previous_icon.png"
+           class="previous-btn"></image>
+    <image src="./images/play_icon.png"
+           bindtap="onClickPlay"
+           hidden="{{isPlaying}}"></image>
+    <image src="./images/pause_icon.png"
+           bindtap="onClickPause"
+           hidden="{{!isPlaying}}"></image>
+    <image src="./images/next_icon.png"
+           class="next-btn"></image>
+  </view>
 </view>
