@@ -1,0 +1,23 @@
+<view class="radio-tab">
+
+  <text class="label">云音乐官方榜</text>
+  <view wx:for="{{programList}}"
+        wx:for-item="program"
+        wx:key="{{index}}"
+        class="program-item">
+    <image src="{{program.coverUrl}}"
+           mode="widthFix"></image>
+    <view>
+      <text class="name">{{program.name}}</text>
+      <text class="reason">{{program.reason}}</text>
+    </view>
+  </view>
+
+  <text class="label">全球榜</text>
+  <view class="recommend-radio-container">
+    <view wx:for="{{rankingList}}"
+          wx:for-item="ranking"
+          wx:key="{{index}}"
+          class="ranking-card"></view>
+  </view>
+</view>

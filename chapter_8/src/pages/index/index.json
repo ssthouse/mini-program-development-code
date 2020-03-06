@@ -8,6 +8,7 @@
     "mv-card": "./card/mv-card/index",
     "radio-card": "./card/radio-card/index",
     "playlist-tab": "./playlist-tab/index",
-    "radio-tab": "./radio-tab/index"
+    "radio-tab": "./radio-tab/index",
+    "ranking-tab": "./ranking-tab/index"
   }
 }

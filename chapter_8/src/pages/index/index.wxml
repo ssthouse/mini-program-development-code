@@ -89,6 +89,6 @@
 
   <view class="content ranking-tab"
         hidden="{{currentTabId !== 'ranking'}}">
-
+    <ranking-tab></ranking-tab>
   </view>
 </view>
