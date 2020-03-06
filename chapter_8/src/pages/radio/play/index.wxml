@@ -16,6 +16,8 @@
            src="{{mainSong.album.picUrl}}"></image>
   </view>
 
+  <view class="placeholder"></view>
+
   <music-progress
           style="width: 100%;"
           currentTime="{{currentTime}}"
