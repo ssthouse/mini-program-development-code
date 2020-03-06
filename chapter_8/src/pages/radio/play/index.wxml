@@ -1,7 +1,11 @@
 <view class="container">
 
-  <view>
-    电台logo部分
+  <view class="radio-info">
+    <image src="{{radioDetail.picUrl}}"></image>
+    <view>
+      <text>{{radioDetail.name}}</text>
+      <text>订阅人数: {{radioDetail.subCount}}</text>
+    </view>
   </view>
 
   <!--  中心唱片-->

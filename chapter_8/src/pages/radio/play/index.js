@@ -6,9 +6,11 @@ const PLAYER_EVENT_TYPE = playerManager.EVENT_TYPE
 Page({
   data: {
     mainSong: null,
+    radioDetail: null,
+    isPlaying: false,
+    musicUrl: '',
   },
   programId: null,
-  musicUrl: '',
   // url参数: programId
   onLoad(options) {
     const programId = options['programId']
@@ -20,8 +22,11 @@ Page({
     this.init()
   },
   async init() {
+    this.setData({
+      radioDetail: getApp().globalData.selectedRadio
+    })
     await this.fetchMusicUrl()
-    playerManager.playMusic(this.musicUrl)
+    playerManager.playMusic(this.data.musicUrl)
     this.initPlayerListener()
   },
   async fetchMusicUrl() {
@@ -30,7 +35,7 @@ Page({
       this.setData({
         mainSong: globalData.selectedProgram.mainSong
       })
-      this.musicUrl = await dao.getMusicUrl(globalData.selectedProgram.mainSong.id, 128000)
+      this.data.musicUrl = await dao.getMusicUrl(globalData.selectedProgram.mainSong.id, 128000)
     } catch (e) {
       console.error(e)
       wx.showToast({
@@ -70,5 +75,11 @@ Page({
   onSeekMusic(e) {
     const seekTime = e.detail.seekTime
     playerManager.seekMusic(seekTime)
-  }
+  },
+  onClickPause() {
+    playerManager.pause()
+  },
+  onClickPlay() {
+    playerManager.playMusic(this.data.musicUrl)
+  },
 })
