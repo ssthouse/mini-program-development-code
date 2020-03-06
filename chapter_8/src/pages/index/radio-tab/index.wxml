@@ -7,7 +7,7 @@
         class="program-item">
     <image src="{{program.coverUrl}}"
            mode="widthFix"></image>
-    <view>
+    <view bindtap="onClickProgram" data-program="{{program}}">
       <text class="name">{{program.name}}</text>
       <text class="reason">{{program.reason}}</text>
     </view>
@@ -15,11 +15,13 @@
 
   <text class="label">精选电台</text>
   <view class="recommend-radio-container">
-    <radio-card wx:for="{{radioList}}"
-                wx:for-item="radio"
-                wx:key="index"
-                radio="{{radio}}"
-                class="card"></radio-card>
+    <navigator wx:for="{{radioList}}"
+               wx:for-item="radio"
+               wx:key="index"
+               class="card"
+               url="/pages/radio/detail/index?radioId={{radio.id}}">
+      <radio-card radio="{{radio}}"></radio-card>
+    </navigator>
   </view>
 
   <scroll-view bindscrolltolower="onReachBottom"

@@ -80,6 +80,14 @@ Component({
       this.setData({
         showLoading: false
       })
+    },
+    onClickProgram(e){
+      const program = e.currentTarget.dataset['program']
+      getApp().globalData.selectedRadio = program.radio
+      getApp().globalData.selectedProgram = program
+      wx.navigateTo({
+        url: `/pages/radio/play/index?programId=${program.id}`
+      })
     }
   },
 })

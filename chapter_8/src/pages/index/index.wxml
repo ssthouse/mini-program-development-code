@@ -12,12 +12,15 @@
         <view class="placeholder"></view>
       </view>
       <view class="card-list">
-        <playlist-card wx:for="{{playlists}}"
-                       wx:for-item="playlist"
-                       wx:key="index"
-                       playlist="{{playlist}}"
-                       class="card">
-        </playlist-card>
+        <navigator wx:for="{{playlists}}"
+                   wx:for-item="playlist"
+                   wx:key="index"
+                   class="card"
+                   url="/pages/playlist/index?playlistId={{playlist.id}}">
+          <playlist-card
+                  playlist="{{playlist}}">
+          </playlist-card>
+        </navigator>
       </view>
     </view>
 
@@ -29,12 +32,14 @@
         <view class="placeholder"></view>
       </view>
       <view class="card-list">
-        <song-card wx:for="{{newSongList}}"
+        <navigator wx:for="{{newSongList}}"
                    wx:for-item="song"
                    wx:key="index"
-                   song="{{song}}"
-                   class="card">
-        </song-card>
+                   class="card"
+                   url="/pages/play/index?songId={{song.id}}">
+          <song-card song="{{song}}">
+          </song-card>
+        </navigator>
       </view>
     </view>
 
@@ -46,12 +51,14 @@
         <view class="placeholder"></view>
       </view>
       <view class="card-list">
-        <mv-card wx:for="{{mvList}}"
-                 wx:for-item="mv"
-                 wx:key="index"
-                 mv="{{mv}}"
-                 class="mv-card">
-        </mv-card>
+        <navigator wx:for="{{mvList}}"
+                   wx:for-item="mv"
+                   wx:key="index"
+                   class="mv-card"
+                   url="/pages/mv/index?id={{mv.id}}">
+          <mv-card mv="{{mv}}">
+          </mv-card>
+        </navigator>
       </view>
     </view>
 
@@ -63,18 +70,20 @@
         <view class="placeholder"></view>
       </view>
       <view class="card-list">
-        <radio-card wx:for="{{djList}}"
-                    wx:for-item="radio"
-                    wx:key="index"
-                    radio="{{radio}}"
-                    class="card">
-        </radio-card>
+        <navigator wx:for="{{djList}}"
+                   wx:for-item="radio"
+                   wx:key="index"
+                   class="card"
+                   url="/pages/radio/detail/index?radioId={{radio.program.radio.id}}">
+          <radio-card radio="{{radio}}">
+          </radio-card>
+        </navigator>
       </view>
     </view>
   </view>
 
   <view class="content playlist-tab"
-          hidden="{{currentTabId !== 'playlist'}}">
+        hidden="{{currentTabId !== 'playlist'}}">
     <playlist-tab></playlist-tab>
   </view>
 
