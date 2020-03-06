@@ -24,15 +24,16 @@ Page({
     downloadPercent: 0,
   },
   lyricRefreshInterval: null,// 歌词进度刷新interval
-  onLoad(options) {
+  async onLoad(options) {
     const songId = options['songId']
     if (!songId) {
       wx.navigateBack()
       return
     }
-    this.fetchSongDetail(songId)
-    this.fetchLyric(songId)
     this.initPlayerListener()
+    this.fetchLyric(songId)
+    await this.fetchSongDetail(songId)
+    playerManager.playMusic(this.data.musicUrl)
   },
   onUnload() {
     playerManager.unregisterEvent(PLAYER_EVENT_TYPE.ON_PLAY, this.onPlay)
