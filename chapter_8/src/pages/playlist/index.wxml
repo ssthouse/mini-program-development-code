@@ -44,6 +44,7 @@
   <view class="song-list">
     <view wx:for="{{playlistDetail.playlist.tracks}}"
           wx:for-item="track"
+          wx:key="index"
           class="song-row"
           data-song="{{track}}"
           bindtap="onClickSong">

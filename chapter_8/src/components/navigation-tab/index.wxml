@@ -9,8 +9,4 @@
       <text class="tab-title">{{tabItem.title}}</text>
     </view>
   </view>
-
-  <view class="search-btn" bindtap="onClickSearch">
-    <icon type="search" size="18" color="#666"/>
-  </view>
 </view>

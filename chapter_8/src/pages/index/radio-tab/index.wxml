@@ -24,16 +24,18 @@
     </navigator>
   </view>
 
+  <text class="label">热门电台</text>
   <scroll-view bindscrolltolower="onReachBottom"
                scroll-y="true">
 
-
     <view class="hot-radio-container">
-      <radio-card wx:for="{{hotRadioList}}"
-                  wx:for-item="radio"
-                  wx:key="index"
-                  radio="{{radio}}"
-                  class="card"></radio-card>
+      <navigator wx:for="{{hotRadioList}}"
+                 wx:for-item="radio"
+                 wx:key="index"
+                 class="card"
+                 url="/pages/radio/detail/index?radioId={{radio.id}}">
+        <radio-card radio="{{radio}}"></radio-card>
+      </navigator>
     </view>
 
     <loading-panel hidden="{{showLoading !== true}}"></loading-panel>
