@@ -2,7 +2,7 @@
   <view class="tab-container">
     <view wx:for="{{tabList}}"
           wx:for-item="tabItem"
-          wx:key="{{tabItem.id}}"
+          wx:key="id"
           class="tab-item {{activeTabId === tabItem.id ? 'active' : ''}}"
           data-tab="{{tabItem}}"
     bindtap="onClickTab">

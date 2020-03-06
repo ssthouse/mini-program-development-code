@@ -35,7 +35,7 @@
   </view>
 
   <view wx:for="{{playlists}}"
-        wx:key="{{index}}"
+        wx:key="index"
         wx:for-item="playlist"
         class="playlist-item"
   data-playlist-id="{{playlist.id}}"

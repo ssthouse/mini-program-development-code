@@ -9,7 +9,8 @@
     <image src="{{ranking.coverImgUrl}}"></image>
     <view class="track-list">
       <view wx:for="{{ranking.tracks}}"
-            wx:for-item="track">
+            wx:for-item="track"
+            wx:key="index">
         <text class="index">{{index}}.{{track.first}} - {{track.second}}</text>
       </view>
     </view>

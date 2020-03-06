@@ -41,7 +41,7 @@
         wx:if="{{currentTab === TAB_NAME.RELATED_MV}}">
     <navigator wx:for="{{recommendMvList}}"
                wx:for-item="mv"
-               wx:key="{{index}}"
+               wx:key="index"
                class="mv-item"
                url="/pages/mv/index?id={{mv.id}}">
       <image src="{{mv.cover}}"

@@ -3,8 +3,8 @@
   <text class="label">精彩节目</text>
   <view wx:for="{{programList}}"
         wx:for-item="program"
-        wx:key="{{index}}"
-  class="program-item">
+        wx:key="index"
+        class="program-item">
     <image src="{{program.coverUrl}}"
            mode="widthFix"></image>
     <view>
@@ -17,7 +17,7 @@
   <view class="recommend-radio-container">
     <radio-card wx:for="{{radioList}}"
                 wx:for-item="radio"
-                wx:key="{{index}}"
+                wx:key="index"
                 radio="{{radio}}"
                 class="card"></radio-card>
   </view>
@@ -29,7 +29,7 @@
     <view class="hot-radio-container">
       <radio-card wx:for="{{hotRadioList}}"
                   wx:for-item="radio"
-                  wx:key="{{index}}"
+                  wx:key="index"
                   radio="{{radio}}"
                   class="card"></radio-card>
     </view>

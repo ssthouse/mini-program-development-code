@@ -21,7 +21,7 @@
   <view class="program-container">
     <view wx:for="{{programList}}"
           wx:for-item="program"
-          wx:key="{{index}}"
+          wx:key="index"
           class="program-item"
           data-program="{{program}}"
           bindtap="onClickProgram">

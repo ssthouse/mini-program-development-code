@@ -15,7 +15,7 @@
       <view class="card-list">
         <playlist-card wx:for="{{playlists}}"
                        wx:for-item="playlist"
-                       wx:key="{{index}}"
+                       wx:key="index"
                        playlist="{{playlist}}"
                        class="card">
         </playlist-card>
@@ -33,7 +33,7 @@
       <view class="card-list">
         <song-card wx:for="{{newSongList}}"
                    wx:for-item="song"
-                   wx:key="{{index}}"
+                   wx:key="index"
                    song="{{song}}"
                    class="card">
         </song-card>
@@ -51,7 +51,7 @@
       <view class="card-list">
         <mv-card wx:for="{{mvList}}"
                  wx:for-item="mv"
-                 wx:key="{{index}}"
+                 wx:key="index"
                  mv="{{mv}}"
                  class="mv-card">
         </mv-card>
@@ -69,7 +69,7 @@
       <view class="card-list">
         <radio-card wx:for="{{djList}}"
                     wx:for-item="radio"
-                    wx:key="{{index}}"
+                    wx:key="index"
                     radio="{{radio}}"
                     class="card">
         </radio-card>

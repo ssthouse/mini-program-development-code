@@ -7,7 +7,7 @@
     <comment-item wx:for="{{hotComments}}"
                   wx:for-item="commentItem"
                   comment="{{commentItem}}"
-                  wx:key="{{index}}">
+                  wx:key="index">
     </comment-item>
   </view>
 
@@ -17,7 +17,7 @@
     <comment-item wx:for="{{comments}}"
                   wx:for-item="commentItem"
                   comment="{{commentItem}}"
-                  wx:key="{{index}}">
+                  wx:key="index">
     </comment-item>
   </view>
 

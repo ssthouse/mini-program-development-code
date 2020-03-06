@@ -23,6 +23,7 @@
       <view class="sub-category-list">
         <view wx:for="{{subCategoryMap[index]}}"
               wx:for-item="subCategory"
+              wx:key="index"
               data-category="{{subCategory.name}}"
               bindtap="onClickCategory"
               class="sub-category-item {{selectedCategory === subCategory.name ? 'checked-card' : ''}}">
@@ -45,7 +46,7 @@
     <view class="playlist-container">
       <playlist-card wx:for="{{playlists}}"
                      wx:for-item="playlist"
-                     wx:key="{{index}}"
+                     wx:key="index"
                      playlist="{{playlist}}"
                      data-playlist-id="{{playlist.id}}"
                      class="card"

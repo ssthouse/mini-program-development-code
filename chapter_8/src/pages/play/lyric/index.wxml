@@ -7,7 +7,7 @@
     <!--      <view wx:if="{{lrc.uncollected}}" class="notext">暂无歌词</view>-->
 
     <view wx:for-items="{{lyric.lyricItems}}"
-          wx:key="{{index}}"
+          wx:key="index"
           class="row {{index===currentIndex ? 'current-row':''}}">
       {{item.content}}
     </view>

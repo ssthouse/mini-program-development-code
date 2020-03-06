@@ -67,7 +67,6 @@ Component({
         if (newRadios) {
           newData.hotRadioList = this.data.hotRadioList.concat(newRadios)
           this.data.offset = newData.hotRadioList.length
-          console.log('newData.hotRadioList', newData.hotRadioList)
         }
         this.setData(newData)
       } catch (e) {
