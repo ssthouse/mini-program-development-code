@@ -295,6 +295,18 @@ async function getRadioPrograms(radioId, offset, limit){
   }))
 }
 
+// 获取排行榜数据
+async function getRankingList() {
+  return new Promise((resolve) => {
+    wx.request({
+      url: BASE_URL + 'toplist/detail',
+      success(res) {
+        resolve(res.data)
+      }
+    })
+  })
+}
+
 module.exports = {
   getRecommendPlaylists,
   getRecommendNewSong,
@@ -315,5 +327,6 @@ module.exports = {
   getRecommendRadio,
   getHotRadio,
   getRadioDetail,
-  getRadioPrograms
+  getRadioPrograms,
+  getRankingList
 }

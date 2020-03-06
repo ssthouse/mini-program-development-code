@@ -3,7 +3,9 @@ const dao = require('../../../dao/index')
 
 Component({
   data: {
+    artistList: [],
     rankingList: [],
+    netmusicList: []
   },
   lifetimes: {
     attached() {
@@ -13,17 +15,32 @@ Component({
   methods: {
     async fetchRankingList() {
       try {
-        const response = await dao.getRecommendProgram()
-        const programList = response.programs
+        const response = await dao.getRankingList()
+        const list = response.list
+        const rankingList = []
+        const netmusicList = []
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].ToplistType) {
+            netmusicList.push(list[i])
+          } else {
+            rankingList.push(list[i])
+          }
+        }
         this.setData({
-          programList
+          rankingList,
+          netmusicList,
+          artistList: response.artistTopList
+        })
+        console.log({
+          rankingList,
+          netmusicList
         })
       } catch (e) {
         console.error(e)
         wx.showToast({
           icon: 'none',
           duration: 2000,
-          title: '获取推荐节目失败'
+          title: '获取排行榜数据失败'
         })
       }
     },

@@ -5,7 +5,6 @@ page, view {
 .label{
   border-left: 3px solid red;
   font-size: 32rpx;
-  margin-left: 16rpx;
   padding-left: 8rpx;
   margin-top: 16rpx;
 }
@@ -14,4 +13,62 @@ page, view {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 16rpx;
+
+  .netmusic-item{
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-top: 16rpx;
+
+    > image {
+      width: 240rpx;
+      height: 240rpx;
+      flex-shrink: 0;
+    }
+
+    .track-list{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16rpx;
+      border-bottom: 1rpx solid #e1e2e3;
+      border-top: 1rpx solid #e1e2e3;
+
+      text{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 28rpx;
+      }
+    }
+  }
+
+  .ranking-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 -8rpx;
+    box-sizing: border-box;
+
+    .ranking-card{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 33.3%;
+      padding: 8rpx;
+
+      > image{
+        width: 100%;
+      }
+
+      >text{
+        font-size: 24rpx;
+        margin-top: 8rpx;
+      }
+    }
+  }
 }
