@@ -3,7 +3,6 @@ const dao = require('../../../dao/index')
 
 Component({
   data: {
-    artistList: [],
     rankingList: [],
     netmusicList: []
   },
@@ -29,11 +28,6 @@ Component({
         this.setData({
           rankingList,
           netmusicList,
-          artistList: response.artistTopList
-        })
-        console.log({
-          rankingList,
-          netmusicList
         })
       } catch (e) {
         console.error(e)
