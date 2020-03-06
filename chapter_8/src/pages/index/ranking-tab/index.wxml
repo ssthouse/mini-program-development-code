@@ -1,10 +1,11 @@
 <view class="ranking-tab">
 
   <text class="label">云音乐官方榜</text>
-  <view wx:for="{{netmusicList}}"
-        wx:for-item="ranking"
-        wx:key="index"
-        class="netmusic-item">
+  <navigator wx:for="{{netmusicList}}"
+             wx:for-item="ranking"
+             wx:key="index"
+             class="netmusic-item"
+             url="/pages/playlist/index?playlistId={{ranking.id}}">
     <image src="{{ranking.coverImgUrl}}"></image>
     <view class="track-list">
       <view wx:for="{{ranking.tracks}}"
@@ -12,17 +13,18 @@
         <text class="index">{{index}}.{{track.first}} - {{track.second}}</text>
       </view>
     </view>
-  </view>
+  </navigator>
 
-  <text class="label">全球榜</text>
+  <text class="label" style="margin-top: 32rpx;">全球榜</text>
   <view class="ranking-card-container">
-    <view wx:for="{{rankingList}}"
-          wx:for-item="ranking"
-          wx:key="index"
-          class="ranking-card">
+    <navigator wx:for="{{rankingList}}"
+               url="/pages/playlist/index?playlistId={{ranking.id}}"
+               wx:for-item="ranking"
+               wx:key="index"
+               class="ranking-card">
       <image src="{{ranking.coverImgUrl}}"
-      mode="widthFix"></image>
+             mode="widthFix"></image>
       <text>{{ranking.name}}</text>
-    </view>
+    </navigator>
   </view>
 </view>
