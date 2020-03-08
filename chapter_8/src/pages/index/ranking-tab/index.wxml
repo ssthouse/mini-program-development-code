@@ -8,11 +8,12 @@
              url="/pages/playlist/index?playlistId={{ranking.id}}">
     <image src="{{ranking.coverImgUrl}}"></image>
     <view class="track-list">
-      <view wx:for="{{ranking.tracks}}"
+      <text wx:for="{{ranking.tracks}}"
             wx:for-item="track"
-            wx:key="index">
-        <text class="index">{{index}}.{{track.first}} - {{track.second}}</text>
-      </view>
+            wx:key="index"
+            class="index">
+        {{index+1}}.{{track.first}} - {{track.second}}
+      </text>
     </view>
   </navigator>
 

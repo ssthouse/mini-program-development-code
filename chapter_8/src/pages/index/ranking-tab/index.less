@@ -18,9 +18,11 @@ page, view {
   .netmusic-item{
     width: 100%;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: flex-start;
     margin-top: 16rpx;
+    border-bottom: 1rpx solid #e1e2e3;
+    border-top: 1rpx solid #e1e2e3;
 
     > image {
       width: 240rpx;
@@ -35,14 +37,15 @@ page, view {
       align-items: flex-start;
       justify-content: center;
       padding: 16rpx;
-      border-bottom: 1rpx solid #e1e2e3;
-      border-top: 1rpx solid #e1e2e3;
+      overflow: hidden;
 
       text{
+        max-width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 28rpx;
+        flex: 1;
       }
     }
   }
