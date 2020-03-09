@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "歌单详情",
   "usingComponents": {
-    "playlist-card": "/pages/index/card/playlist-card/index",
+    "playlist-card": "/components/card/playlist-card/index",
     "user-info": "/components/user-info/index",
     "ugc-panel": "./ugc-panel/index"
   }

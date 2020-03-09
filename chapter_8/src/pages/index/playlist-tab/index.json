@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "playlist-card": "/pages/index/card/playlist-card/index",
+    "playlist-card": "/components/card/playlist-card/index",
     "loading-panel": "/components/loading-panel/index"
   }
 }
