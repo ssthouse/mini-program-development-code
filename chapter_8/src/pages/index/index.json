@@ -2,11 +2,7 @@
   "navigationBarTitleText": "首页",
   "usingComponents": {
     "navigation-tab": "./navigation-tab/index",
-    "action-panel": "/components/action-panel/index",
-    "playlist-card": "./card/playlist-card/index",
-    "song-card": "./card/song-card/index",
-    "mv-card": "./card/mv-card/index",
-    "radio-card": "./card/radio-card/index",
+    "recommend-tab": "./recommend-tab/index",
     "playlist-tab": "./playlist-tab/index",
     "radio-tab": "./radio-tab/index",
     "ranking-tab": "./ranking-tab/index"
