@@ -16,21 +16,12 @@ Component({
         type: 0,
       }
     },
-    showBottomTitle:{
-      type:Boolean,
+    showBottomTitle: {
+      type: Boolean,
       value: true,
     }
   },
-  data: {
-    dateNumber: 0,
-  },
+  data: {},
   methods: {},
-  lifetimes: {
-    attached() {
-      const today = new Date()
-      this.setData({
-        dateNumber: today.getDate()
-      })
-    }
-  }
+  lifetimes: {}
 })

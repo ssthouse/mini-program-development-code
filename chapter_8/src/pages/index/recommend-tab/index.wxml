@@ -5,7 +5,6 @@
     <view class="top-title">
       <image src="../images/calendar_icon.png"></image>
       <text class="recommend-title">推荐歌单</text>
-      <view class="placeholder"></view>
     </view>
     <view class="card-list">
       <navigator wx:for="{{playlists}}"
@@ -25,7 +24,6 @@
     <view class="top-title">
       <image src="../images/new_song_icon.png"></image>
       <text class="recommend-title">最新音乐</text>
-      <view class="placeholder"></view>
     </view>
     <view class="card-list">
       <navigator wx:for="{{newSongList}}"
@@ -44,7 +42,6 @@
     <view class="top-title">
       <image src="../images/mv_icon.png"></image>
       <text class="recommend-title">推荐MV</text>
-      <view class="placeholder"></view>
     </view>
     <view class="card-list">
       <navigator wx:for="{{mvList}}"
@@ -63,7 +60,6 @@
     <view class="top-title">
       <image src="../images/dj_icon.png"></image>
       <text class="recommend-title">主播电台</text>
-      <view class="placeholder"></view>
     </view>
     <view class="card-list">
       <navigator wx:for="{{djList}}"

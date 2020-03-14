@@ -30,7 +30,6 @@ Component({
           mvList: mvList.slice(0,6),
           djList: djList.slice(0,6),
         })
-        console.log('djList', djList)
       } catch (e) {
         wx.showToast({
           icon: 'none',
