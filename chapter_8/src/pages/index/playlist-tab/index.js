@@ -5,7 +5,7 @@ const LIMIT = 20
 
 Component({
   data: {
-    hasMore: true,
+    hasMore: true, // 用于判断是否拉取结束
     playlists: [],
     showLoading: false,
     offset: 0,
@@ -56,17 +56,17 @@ Component({
         const response = await dao.getPlaylistCategory()
         const categories = response['categories']
         const categoryList = []
-        for (let categoryId of Object.keys(categories)) {
+        for (let categoryId of Object.keys(categories)) { // 构造大分类ID的列表
           categoryList.push(categories[categoryId])
         }
         const subCategories = response['sub']
         const subCategoryMap = {}
-        for (let category of subCategories) {
+        for (let category of subCategories) { // 遍历子分类列表, 将同一大分类下的子分类划分到一个数组中
           const categoryId = category.category
           if (!subCategoryMap[categoryId]) {
             subCategoryMap[categoryId] = []
           }
-          subCategoryMap[categoryId].push(category)
+          subCategoryMap[categoryId].push(category) // 通过大分类ID进行分组
         }
         this.setData({
           categoryList,

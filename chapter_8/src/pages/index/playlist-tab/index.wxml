@@ -14,12 +14,14 @@
     </view>
 
     <view wx:for="{{categoryList}}"
-          wx:for-item="category"
+          wx:for-item="categoryId"
           wx:key="index"
           class="category-item">
 
-      <view class="category-label">{{category}}</view>
+      <!--      显示分类的名称-->
+      <view class="category-label">{{categoryId}}</view>
 
+      <!--      循环渲染子分类列表-->
       <view class="sub-category-list">
         <view wx:for="{{subCategoryMap[index]}}"
               wx:for-item="subCategory"
@@ -50,7 +52,7 @@
                      playlist="{{playlist}}"
                      data-playlist-id="{{playlist.id}}"
                      class="card"
-      bindtap="onClickPlaylist">
+                     bindtap="onClickPlaylist">
       </playlist-card>
     </view>
 
