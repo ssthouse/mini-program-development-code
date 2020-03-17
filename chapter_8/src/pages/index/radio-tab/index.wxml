@@ -4,11 +4,14 @@
   <view wx:for="{{programList}}"
         wx:for-item="program"
         wx:key="index"
-        class="program-item">
+        class="program-item"
+        bindtap="onClickProgram" data-program="{{program}}">
     <image src="{{program.coverUrl}}"
            mode="widthFix"></image>
-    <view bindtap="onClickProgram" data-program="{{program}}">
+    <view >
+      <!--      节目名称-->
       <text class="name">{{program.name}}</text>
+      <!--      推荐理由-->
       <text class="reason">{{program.reason}}</text>
     </view>
   </view>
