@@ -1,14 +1,20 @@
 <view class="container">
+
+  <!--  整体背景图-->
   <image src="./images/bg.jpg"
          class="bg-img"></image>
 
+  <!--  歌曲封面模糊化背景图-->
   <image src="{{songDetail.al.picUrl}}?param=600y600"
          mode="aspectFill"
          class="blur-bg-img"></image>
 
+  <!--  唱片转盘-->
   <view hidden="{{displayMode !== 'cover'}}"
         bindtap="onCloseCover"
         class="cover-container">
+
+    <!--    唱片机指针-->
     <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
            src="./images/pointer.png"></image>
 
@@ -30,6 +36,7 @@
            bind:click-lyric="onCloseLyric"></lyric>
   </view>
 
+  <!--  播放进度条-->
   <music-progress
           style="width: 100%;"
           currentTime="{{currentTime}}"
@@ -37,6 +44,7 @@
           downloadPercent="{{downloadPercent}}"
           bind:seek-music="onSeekMusic"></music-progress>
 
+  <!--  音乐控制面板-->
   <view class="control-panel">
     <image src="./images/previous_icon.png"
            class="previous-btn"></image>
