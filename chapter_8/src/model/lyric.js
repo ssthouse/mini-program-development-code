@@ -7,9 +7,8 @@ class LyricItem {
 }
 
 class Lyric {
-  constructor(lyricItems, canScroll) {
+  constructor(lyricItems) {
     this.lyricItems = lyricItems
-    this.canScroll = canScroll
   }
 }
 

@@ -1,15 +1,19 @@
 <view class="music-progress">
+  <!-- 播放进度 -->
   <text class="current-time-label label">{{playTimeLabel}}</text>
-  <slider bindchange="onSeek"
-          bindchanging="onSeeking"
-          class="music-slide"
-          max="{{duration}}"
-          min="0"
-          step="1"
-          color="white"
-          activeColor="white"
-          backgroundColor="grey"
-          block-size="12"
-          value="{{sliderValue}}"></slider>
+  <slider
+    bindchange="onSeek"
+    bindchanging="onSeeking"
+    class="music-slide"
+    max="{{duration}}"
+    min="0"
+    step="1"
+    color="white"
+    activeColor="white"
+    backgroundColor="grey"
+    block-size="12"
+    value="{{sliderValue}}"
+  ></slider>
+  <!-- 音乐总时长 -->
   <text class="duration-label label">{{durationTimeLabel}}</text>
 </view>

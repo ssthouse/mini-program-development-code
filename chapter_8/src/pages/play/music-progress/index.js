@@ -10,22 +10,20 @@ Component({
       type: Number,
       value: 0
     },
-    bufferedTime: {
-      type: Number,
-      value: 0
-    }
   },
   data: {
     playTimeLabel: '00:00',
     durationTimeLabel: '00:00',
     sliderValue: 0,
   },
+  // 用于标识当前用户是否在拖动滑块
   seeking: false,
   observers: {
     'currentTime': function () {
       const newData = {
         playTimeLabel: util.formatMusicTime(this.data.currentTime),
       }
+      // 如果用户没有在拖动滑块,才更新sliderValue
       if (!this.seeking) {
         newData.sliderValue = this.data.currentTime
       }

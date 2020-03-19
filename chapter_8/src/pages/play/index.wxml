@@ -28,12 +28,12 @@
   </view>
 
 
-  <!--  歌词部分-->
+  <!-- 歌词部分 -->
   <view class="lyric-container"
         hidden="{{displayMode !== 'lyric'}}">
     <lyric lyric="{{lyric}}"
-           currentIndex="{{lyricCurrentIndex}}"
-           bind:click-lyric="onCloseLyric"></lyric>
+          currentIndex="{{lyricCurrentIndex}}"
+          bind:click-lyric="onCloseLyric"></lyric>
   </view>
 
   <!--  播放进度条-->
@@ -41,7 +41,6 @@
           style="width: 100%;"
           currentTime="{{currentTime}}"
           duration="{{duration}}"
-          downloadPercent="{{downloadPercent}}"
           bind:seek-music="onSeekMusic"></music-progress>
 
   <!--  音乐控制面板-->

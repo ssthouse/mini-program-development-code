@@ -12,6 +12,7 @@ const EVENT_TYPE = {
 
 function init() {
   const audioManager = wx.getBackgroundAudioManager()
+  // 注册监听事件
   audioManager.onTimeUpdate((error) => {
     if (error) return
     listenerMap[EVENT_TYPE.ON_TIME_UPDATE].forEach(callback => {
@@ -31,13 +32,13 @@ function init() {
 }
 
 function registerEvent(eventName, callback) {
-  if (Object.values(EVENT_TYPE).indexOf(eventName) === -1) return
+  if (Object.values(EVENT_TYPE).indexOf(eventName) === -1) return // 检查事件名合法性
   if (!callback) return
   listenerMap[eventName].push(callback)
 }
 
 function unregisterEvent(eventName, callback) {
-  if (Object.values(EVENT_TYPE).indexOf(eventName) === -1) return
+  if (Object.values(EVENT_TYPE).indexOf(eventName) === -1) return // 检查事件名合法性
   if (!callback) return
   if (listenerMap[eventName].indexOf(callback) === -1) return
   listenerMap[eventName].splice(listenerMap[eventName].indexOf(callback), 1)
@@ -46,7 +47,7 @@ function unregisterEvent(eventName, callback) {
 function playMusic(musicUrl) {
   const audioManager = wx.getBackgroundAudioManager()
   audioManager.src = musicUrl
-  audioManager.title = '111'
+  audioManager.title = '云音乐'
   audioManager.play()
 }
 

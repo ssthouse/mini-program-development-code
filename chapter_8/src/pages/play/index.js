@@ -33,7 +33,7 @@ Page({
     this.initPlayerListener()
     this.fetchLyric(songId)
     await this.fetchSongDetail(songId)
-    playerManager.playMusic(this.data.musicUrl)
+    // playerManager.playMusic(this.data.musicUrl)
   },
   onUnload() {
     playerManager.unregisterEvent(PLAYER_EVENT_TYPE.ON_PLAY, this.onPlay)
@@ -45,16 +45,15 @@ Page({
     playerManager.registerEvent(PLAYER_EVENT_TYPE.ON_PAUSE, this.onPause)
     playerManager.registerEvent(PLAYER_EVENT_TYPE.ON_TIME_UPDATE, this.onPlayerTimeUpdate)
   },
-  onPlay(){
+  onPlay() {
     const audioManager = wx.getBackgroundAudioManager()
     this.setData({
       isPlaying: true,
       duration: audioManager.duration,
       currentTime: audioManager.currentTime,
-      bufferedTime: audioManager.buffered
     })
   },
-  onPause(){
+  onPause() {
     this.setData({
       isPlaying: false
     })
