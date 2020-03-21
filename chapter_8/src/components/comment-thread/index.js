@@ -1,6 +1,6 @@
-const regeneratorRuntime = require('../../../lib/runtime'); // eslint-disable-line
-const dao = require('../../../dao/index')
-const timeUtil = require('../../../utils/time-util')
+const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
+const dao = require('../../dao/index')
+const timeUtil = require('../../utils/time-util')
 
 const PAGE_SIZE = 20
 

@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "comment-item": "../comment-item/index",
-    "loading-panel": "/components/loading-panel/index"
+    "loading-panel": "../loading-panel/index"
   }
 }

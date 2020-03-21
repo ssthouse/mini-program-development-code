@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "评论页",
   "usingComponents": {
-    "comment-thread": "./comment-thread/index"
+    "comment-thread": "/components/comment-thread/index"
   }
 }
