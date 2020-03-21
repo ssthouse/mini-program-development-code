@@ -1,25 +1,28 @@
 <view class="container">
-
-  <video src="{{mvDetail.brs['240']}}"
-         class="video"></video>
+  <video src="{{mvDetail.brs['240']}}" class="video"></video>
 
   <view class="tab-bar">
-    <view data-tab-name="{{TAB_NAME.DETAIL}}"
-          bindtap="onClickTab"
-          class="tab {{currentTab === TAB_NAME.DETAIL ? 'active' :''}}">详情
+    <view
+      data-tab-name="{{TAB_NAME.DETAIL}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.DETAIL ? 'active' :''}}"
+      >详情
     </view>
-    <view data-tab-name="{{TAB_NAME.COMMENT}}"
-          bindtap="onClickTab"
-          class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}">评论 ({{mvDetail.commentCount}})
+    <view
+      data-tab-name="{{TAB_NAME.COMMENT}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}"
+      >评论 ({{mvDetail.commentCount}})
     </view>
-    <view data-tab-name="{{TAB_NAME.RELATED_MV}}"
-          bindtap="onClickTab"
-          class="tab {{currentTab === TAB_NAME.RELATED_MV ? 'active' :''}}">相关MV
+    <view
+      data-tab-name="{{TAB_NAME.RELATED_MV}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.RELATED_MV ? 'active' :''}}"
+      >相关MV
     </view>
   </view>
 
-  <view class="mv-info-panel"
-        wx:if="{{currentTab === TAB_NAME.DETAIL}}">
+  <view class="mv-info-panel" wx:if="{{currentTab === TAB_NAME.DETAIL}}">
     <text class="mv-name">{{mvDetail.name}}</text>
     <text class="info-text">歌手: {{mvDetail.artists[0].name}}</text>
     <text class="info-text">播放量: {{mvDetail.playCount}}</text>
@@ -51,6 +54,4 @@
       <view class="singer">{{mv.artistName}}</view>
     </navigator>
   </view>
-
-  <loading-panel wx:if="{{showLoading}}"></loading-panel>
 </view>

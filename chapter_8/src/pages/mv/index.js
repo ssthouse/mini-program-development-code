@@ -1,8 +1,6 @@
 const regeneratorRuntime = require('../../lib/runtime'); // eslint-disable-line
 const dao = require('../../dao/index')
 
-const PAGE_SIZE = 20
-
 const TAB_NAME = {
   DETAIL: 'detail',
   COMMENT: 'comment',
@@ -11,14 +9,12 @@ const TAB_NAME = {
 
 Page({
   data: {
-    mvDetail: null,
-    commentList: [],
-    recommendMvList: [],
-    currentTab: TAB_NAME.DETAIL,
-    TAB_NAME
+    mvDetail: null, // MV详情
+    recommendMvList: [], // 推荐MV列表
+    currentTab: TAB_NAME.DETAIL, // 当前选中的tab,默认为详情tab
+    TAB_NAME // 为了在wxml中使用该变量
   },
   id: '', // MV id
-  hasMoreComments: true,
   onLoad(options) {
     const id = options['id']
     if (id === undefined) {
@@ -28,9 +24,7 @@ Page({
     this.id = id
     this.init()
   },
-  async onReachBottom() {
-  },
-  async init() {
+  init() {
     this.fetchMvDetail()
     this.fetchRecommendMvs()
   },
