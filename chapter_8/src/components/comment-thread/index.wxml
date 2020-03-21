@@ -1,6 +1,4 @@
-<scroll-view bindscrolltolower="onReachBottom"
-             style="height: 100%;"
-             scroll-y="true">
+<scroll-view bindscrolltolower="onReachBottom" style="height: 100%;" scroll-y="true">
   <!--热门评论列表-->
   <view class="comment-title">热门评论</view>
   <view class="hot-comment-list">
@@ -21,5 +19,6 @@
     </comment-item>
   </view>
 
+  <!-- loading框 -->
   <loading-panel wx:if="{{showLoading}}"></loading-panel>
 </scroll-view>

@@ -1,25 +1,24 @@
 <view class="comment-item">
-
   <view class="comment-info-row">
-    <image class="user-avatar"
-           mode="widthFix"
-           src="{{comment.user.avatarUrl}}"/>
+    <!-- 用户头像 -->
+    <image class="user-avatar" mode="widthFix" src="{{comment.user.avatarUrl}}" />
 
     <view class="column-layout">
+      <!-- 昵称 -->
       <text class="nick-name">{{comment.user.nickname}}</text>
+      <!-- 评论时间 -->
       <text class="comment-time">{{comment.time}}</text>
     </view>
 
     <view class="placeholder"></view>
 
+    <!-- 点赞数目 -->
     <text class="star-number">{{comment.likedCount}}</text>
-    <image src="./images/star.png"
-           mode="widthFix"
-           class="star-icon"/>
-
+    <image src="./images/star.png" mode="widthFix" class="star-icon" />
   </view>
 
   <view class="comment-content">
+    <!-- 展示回复: @xxx字样 -->
     <view wx:if="{{comment.beReplied.length !== 0}}">
       回复:
       <text class="user-link">{{'@' + comment.beReplied[0].user.nickname}}</text>
@@ -27,8 +26,8 @@
     <view>
       {{comment.content}}
     </view>
-    <view class="replied-comment"
-          wx:if="{{comment.beReplied.length !== 0}}">
+    <!-- 展示被回复评论 -->
+    <view class="replied-comment" wx:if="{{comment.beReplied.length !== 0}}">
       <text class="user-link">{{'@' + comment.beReplied[0].user.nickname}}</text>
       :
       <view>
