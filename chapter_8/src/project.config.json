@@ -1,0 +1,91 @@
+{
+	"description": "Project configuration file",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wxd67c6168ce9f928d",
+	"projectname": "chapter8",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"scene": null
+				},
+				{
+					"id": 0,
+					"name": "音乐播放页",
+					"pathName": "pages/play/index",
+					"query": "songId=1419789491",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "歌单页面",
+					"pathName": "pages/playlist/index",
+					"query": "playlistId=3203915472",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "评论页",
+					"pathName": "pages/comment/index",
+					"query": "from=playlist&id=A_PL_0_3186978831",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "个人页",
+					"pathName": "pages/profile/index",
+					"query": "uid=34885501",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "MV详情页",
+					"pathName": "pages/mv/index",
+					"query": "id=10917739",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "Radio详情页",
+					"pathName": "pages/radio/detail/index",
+					"query": "radioId=794068369",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,53 +1,54 @@
 <view class="container">
-
   <!--  上面的详情面板-->
-  <view class="playlist-detail"
-        style="position: relative; overflow: hidden;">
-
-    <image src="{{playlistDetail.playlist.coverImgUrl}}"
-           class="blur-bg"
-           mode="widthFix"/>
+  <view class="playlist-detail" style="position: relative; overflow: hidden;">
+    <image src="{{playlistDetail.playlist.coverImgUrl}}" class="blur-bg" mode="widthFix" />
 
     <view class="row-container">
       <!--      歌单封面-->
-      <playlist-card playlist="{{playlistDetail.playlist}}"
-                     showBottomTitle="{{false}}"
-                     class="playlist-cover"/>
+      <playlist-card
+        playlist="{{playlistDetail.playlist}}"
+        showBottomTitle="{{false}}"
+        class="playlist-cover"
+      />
 
       <view>
         <!--      歌名-->
         <text>{{playlistDetail.playlist.name}}</text>
         <!--      用户icon-->
-        <user-info nick-name="{{creator.nickname}}"
-                   avatar-url="{{creator.avatarUrl}}"
-                   user-id="{{creator.userId}}"
-        bind:click="onClickUserInfo"></user-info>
+        <user-info
+          nick-name="{{creator.nickname}}"
+          avatar-url="{{creator.avatarUrl}}"
+          user-id="{{creator.userId}}"
+          bind:click="onClickUserInfo"
+        ></user-info>
       </view>
     </view>
 
     <!--    歌单UGC数据-->
-    <ugc-panel collectNum="{{playlist.subscribedCount}}"
-               commentNum="{{playlist.commentCount}}"
-               shareNum="{{playlist.shareCount}}"
-               bind:click-comment="onClickComment"></ugc-panel>
+    <ugc-panel
+      collectNum="{{playlist.subscribedCount}}"
+      commentNum="{{playlist.commentCount}}"
+      shareNum="{{playlist.shareCount}}"
+      bind:click-comment="onClickComment"
+    ></ugc-panel>
   </view>
 
   <!--  播放歌单按钮-->
   <view class="play-all-row">
-    <image src="./images/play-icon.png"
-           mode="widthFix"
-           class="play-icon"></image>
+    <image src="./images/play-icon.png" mode="widthFix" class="play-icon"></image>
     <text>播放全部(共{{playlist.trackCount}}首)</text>
   </view>
 
   <!--  歌曲列表-->
   <view class="song-list">
-    <view wx:for="{{playlistDetail.playlist.tracks}}"
-          wx:for-item="track"
-          wx:key="index"
-          class="song-row"
-          data-song="{{track}}"
-          bindtap="onClickSong">
+    <view
+      wx:for="{{playlistDetail.playlist.tracks}}"
+      wx:for-item="track"
+      wx:key="index"
+      class="song-row"
+      data-song="{{track}}"
+      bindtap="onClickSong"
+    >
       <text class="index-label">{{index + 1}}</text>
       <view class="song-info">
         <text class="song-name">{{track.name}}</text>
