@@ -1,8 +1,6 @@
 <view class="container">
   <view class="info-panel">
-    <image src="{{radioDetail.picUrl}}"
-           class="bgImage"
-           mode="widthFix"></image>
+    <image src="{{radioDetail.picUrl}}" class="bgImage" mode="widthFix"></image>
 
     <text>{{radioDetail.name}}</text>
   </view>

@@ -1,13 +1,14 @@
 <view class="container">
-
-  <view class="top-panel"
-        style="background-image: url({{profile.backgroundUrl}})">
+  <view class="top-panel" style="background-image: url({{profile.backgroundUrl}})">
+    <!-- 用户个人基本信息,如:头像,昵称,性别 -->
     <view class="basic-info">
-      <image class="avatar"
-             src="{{profile.avatarUrl}}"></image>
+      <image class="avatar" src="{{profile.avatarUrl}}"></image>
       <text>{{profile.nickname}}</text>
-      <image class="gender-icon"
-             src="{{profile.gender === 1 ? './images/boy-icon.png' : './images/girl-icon.png'}}"></image>
+      <!-- 根据gender字段判断使用的性别图标 -->
+      <image
+        class="gender-icon"
+        src="{{profile.gender === 1 ? './images/boy-icon.png' : './images/girl-icon.png'}}"
+      ></image>
     </view>
 
     <text class="signature">
@@ -34,12 +35,14 @@
     <text>{{profile.nickname}}的歌单(共{{profile.playlistCount}}个歌单)</text>
   </view>
 
-  <view wx:for="{{playlists}}"
-        wx:key="index"
-        wx:for-item="playlist"
-        class="playlist-item"
-  data-playlist-id="{{playlist.id}}"
-  bindtap="onClickPlaylist">
+  <view
+    wx:for="{{playlists}}"
+    wx:key="index"
+    wx:for-item="playlist"
+    class="playlist-item"
+    data-playlist-id="{{playlist.id}}"
+    bindtap="onClickPlaylist"
+  >
     <image class="cover-img" src="{{playlist.coverImgUrl}}"></image>
     <view class="playlist-info">
       <text class="name">{{playlist.name}}</text>

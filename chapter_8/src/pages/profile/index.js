@@ -32,7 +32,7 @@ Page({
       showLoading: false
     })
   },
-  async init() {
+  init() {
     this.fetchUserProfile()
     this.fetchPlaylist()
   },
