@@ -4,8 +4,9 @@
   "description": "微信小程序模板项目",
   "main": "index.js",
   "scripts": {
+    "clean": "shx rm -rf dist/*",
     "test": "jest",
-    "start": "rm -rf ./dist/* && webpack --config webpack.config.js"
+    "start": "npm run clean && webpack --config webpack.config.js"
   },
   "author": "ssthouse",
   "license": "ISC",
