@@ -13,7 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^11.0.0",
     "less": "^3.9.0",
     "shx": "^0.3.3",
     "webpack": "^5.12.2",
